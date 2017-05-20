@@ -29,11 +29,13 @@ brew_install_or_upgrade z
 brew cask install alfred
 brew cask install arq
 brew cask install atom
+brew cask install catch
 brew cask install coconutbattery
 brew cask install dash
 brew cask install doxie
 brew cask install duet
 brew cask install docker-machine
+brew cask install gitter
 brew cask install google-drive
 brew cask install handbrake
 brew cask install iterm2
