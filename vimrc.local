@@ -210,3 +210,6 @@ augroup seeingIsBelievingSettings
   autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
 augroup END
 
+" Override mappings from thoughtbot/dotfiles
+nnoremap <silent> <Leader>T :TestFile<CR>
+nnoremap <silent> <Leader>t :TestNearest<CR>
