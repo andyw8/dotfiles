@@ -26,12 +26,11 @@ brew_install_or_upgrade wget
 brew_install_or_upgrade youtube-dl
 brew_install_or_upgrade z
 
-# brew cask install 1password # licensed via App Store
 brew cask install alfred
 brew cask install arq
 brew cask install atom
 brew cask install coconutbattery
-# brew cask install dash # licensed via App Store
+brew cask install dash
 brew cask install doxie
 brew cask install duet
 brew cask install docker-machine
@@ -56,6 +55,7 @@ brew cask install selfcontrol
 brew cask install sublime-text
 brew cask install omnidisksweeper
 brew cask install onyx
+brew cask install prey
 brew cask install quitter
 brew cask install rescuetime
 brew cask install rowanj-gitx
