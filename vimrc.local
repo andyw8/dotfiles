@@ -32,8 +32,8 @@ set formatoptions-=or
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" strip whitespace on saving Ruby files
-autocmd BufWritePre *.rb :%s/\s\+$//e
+" Strip whitespace on saving Ruby or Elixir files
+autocmd FileType ruby,elixir autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " cucumber check runs extremely slowly for some reason
 let g:syntastic_cucumber_checkers = []
