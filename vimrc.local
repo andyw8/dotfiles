@@ -197,7 +197,7 @@ set re=1
 
 source ~/dotfiles-local/vimrc.seeing-is-believing
 
-let test#strategy = "dispatch"
+let test#strategy = "vtr"
 imap jk <Esc>
 
 
