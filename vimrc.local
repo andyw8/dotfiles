@@ -173,6 +173,8 @@ nnoremap <leader>kr :VtrKillRunner<cr>
 nnoremap <leader>rr :VtrSendLinesToRunner<cr>
 nnoremap <leader>dr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
+" for exiting out of tmux scrolling
+nnoremap <leader>qr :VtrSendCommandToRunner q<cr>
 
 nmap <leader>f gg=G<CR>
 nmap <Leader>ra :RuboCop -a<CR>
