@@ -1,0 +1,13 @@
+" from @nelstrom's core-vim course
+
+" Execute dot repeat over visual range
+xnoremap . :normal . <CR>
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" allow unsaved buffers to be put into the background
+set hidden

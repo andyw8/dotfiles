@@ -150,14 +150,7 @@ nnoremap <Leader>nf :call FoldToggle()<CR>
 " https://til.hashrocket.com/posts/e8915e62c0-highlight-markdown-fenced-code-syntax-in-vim
 let g:markdown_fenced_languages = ['html', 'vim', 'ruby', 'python', 'bash=sh']
 
-" from @nelstrom's core-vim course
-xnoremap . :norm.<CR>
-
-noremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+source ./vimrc.core-vim
 
 " per-project vimrc: https://andrew.stwrt.ca/posts/project-specific-vimrc/
 set exrc
