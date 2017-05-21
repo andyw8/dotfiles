@@ -181,6 +181,9 @@ let g:VtrClearBeforeSend = 0
 nmap <leader>f gg=G<CR>
 nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>rc :RuboCop -a<CR>
+
+noremap <Leader>cs :Ack <cword><cr>
+
 " automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
 au BufWritePost .vimrc.local so ~/.vimrc
