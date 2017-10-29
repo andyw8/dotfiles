@@ -1,3 +1,6 @@
+" Replace all matches on a line instead of just the first
+set gdefault
+
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight git conflict markers
 
 if v:version < 704
@@ -29,8 +32,8 @@ set formatoptions-=or
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" strip whitespace on saving Ruby files
-autocmd BufWritePre *.rb :%s/\s\+$//e
+" Strip whitespace on saving Ruby or Elixir files
+autocmd FileType ruby,elixir autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " cucumber check runs extremely slowly for some reason
 let g:syntastic_cucumber_checkers = []
@@ -147,14 +150,7 @@ nnoremap <Leader>nf :call FoldToggle()<CR>
 " https://til.hashrocket.com/posts/e8915e62c0-highlight-markdown-fenced-code-syntax-in-vim
 let g:markdown_fenced_languages = ['html', 'vim', 'ruby', 'python', 'bash=sh']
 
-" from @nelstrom's core-vim course
-xnoremap . :norm.<CR>
-
-noremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+source ~/dotfiles-local/vimrc.core-vim
 
 " per-project vimrc: https://andrew.stwrt.ca/posts/project-specific-vimrc/
 set exrc
@@ -181,10 +177,21 @@ nnoremap <leader>kr :VtrKillRunner<cr>
 nnoremap <leader>rr :VtrSendLinesToRunner<cr>
 nnoremap <leader>dr :VtrSendCtrlD<cr>
 nnoremap <leader>ar :VtrAttachToPane<cr>
+" for exiting out of tmux scrolling
+nnoremap <leader>qr :VtrSendCommandToRunner q<cr>
+
+let g:VtrClearBeforeSend = 0
 
 nmap <leader>f gg=G<CR>
 nmap <Leader>ra :RuboCop -a<CR>
 nmap <Leader>rc :RuboCop -a<CR>
+
+noremap <Leader>cs :Ack <cword><cr>
+
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+au BufWritePost .vimrc.local so ~/.vimrc
+
 " https://github.com/garybernhardt/dotfiles/commit/99b7d2537ad98dd7a9d3c82b8775f0de1718b356
 " Use the old vim regex engine (version 1, as opposed to version 2, which was
 " introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
@@ -192,18 +199,11 @@ nmap <Leader>rc :RuboCop -a<CR>
 " Also http://stackoverflow.com/a/25276429
 set re=1
 
-" Enable seeing-is-believing mappings only for Ruby
-augroup seeingIsBelievingSettings
-  autocmd!
+source ~/dotfiles-local/vimrc.seeing-is-believing
 
-  autocmd FileType ruby nmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
-  autocmd FileType ruby xmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+let test#strategy = "vtr"
+imap jk <Esc>
 
-  autocmd FileType ruby nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-  autocmd FileType ruby xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-  autocmd FileType ruby imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
-
-  autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
-  autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
-augroup END
-
+" Override mappings from thoughtbot/dotfiles
+nnoremap <silent> <Leader>T :TestFile<CR>
+nnoremap <silent> <Leader>t :TestNearest<CR>

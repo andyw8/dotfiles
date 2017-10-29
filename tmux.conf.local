@@ -55,3 +55,7 @@ bind -n WheelDownPane select-pane -t= \; send-keys -M
 # easy re-ordering of windows http://superuser.com/a/552493
 bind-key -n C-S-Left swap-window -t -1
 bind-key -n C-S-Right swap-window -t +1
+
+# https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+set -g default-shell $SHELL 
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
