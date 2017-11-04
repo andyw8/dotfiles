@@ -95,8 +95,6 @@ let g:UltiSnipsEditSplit="vertical"
 " set nofoldenable        "dont fold by default
 " set foldlevel=1         "this is just what i use
 
-source ~/.vim/colors/grb256.vim
-
 "fold settings
 " ------------
 " toggle folding with za.
@@ -134,8 +132,6 @@ nnoremap <Leader>nf :call FoldToggle()<CR>
 
 " https://til.hashrocket.com/posts/e8915e62c0-highlight-markdown-fenced-code-syntax-in-vim
 let g:markdown_fenced_languages = ['html', 'vim', 'ruby', 'python', 'bash=sh']
-
-source ~/.vimrc.core-vim
 
 " per-project vimrc: https://andrew.stwrt.ca/posts/project-specific-vimrc/
 set exrc
@@ -184,11 +180,13 @@ au BufWritePost .vimrc.local so ~/.vimrc
 " Also http://stackoverflow.com/a/25276429
 set re=1
 
-source ~/.vimrc.seeing-is-believing
-
 let test#strategy = "vtr"
 imap jk <Esc>
 
 " Override mappings from thoughtbot/dotfiles
 nnoremap <silent> <Leader>T :TestFile<CR>
 nnoremap <silent> <Leader>t :TestNearest<CR>
+
+source ~/.vimrc.seeing-is-believing
+source ~/.vimrc.core-vim
+source ~/.vim/colors/grb256.vim
