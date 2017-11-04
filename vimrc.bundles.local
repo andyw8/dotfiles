@@ -8,7 +8,6 @@ Plug 'bogado/file-line'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'danro/rename.vim'
-Plug 'ecomba/vim-ruby-refactoring'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab' " so that tab be used for both snippets and automcomplete
 
