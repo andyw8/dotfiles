@@ -11,7 +11,10 @@ Plug 'danro/rename.vim'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ervandew/supertab' " so that tab be used for both snippets and automcomplete
+
+" toggle Ruby block style with <Leader>b
 Plug 'jgdavey/vim-blockle'
+
 Plug 'honza/vim-snippets'
 Plug 'hwartig/vim-seeing-is-believing'
 Plug 'kana/vim-textobj-user' " needed for vim-textobj-rubyblock
@@ -21,7 +24,13 @@ Plug 'mileszs/ack.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'rizzatti/dash.vim'
+
+" Ruby hash formatter
+" <Leader>rs to convert all keys to symbols
+" <Leader>rt to convert all keys to strings
+" <Leader>rr to convert all keys to Ruby 1.9 format
 Plug 'rorymckinley/vim-rubyhash'
+
 Plug 'SirVer/ultisnips'
 Plug 'skwp/greplace.vim' " Global search and replace
 Plug 'takac/vim-hardtime'
