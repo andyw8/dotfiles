@@ -7,9 +7,8 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight git conflict marker
 nmap k gk
 nmap j gj
 
-" easier existing of insert mode
+" the escape key is too far away
 imap jk <esc>
-" imap kj <esc>
 
 set relativenumber
 
@@ -168,7 +167,6 @@ au BufWritePost .vimrc.local so ~/.vimrc
 set re=1
 
 let test#strategy = "vtr"
-imap jk <Esc>
 
 " Override mappings from thoughtbot/dotfiles
 nnoremap <silent> <Leader>T :TestFile<CR>
