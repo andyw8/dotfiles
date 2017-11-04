@@ -21,14 +21,6 @@ autocmd VimResized * :wincmd =
 " Strip whitespace on saving Ruby or Elixir files
 autocmd FileType ruby,elixir autocmd BufWritePre <buffer> %s/\s\+$//e
 
-" cucumber check runs extremely slowly for some reason
-let g:syntastic_cucumber_checkers = []
-
-" not sure why these aren't running by default?
-" let g:syntastic_ruby_checkers = ['rubymri', 'rubylint']
-
-let g:syntastic_haml_checkers = ['haml_lint']
-
 nnoremap <leader>o :CtrlP<CR>
 
 " use the quotestar register for all yank, delete, change, and put operations that have no register explicitly specified
@@ -128,9 +120,6 @@ nnoremap <leader>fh vi{c<CR><CR><Up><C-r>"<Esc>:s/,\s+/&\r/g<CR>:'[,']norm ==<CR
 
 " https://github.com/nathanaelkane/vim-indent-guides/issues/31
 colorscheme default
-
-" override from .vimrc
-let g:syntastic_check_on_open=0
 
 map <Leader>t :wall<CR><Plug>RunCurrentSpecFile
 map <Leader>s :wall<CR><Plug>RunFocusedSpec
