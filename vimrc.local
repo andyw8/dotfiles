@@ -155,6 +155,7 @@ au BufWritePost .vimrc.local so ~/.vimrc
 " Also http://stackoverflow.com/a/25276429
 set re=1
 
+" configure vim-test to use vim-tmux-runner
 let test#strategy = "vtr"
 
 " Override mappings from thoughtbot/dotfiles
