@@ -18,7 +18,10 @@ Plug 'honza/vim-snippets'
 Plug 'hwartig/vim-seeing-is-believing'
 Plug 'kana/vim-textobj-user' " needed for vim-textobj-rubyblock
 Plug 'lambdatoast/elm.vim'
+
+" add text objects for a_ and i_
 Plug 'lucapette/vim-textobj-underscore'
+
 Plug 'mileszs/ack.vim'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'rizzatti/dash.vim'
