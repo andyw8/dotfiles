@@ -26,8 +26,6 @@ Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-unimpaired'
 "Plug 'wincent/Command-T'        " Fast opening of files
