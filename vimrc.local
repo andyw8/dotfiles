@@ -3,19 +3,6 @@ set gdefault
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight git conflict markers
 
-if v:version < 704
-  echo "Warning - old Vim version"
-endif
-
-" https://github.com/nelstrom/homebrew-vim
-if !has("patch-7.4.865")
-  echo "Warning - cdo command may not be available"
-end
-
-if !has('clipboard')
-  echo "Warning - clipboard not enabled"
-endif
-
 " Better navigation within wrapped lines
 nmap k gk
 nmap j gj
@@ -189,4 +176,5 @@ nnoremap <silent> <Leader>t :TestNearest<CR>
 
 source ~/.vimrc.seeing-is-believing
 source ~/.vimrc.core-vim
+source ~/.vimrc.checks
 source ~/.vim/colors/grb256.vim
