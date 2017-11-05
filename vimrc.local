@@ -84,8 +84,6 @@ map <Leader>t :wall<CR><Plug>RunCurrentSpecFile
 map <Leader>s :wall<CR><Plug>RunFocusedSpec
 map <Leader>l :wall<CR><Plug>RunMostRecentSpec
 
-let g:spec_runner_dispatcher = 'call VtrSendCommand("{command}")'
-
 " https://github.com/jackfranklin/dotfiles/blob/master/vim/vimrc
 nnoremap <leader>fr :VtrFocusRunner<cr> " <ctrl> \ to go back
 nnoremap <leader>kr :VtrKillRunner<cr>
