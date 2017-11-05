@@ -1,0 +1,10 @@
+" https://github.com/jackfranklin/dotfiles/blob/master/vim/vimrc
+nnoremap <leader>fr :VtrFocusRunner<cr> " <ctrl> \ to go back
+nnoremap <leader>kr :VtrKillRunner<cr>
+nnoremap <leader>rr :VtrSendLinesToRunner<cr>
+nnoremap <leader>dr :VtrSendCtrlD<cr>
+nnoremap <leader>ar :VtrAttachToPane<cr>
+" for exiting out of tmux scrolling
+nnoremap <leader>qr :VtrSendCommandToRunner q<cr>
+
+let g:VtrClearBeforeSend = 0
