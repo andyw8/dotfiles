@@ -47,7 +47,7 @@ inoremap <C-U> <C-G>u<C-U>
 set ignorecase
 set smartcase
 
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 
 " For ack.vim https://github.com/mileszs/ack.vim#can-i-use-ag-the-silver-searcher-with-this
 if executable('ag')
