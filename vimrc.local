@@ -110,7 +110,6 @@ nnoremap <silent> <Leader>t :TestNearest<CR>
 
 source ~/.vimrc.core-vim
 source ~/.vimrc.checks
-source ~/.vimrc.folding
 source ~/.vimrc.seeing-is-believing
 source ~/.vimrc.vtr
 
