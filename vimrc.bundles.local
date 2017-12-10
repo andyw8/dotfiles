@@ -26,6 +26,9 @@ Plug 'lucapette/vim-textobj-underscore'
 
 Plug 'mileszs/ack.vim'
 Plug 'nelstrom/vim-textobj-rubyblock'
+
+" Gary Bernhardt's grb256 vim theme
+Plug 'quanganhdo/grb256'
 Plug 'rizzatti/dash.vim'
 
 " Ruby hash formatter
