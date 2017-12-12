@@ -188,3 +188,8 @@ STDIN
 Spork
 Preloaders
 gitignore
+Jeffries
+linters
+ClassLength
+MethodLength
+ParameterLists
