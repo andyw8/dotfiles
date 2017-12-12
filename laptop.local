@@ -63,7 +63,6 @@ brew cask install rescuetime
 brew cask install rowanj-gitx
 brew cask install screenhero
 brew cask install skype
-brew cask install sonos
 brew cask install sourcetree
 brew cask install spotify
 brew cask install spectacle # requires manual configuration
@@ -76,6 +75,9 @@ brew cask install virtualbox
 
 brew tap nviennot/tmate
 brew_install_or_upgrade tmate
+
+brew tap caskroom/drivers
+brew cask install sonos
 
 gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
 mkdir -p ~/.rbenv/plugins
