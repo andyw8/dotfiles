@@ -83,3 +83,6 @@ gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ct
 mkdir -p ~/.rbenv/plugins
 git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
 rbenv ctags
+
+# https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
