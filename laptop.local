@@ -9,6 +9,7 @@ brew_install_or_upgrade intellij-idea
 brew_install_or_upgrade jsonpp
 brew_install_or_upgrade leiningen
 brew_install_or_upgrade macvim
+brew_install_or_upgrade mas
 brew_install_or_upgrade mongodb
 brew_install_or_upgrade mysql
 brew_install_or_upgrade phantomjs
@@ -34,7 +35,7 @@ brew cask install coconutbattery
 brew cask install dash
 brew cask install doxie
 brew cask install duet
-brew cask install docker-machine
+brew cask install docker
 brew cask install gitter
 brew cask install google-drive
 brew cask install handbrake
@@ -86,3 +87,21 @@ rbenv ctags
 
 # https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
+
+mas signin --dialog apple@andywaite.com
+mas install 449155338 # SomaFM
+mas install 1084713122 # Markoff
+mas install 623795237 # Ulysses
+mas install 1082170746 # Aware
+mas install 890031187 # Marked 2
+mas install 692787282 # Command-C
+mas install 443987910 # 1Password
+mas install 961632517 # Be Focused Pro
+mas install 557168941 # Tweetbot
+mas install 497799835 # Xcode
+mas install 847496013 # Deckset
+mas install 408981434 # iMovie
+mas install 816042486 # Compare Folders
+mas install 803453959 # Slack
+mas install 463541543 # Gemini
+mas install 568494494 # Pocket
