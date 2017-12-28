@@ -55,6 +55,9 @@ set -g mouse off
 bind-key -n C-S-Left swap-window -t -1
 bind-key -n C-S-Right swap-window -t +1
 
-# https://github.com/tmux/tmux/issues/543#issuecomment-248980734
-set -g default-shell $SHELL 
-set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+# Based on tmux 2 book, but had to update for tmux 2.6
+bind Escape copy-mode
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-selection \; display-message "selection yanked"
+unbind p
+bind p paste-buffer
