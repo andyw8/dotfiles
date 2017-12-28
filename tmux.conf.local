@@ -1,5 +1,10 @@
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
+run-shell "tmux setenv -g TMUX_VERSION $(tmux -V | cut -c 6-)"
+if-shell -b '[ "$(echo "$TMUX_VERSION < 2.6" | bc)" = 1 ]' \
+'display-message "tmux version may be too old for config (see tmux.conf.local)"'
+
+
 # show session name in right of status bar
 set -g status-right "#S"
 
