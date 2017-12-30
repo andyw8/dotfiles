@@ -193,3 +193,5 @@ linters
 ClassLength
 MethodLength
 ParameterLists
+macOS
+tmux
