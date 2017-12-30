@@ -41,7 +41,6 @@ alias mup='git checkout master && git pull && git checkout -'
 
 # ruby
 alias be="bundle exec"
-alias bi="bundle install"
 alias bu="bundle update"
 alias latest-ruby="brew update && brew upgrade rbenv ruby-build && gem install bundler && gem install gem-ctags && gem ctags"
 alias rk="rake"
