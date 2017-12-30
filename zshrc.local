@@ -5,3 +5,5 @@ setopt histignorespace
 
 # Private config
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
