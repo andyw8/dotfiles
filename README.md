@@ -19,4 +19,5 @@ sh setup/osx
 * [Inconsolata font for coding](https://www.google.com/fonts#UsePlace:use/Collection:Inconsolata)
 * [1Password from App Store](https://itunes.apple.com/us/app/1password-password-manager-and-secure-wallet/id443987910?mt=12)
 * Add license for Dash
-* iTerm 2 ­ Install Shell Integration
+* iTerm ­ Install Shell Integration
+* iTerm - Preferences > General > Applications in terminal may access clipboard
