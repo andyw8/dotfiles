@@ -3,3 +3,4 @@ vim/bundle/
 bin/erlang-history/
 aliases.financeit
 zshrc.financeit
+*.private
