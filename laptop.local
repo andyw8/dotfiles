@@ -1,5 +1,6 @@
 brew_install_or_upgrade asciinema
 brew_install_or_upgrade awscli # manual step for auto-completion hook
+brew_install_or_upgrade chromedriver
 brew_install_or_upgrade exercism
 brew_install_or_upgrade gitsh
 brew_install_or_upgrade go
@@ -13,6 +14,7 @@ brew_install_or_upgrade macvim
 brew_install_or_upgrade mas
 brew_install_or_upgrade mongodb
 brew_install_or_upgrade mysql
+brew_install_or_upgrade ncdu # disk usage
 brew_install_or_upgrade phantomjs
 brew_install_or_upgrade pow # manual steps
 brew_install_or_upgrade qlmarkdown
