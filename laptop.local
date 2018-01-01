@@ -89,7 +89,7 @@ git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
 rbenv ctags
 
 # https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
 
 mas signin --dialog apple@andywaite.com
 mas install 449155338 # SomaFM
