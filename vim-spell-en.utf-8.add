@@ -136,9 +136,7 @@ IPv6
 loopback
 DNS
 Postgres
-2
 class
-NOT_ATTEMPTED
 url
 is
 APIs
@@ -154,7 +152,6 @@ github
 https
 CORS
 preloader
-CDP
 C40
 VirtualBox
 techradar
@@ -182,7 +179,6 @@ Stubject
 maintaibility
 SubjectStub
 betterspecs
-Take/!
 xUnit
 STDIN
 Spork
