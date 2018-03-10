@@ -31,8 +31,6 @@ let g:gitgutter_enabled = 0
 
 " let g:hardtime_default_on = 1
 
-""" Sick functions and macros """""""""""""""""""""""""""""""""""""""""""""""""
-
 " Open and reload vimrc
 map <leader>vrc :tabe $MYVIMRC<cr>
 map <leader>vrc :tabe $MYVIMRC.local<cr>
