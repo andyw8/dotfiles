@@ -73,3 +73,5 @@ alias scheme="rlwrap -r -c -f ~/dotfiles-local/mit_scheme_bindings.txt scheme"
 
 # sourcetree
 alias st=stree
+
+[[ -f ~/.aliases.private ]] && source ~/.aliases.private
