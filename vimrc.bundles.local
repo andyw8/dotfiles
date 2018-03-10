@@ -29,6 +29,9 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Gary Bernhardt's grb256 vim theme
 Plug 'quanganhdo/grb256'
+
+Plug 'rhysd/vim-crystal'
+
 Plug 'rizzatti/dash.vim'
 
 " Ruby hash formatter
