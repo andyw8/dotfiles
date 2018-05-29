@@ -78,9 +78,9 @@ nnoremap <leader>fh vi{c<CR><CR><Up><C-r>"<Esc>:s/,\s+/&\r/g<CR>:'[,']norm ==<CR
 " https://github.com/nathanaelkane/vim-indent-guides/issues/31
 colorscheme default
 
-map <Leader>t :wall<CR><Plug>RunCurrentSpecFile
-map <Leader>s :wall<CR><Plug>RunFocusedSpec
-map <Leader>l :wall<CR><Plug>RunMostRecentSpec
+nnoremap <silent> <Leader>T :TestFile<CR>
+nnoremap <silent> <Leader>t :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
 
 nmap <leader>f gg=G<CR>
 nmap <Leader>ra :RuboCop -a<CR>
