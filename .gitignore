@@ -4,3 +4,4 @@ bin/erlang-history/
 aliases.financeit
 zshrc.financeit
 *.private
+config/hub
