@@ -113,3 +113,6 @@ source ~/.vimrc.vtr
 
 "Start scrolling when we're a few lines away from margins (https://github.com/skwp/dotfiles/blob/master/vimrc)
 set scrolloff=4
+
+" https://github.com/BlakeWilliams/vim-pry
+nmap <leader>d :call pry#insert()<cr>
