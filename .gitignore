@@ -4,5 +4,6 @@ bin/erlang-history/
 aliases.financeit
 zshrc.financeit
 *.private
+config/nvim/plugged
 config/hub
 .sass-cache
