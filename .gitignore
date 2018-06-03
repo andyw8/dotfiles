@@ -5,3 +5,4 @@ aliases.financeit
 zshrc.financeit
 *.private
 config/hub
+.sass-cache
