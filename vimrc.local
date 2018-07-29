@@ -120,3 +120,7 @@ nmap <leader>d :call pry#insert()<cr>
 " thoughtbot/dotfiles says 80, but I find this too restrictive
 set textwidth=120
 
+" By default this was detecting brakeman and causing very high CPU usage
+let g:ale_linters = {
+\   'ruby': ['ruby', 'rubocop']
+\}
