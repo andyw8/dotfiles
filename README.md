@@ -21,3 +21,4 @@ sh setup/osx
 * Add license for Dash
 * iTerm ­ Install Shell Integration
 * iTerm - Preferences > General > Applications in terminal may access clipboard
+* `[sudo] npm -g install instant-markdown-x` for https://github.com/NBUT-Developers/extra-instant-markdown
