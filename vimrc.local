@@ -124,3 +124,6 @@ set textwidth=120
 let g:ale_linters = {
 \   'ruby': ['ruby', 'rubocop']
 \}
+
+" https://twitter.com/MasteringVim/status/757956489424343041
+set showbreak=↪
