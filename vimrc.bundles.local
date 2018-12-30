@@ -47,3 +47,5 @@ Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-unimpaired'
 "Plug 'wincent/Command-T'        " Fast opening of files
 Plug 'wfleming/vim-codeclimate'
+
+Plug 'rhysd/vim-crystal'
