@@ -2,8 +2,13 @@
 nnoremap <leader>fr :VtrFocusRunner<cr> " <ctrl> \ to go back
 nnoremap <leader>kr :VtrKillRunner<cr>
 nnoremap <leader>rr :VtrSendLinesToRunner<cr>
-nnoremap <leader>dr :VtrSendCtrlD<cr>
+
+" disable since it clashes with
+" https://github.com/BlakeWilliams/vim-pry/blob/master/plugin/pry.vim
+" nnoremap <leader>dr :VtrSendCtrlD<cr>
+
 nnoremap <leader>ar :VtrAttachToPane<cr>
+
 " for exiting out of tmux scrolling
 nnoremap <leader>qr :VtrSendCommandToRunner q<cr>
 

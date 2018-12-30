@@ -2,6 +2,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-localorie'
 
+" insert debugger call for Ruby or JS
+Plug 'BlakeWilliams/vim-pry'
+
 " open a file at given line e.g. `vim index.html:20`
 Plug 'bogado/file-line'
 
@@ -16,6 +19,7 @@ Plug 'ervandew/supertab' " so that tab be used for both snippets and automcomple
 
 " toggle Ruby block style with <Leader>b
 Plug 'jgdavey/vim-blockle'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'honza/vim-snippets'
 Plug 'hwartig/vim-seeing-is-believing'
@@ -26,9 +30,13 @@ Plug 'lucapette/vim-textobj-underscore'
 
 Plug 'mileszs/ack.vim'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'posva/vim-vue'
 
 " Gary Bernhardt's grb256 vim theme
 Plug 'quanganhdo/grb256'
+
+Plug 'rhysd/vim-crystal'
+
 Plug 'rizzatti/dash.vim'
 
 " Ruby hash formatter
@@ -47,5 +55,5 @@ Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-unimpaired'
 "Plug 'wincent/Command-T'        " Fast opening of files
 Plug 'wfleming/vim-codeclimate'
-
 Plug 'rhysd/vim-crystal'
+Plug 'NBUT-Developers/extra-instant-markdown'

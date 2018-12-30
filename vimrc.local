@@ -31,8 +31,6 @@ let g:gitgutter_enabled = 0
 
 " let g:hardtime_default_on = 1
 
-""" Sick functions and macros """""""""""""""""""""""""""""""""""""""""""""""""
-
 " Open and reload vimrc
 map <leader>vrc :tabe $MYVIMRC<cr>
 map <leader>vrc :tabe $MYVIMRC.local<cr>
@@ -80,9 +78,9 @@ nnoremap <leader>fh vi{c<CR><CR><Up><C-r>"<Esc>:s/,\s+/&\r/g<CR>:'[,']norm ==<CR
 " https://github.com/nathanaelkane/vim-indent-guides/issues/31
 colorscheme default
 
-map <Leader>t :wall<CR><Plug>RunCurrentSpecFile
-map <Leader>s :wall<CR><Plug>RunFocusedSpec
-map <Leader>l :wall<CR><Plug>RunMostRecentSpec
+nnoremap <silent> <Leader>T :TestFile<CR>
+nnoremap <silent> <Leader>t :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
 
 nmap <leader>f gg=G<CR>
 nmap <Leader>ra :RuboCop -a<CR>
@@ -112,3 +110,26 @@ source ~/.vimrc.core-vim
 source ~/.vimrc.checks
 source ~/.vimrc.seeing-is-believing
 source ~/.vimrc.vtr
+
+"Start scrolling when we're a few lines away from margins (https://github.com/skwp/dotfiles/blob/master/vimrc)
+set scrolloff=4
+
+" https://github.com/BlakeWilliams/vim-pry
+nmap <leader>d :call pry#insert()<cr>
+
+" thoughtbot/dotfiles says 80, but I find this too restrictive
+set textwidth=120
+
+" By default this was detecting brakeman and causing very high CPU usage
+let g:ale_linters = {
+\   'ruby': ['ruby', 'rubocop']
+\}
+
+" https://twitter.com/MasteringVim/status/757956489424343041
+set showbreak=↪
+
+" https://github.com/junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

@@ -4,4 +4,9 @@ setopt histignorespace
 # source /usr/local/share/zsh/site-functions/_aws
 
 # Private config
+echo "[zshrc private]"
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
+echo "[end zshrc private]"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export HOMEBREW_NO_AUTO_UPDATE=1 

@@ -73,3 +73,8 @@ alias scheme="rlwrap -r -c -f ~/dotfiles-local/mit_scheme_bindings.txt scheme"
 
 # sourcetree
 alias st=stree
+
+# homebrew
+alias bs="brew services"
+
+[[ -f ~/.aliases.private ]] && source ~/.aliases.private
