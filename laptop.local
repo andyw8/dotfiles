@@ -23,7 +23,6 @@ brew_install_or_upgrade ruby-install
 brew_install_or_upgrade sloccount
 brew_install_or_upgrade sqlite
 brew_install_or_upgrade the-unarchiver
-# brew_install_or_upgrade timeout # licensed via App Store
 brew_install_or_upgrade tig
 brew_install_or_upgrade tree
 brew_install_or_upgrade wget
@@ -109,3 +108,4 @@ mas install 803453959 # Slack
 mas install 463541543 # Gemini
 mas install 568494494 # Pocket
 mas install 1084713122 # Markoff
+mas install 402592703 # Time Out
