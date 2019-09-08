@@ -1,34 +1,32 @@
-brew_install_or_upgrade asciinema
-brew_install_or_upgrade awscli # manual step for auto-completion hook
-brew_install_or_upgrade chromedriver
-brew_install_or_upgrade exercism
-brew_install_or_upgrade gitsh
-brew_install_or_upgrade go
-brew_install_or_upgrade graphviz
-brew_install_or_upgrade htop # needs sudo
-brew_install_or_upgrade intellij-idea
-brew_install_or_upgrade jsonpp
-brew_install_or_upgrade kibana # elasticsearch dashboard
-brew_install_or_upgrade leiningen
-brew_install_or_upgrade macvim
-brew_install_or_upgrade mas
-brew_install_or_upgrade mongodb
-brew_install_or_upgrade mysql
-brew_install_or_upgrade ncdu # disk usage
-brew_install_or_upgrade phantomjs
-brew_install_or_upgrade pow # manual steps
-brew_install_or_upgrade qlmarkdown
-brew_install_or_upgrade rmtrash
-brew_install_or_upgrade ruby-install
-brew_install_or_upgrade sloccount
-brew_install_or_upgrade sqlite
-brew_install_or_upgrade the-unarchiver
-# brew_install_or_upgrade timeout # licensed via App Store
-brew_install_or_upgrade tig
-brew_install_or_upgrade tree
-brew_install_or_upgrade wget
-brew_install_or_upgrade youtube-dl
-brew_install_or_upgrade z
+BREWFILE=$(cat <<'EOF'
+brew 'asciinema'
+brew 'awscli' # manual step for auto-completion hook
+# brew 'chromedriver' # no longer avilable?
+brew 'exercism'
+brew 'gitsh'
+brew 'go'
+brew 'graphviz'
+brew 'htop' # needs sudo?
+brew 'jsonpp'
+brew 'kibana' # elasticsearch dashboard
+brew 'leiningen'
+brew 'mas'
+brew 'mysql'
+brew 'ncdu' # disk usage'
+#brew 'pow' # manual steps
+brew 'rmtrash'
+brew 'ruby-install'
+brew 'sloccount'
+brew 'sqlite'
+brew 'tig'
+brew 'tmate'
+brew 'tree'
+brew 'wget'
+brew 'youtube-dl'
+brew 'z'
+EOF
+)
+echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
 
 brew cask install alfred
 brew cask install arq
@@ -36,76 +34,54 @@ brew cask install atom
 brew cask install catch
 brew cask install coconutbattery
 brew cask install dash
-brew cask install doxie
-brew cask install duet
 brew cask install docker
-brew cask install gitter
-brew cask install google-drive
-brew cask install handbrake
-brew cask install iterm2
-brew cask install karabiner
-brew cask install rowanj-gitx
 brew cask install dropbox
+brew cask install duet
 brew cask install evernote
 brew cask install fluid
 brew cask install flux
+brew cask install gitter
+# brew cask install google-drive
 # brew cask install google-chrome # problems with 1password
-brew cask install istat-menus
-brew cask install kindle
-brew cask install launchrocket
+brew cask install handbrake
 brew cask install iterm2
+brew cask install karabiner-elements
 brew cask install keyboard-cleaner
+brew cask install kindle
 brew cask install kindlegen
-brew cask install omnifocus # add license after installing
-brew cask install selfcontrol
-brew cask install sublime-text
+brew cask install launchrocket
+brew cask install menumeters
+brew cask install mongodb
 brew cask install omnidisksweeper
+brew cask install omnifocus # add license after installing
 brew cask install onyx
-brew cask install prey
+brew cask install phantomjs
+# brew cask install prey # needs API key
+brew cask install qlmarkdown # QuickLook for Markdown
 brew cask install quitter
 brew cask install rescuetime
 brew cask install rowanj-gitx
-brew cask install screenhero
+brew cask install selfcontrol
 brew cask install skype
 brew cask install sourcetree
-brew cask install spotify
 brew cask install spectacle # requires manual configuration
+brew cask install spotify
+brew cask install sublime-text
+brew cask install the-unarchiver
 brew cask install time-out
 brew cask install transmission
-brew cask install tvshows
+# brew cask install tvshows # gone
 brew cask install vagrant
 brew cask install vlc
-brew cask install virtualbox
+# brew cask install virtualbox # A program tried to load new system extension(s) signed by “Oracle America, Inc.”.  If you want to enable these extensions, open Security & Privacy System Preferences.
 
-brew tap nviennot/tmate
-brew_install_or_upgrade tmate
-
-brew tap caskroom/drivers
+brew tap homebrew/cask-drivers
 brew cask install sonos
 
-gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
-mkdir -p ~/.rbenv/plugins
-git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
-rbenv ctags
+# gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
+# mkdir -p ~/.rbenv/plugins
+# git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
+# rbenv ctags
 
 # https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
-
-mas signin --dialog apple@andywaite.com
-mas install 449155338 # SomaFM
-mas install 1084713122 # Markoff
-mas install 623795237 # Ulysses
-mas install 1082170746 # Aware
-mas install 890031187 # Marked 2
-mas install 692787282 # Command-C
-mas install 443987910 # 1Password
-mas install 961632517 # Be Focused Pro
-mas install 557168941 # Tweetbot
-mas install 497799835 # Xcode
-mas install 847496013 # Deckset
-mas install 408981434 # iMovie
-mas install 816042486 # Compare Folders
-mas install 803453959 # Slack
-mas install 463541543 # Gemini
-mas install 568494494 # Pocket
-mas install 1084713122 # Markoff

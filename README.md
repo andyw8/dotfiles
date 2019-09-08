@@ -2,13 +2,30 @@
 
 Based on [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles).
 
+Optional: Run [thoughtbot/laptop](https://github.com/thoughtbot/laptop).
+
+If not using thoughtbot/laptop, configure rcm manually:
+
 ```
-cd ~
+chsh -s $(which zsh)
 brew tap thoughtbot/formulae
+```
+
+Then run:
+```
 brew install rcm
 git clone https://github.com/thoughtbot/dotfiles.git
 git clone https://github.com/andyw8/dotfiles.git dotfiles-local
 env RCRC=$HOME/dotfiles/rcrc rcup
+```
+
+Optional: Install Mac App Store apps
+```
+sh mac_app_store
+```
+
+Optional: Run Mac setup script:
+```
 sh setup/osx
 ```
 

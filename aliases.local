@@ -56,8 +56,8 @@ alias refill="rails g refills:import "
 alias takeover="tmux detach -a" # http://stackoverflow.com/a/19280187
 
 # tmuxinator
-alias tm=tmuxinator
-alias tms=tmuxinator start
+alias tm="tmuxinator"
+alias tms="tmuxinator start"
 
 # vagrant
 alias vs="vagrant ssh"
