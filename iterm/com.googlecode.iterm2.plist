@@ -1419,6 +1419,8 @@
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>UseLionStyleFullscreen</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>iTerm Version</key>
