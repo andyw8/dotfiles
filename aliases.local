@@ -81,3 +81,4 @@ alias st=stree
 alias bs="brew services"
 
 [[ -f ~/.aliases.private ]] && source ~/.aliases.private
+alias doco="docker-compose"
