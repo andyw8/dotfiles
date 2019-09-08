@@ -19,14 +19,15 @@ git clone https://github.com/andyw8/dotfiles.git dotfiles-local
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
+Optional: Run Mac setup script:
+```
+git clone git@github.com:andyw8/dotfiles-mathiasbynens.git
+sh dotfiles-mathiasbynens/.macos
+```
+
 Optional: Install Mac App Store apps
 ```
 sh mac_app_store
-```
-
-Optional: Run Mac setup script:
-```
-sh setup/osx
 ```
 
 # Manual Steps
