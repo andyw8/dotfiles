@@ -43,7 +43,8 @@ Plug 'rizzatti/dash.vim'
 " <Leader>rs to convert all keys to symbols
 " <Leader>rt to convert all keys to strings
 " <Leader>rr to convert all keys to Ruby 1.9 format
-Plug 'rorymckinley/vim-rubyhash'
+" This was causing startup errors, and hasn't been updated for 8 years, find an alternative?
+" Plug 'rorymckinley/vim-rubyhash'
 
 Plug 'SirVer/ultisnips'
 Plug 'skwp/greplace.vim' " Global search and replace
