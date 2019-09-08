@@ -9,6 +9,15 @@ brew install rcm
 git clone https://github.com/thoughtbot/dotfiles.git
 git clone https://github.com/andyw8/dotfiles.git dotfiles-local
 env RCRC=$HOME/dotfiles/rcrc rcup
+```
+
+Optional: Install Mac App Store apps
+```
+sh mac_app_store
+```
+
+Optional: Run Mac setup script:
+```
 sh setup/osx
 ```
 
