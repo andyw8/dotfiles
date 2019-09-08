@@ -39,6 +39,9 @@ alias grmi='git rebase master --interactive'
 alias gs='git stash --include-untracked'
 alias mup='git checkout master && git pull && git checkout -'
 
+alias wip='g ci -m "wip [skip ci]"'
+alias wipa='g add . -A && g ci -m "wip [skip ci]"'
+
 # ruby
 alias be="bundle exec"
 alias bu="bundle update"
