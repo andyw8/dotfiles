@@ -32,6 +32,8 @@ sh mac_app_store
 
 # Manual Steps
 
+* Configure Quitter
+
 ## Chrome
 
 Chrome Settings -> Turn on Sync -> Settings -> Manage Sync -> only Extensions
