@@ -4,7 +4,7 @@ Based on [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles).
 
 Optional: Run [thoughtbot/laptop](https://github.com/thoughtbot/laptop).
 
-If not using thoughtbot/laptop, configure rcm manually:
+If not using thoughtbot/laptop, first configure shell and rcm manually:
 
 ```
 chsh -s $(which zsh)
@@ -32,6 +32,10 @@ sh mac_app_store
 
 # Manual Steps
 
+## Chrome
+
+Chrome Settings -> Turn on Sync -> Settings -> Manage Sync -> only Extensions
+
 ## Safari Plugins
 
 * [Vimari for Safari](https://github.com/guyht/vimari/releases/latest)
@@ -40,3 +44,8 @@ sh mac_app_store
 * Add license for Dash
 * iTerm ­ Install Shell Integration
 * `[sudo] npm -g install instant-markdown-x` for https://github.com/NBUT-Developers/extra-instant-markdown
+
+## Licenses
+
+* OmniFocus
+* 1Password
