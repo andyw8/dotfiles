@@ -16,6 +16,7 @@ brew 'ncdu' # disk usage'
 #brew 'pow' # manual steps
 brew 'rmtrash'
 brew 'ruby-install'
+brew 'shellcheck'
 brew 'sloccount'
 brew 'sqlite'
 brew 'tig'
