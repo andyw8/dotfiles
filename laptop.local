@@ -40,6 +40,7 @@ brew cask install duet
 brew cask install evernote
 brew cask install fluid
 brew cask install flux
+brew cask install github
 brew cask install gitter
 # brew cask install google-drive
 # brew cask install google-chrome # problems with 1password
