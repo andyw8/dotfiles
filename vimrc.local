@@ -21,7 +21,8 @@ autocmd VimResized * :wincmd =
 " Strip whitespace on saving Ruby or Elixir files
 autocmd FileType ruby,elixir autocmd BufWritePre <buffer> %s/\s\+$//e
 
-nnoremap <leader>o :CtrlP<CR>
+" fzf shortcut
+nnoremap <leader>o :Files<CR>
 
 " use the quotestar register for all yank, delete, change, and put operations that have no register explicitly specified
 set clipboard=unnamed
