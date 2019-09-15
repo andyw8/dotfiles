@@ -12,6 +12,7 @@ brew 'kibana' # elasticsearch dashboard
 brew 'leiningen'
 brew 'mas'
 brew 'mysql'
+brew 'neovim'
 brew 'ncdu' # disk usage'
 #brew 'pow' # manual steps
 brew 'rmtrash'
