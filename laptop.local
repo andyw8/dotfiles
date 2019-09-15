@@ -66,6 +66,7 @@ brew cask install rescuetime
 brew cask install rowanj-gitx
 brew cask install selfcontrol
 brew cask install skype
+brew cask install soundflower # may need security allowance
 brew cask install sourcetree
 brew cask install spectacle # requires manual configuration
 brew cask install spotify
