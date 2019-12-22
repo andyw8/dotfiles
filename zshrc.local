@@ -13,6 +13,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export HOMEBREW_NO_AUTO_UPDATE=1 
 export DOCKER_HIDE_LEGACY_COMMANDS=1
 export PATH="$HOME/.bin:$PATH"
+<<<<<<< HEAD
 
 #source /Users/awaite/.asdf/asdf.sh
 
@@ -20,3 +21,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+=======
+# source /Users/awaite/.asdf/asdf.sh
+>>>>>>> Disable asdf temporarily
