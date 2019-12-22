@@ -13,7 +13,8 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'danro/rename.vim'
 
 " for the Elixir programming language
-Plug 'elixir-editors/vim-elixir'
+" Disable due to warning e.g. "Don't reuse the kind letter", (related to ctags?)
+" Plug 'elixir-editors/vim-elixir'
 
 Plug 'ervandew/supertab' " so that tab be used for both snippets and automcomplete
 
@@ -58,3 +59,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wfleming/vim-codeclimate'
 Plug 'rhysd/vim-crystal'
 Plug 'NBUT-Developers/extra-instant-markdown'
+
+" https://github.com/thoughtbot/dotfiles/pull/636#issuecomment-523910502
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'kchmck/vim-coffee-script'

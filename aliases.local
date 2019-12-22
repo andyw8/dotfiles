@@ -54,6 +54,7 @@ alias snf="rspec --next-failure"
 # rails
 alias ttr="touch tmp/restart.txt"
 alias refill="rails g refills:import "
+alias rc="bin/rails c "
 
 # tmux
 alias takeover="tmux detach -a" # http://stackoverflow.com/a/19280187
@@ -82,3 +83,6 @@ alias bs="brew services"
 
 [[ -f ~/.aliases.private ]] && source ~/.aliases.private
 alias doco="docker-compose"
+
+alias start-rb="git clone git@github.com:andyw8/start-rb.git && cd start-rb && bundle"
+alias aoc="cd /Users/awaite/code/andyw8/advent_of_code_2019"

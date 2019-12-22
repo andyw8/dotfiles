@@ -7,6 +7,7 @@ brew 'gitsh'
 brew 'go'
 brew 'graphviz'
 brew 'htop' # needs sudo?
+brew 'jq'
 brew 'jsonpp'
 brew 'kibana' # elasticsearch dashboard
 brew 'leiningen'
@@ -33,8 +34,10 @@ echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
 brew cask install alfred
 brew cask install arq
 brew cask install atom
+brew cask install brave-browser
 brew cask install catch
 brew cask install coconutbattery
+brew cask install colloquy
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
@@ -56,6 +59,7 @@ brew cask install kindlegen
 brew cask install launchrocket
 brew cask install menumeters
 brew cask install mongodb
+brew cask install notion
 brew cask install omnidisksweeper
 brew cask install omnifocus # add license after installing
 brew cask install onyx
@@ -79,6 +83,7 @@ brew cask install transmission
 # brew cask install tvshows # gone
 brew cask install vagrant
 brew cask install vlc
+brew cask install whatsapp
 # brew cask install virtualbox # A program tried to load new system extension(s) signed by “Oracle America, Inc.”.  If you want to enable these extensions, open Security & Privacy System Preferences.
 
 brew tap homebrew/cask-drivers
