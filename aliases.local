@@ -7,6 +7,8 @@ alias j=z
 alias tree="tree -C"
 alias o="open"
 alias f="find . -name "
+# https://dev.to/bphogan/using-the-tree-command-for-software-projects-3ekl
+alias devtree="tree -aC -I '.git|node_modules|bower_components' --dirsfirst | less -FRX"
 
 # git
 function g {
