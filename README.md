@@ -35,6 +35,7 @@ sh mac_app_store
 * Configure Quitter
 * Set up printers
 * Set up Dash
+* In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
 
 ## Chrome
 
