@@ -40,6 +40,7 @@ brew cask install brave-browser
 brew cask install catch
 brew cask install coconutbattery
 brew cask install colloquy
+brew cask install cyberduck
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
