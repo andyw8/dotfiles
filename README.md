@@ -36,6 +36,7 @@ sh mac_app_store
 * Set up printers
 * Set up Dash
 * In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
+* https://help.github.com/articles/setting-your-email-in-git/
 
 ## Chrome
 
