@@ -37,6 +37,7 @@ sh mac_app_store
 * Set up Dash
 * In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
 * https://help.github.com/articles/setting-your-email-in-git/
+* run `minikube start`
 
 ## Chrome
 
@@ -61,3 +62,5 @@ Chrome Settings -> Turn on Sync -> Settings -> Manage Sync -> only Extensions
 Add `brew cask install anki`
 brew cask install tripmode
 brew cask install visual-studio-code
+brew cask install calibre
+brew cask install karabiner-elements
