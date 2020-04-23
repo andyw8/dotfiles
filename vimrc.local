@@ -8,7 +8,8 @@ nmap k gk
 nmap j gj
 
 " the escape key is too far away
-imap jk <esc>
+" don't really need any more since karabiner-elements can map capslock to escape
+" imap jk <esc>
 
 set relativenumber
 
