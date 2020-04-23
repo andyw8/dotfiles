@@ -11,7 +11,8 @@ nmap j gj
 " don't really need any more since karabiner-elements can map capslock to escape
 " imap jk <esc>
 
-set relativenumber
+" causes confusion when pairing
+" set relativenumber
 
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
