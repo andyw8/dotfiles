@@ -12,6 +12,7 @@ brew 'jsonpp'
 brew 'kibana' # elasticsearch dashboard
 brew 'leiningen'
 brew 'mas'
+brew 'minikube' # for kubernetes
 brew 'mysql'
 brew 'neovim'
 brew 'ncdu' # disk usage'
@@ -63,6 +64,7 @@ brew cask install launchrocket
 brew cask install menumeters
 brew cask install mongodb
 brew cask install notion
+brew cask install obs
 brew cask install omnidisksweeper
 brew cask install omnifocus # add license after installing
 brew cask install onyx
@@ -70,6 +72,7 @@ brew cask install phantomjs
 # brew cask install prey # needs API key
 brew cask install qlmarkdown # QuickLook for Markdown
 brew cask install quitter
+brew cask install rectangle # need permissions on first launch
 brew cask install rescuetime
 brew cask install rowanj-gitx
 brew cask install selfcontrol
@@ -88,6 +91,10 @@ brew cask install vagrant
 brew cask install vlc
 brew cask install whatsapp
 # brew cask install virtualbox # A program tried to load new system extension(s) signed by “Oracle America, Inc.”.  If you want to enable these extensions, open Security & Privacy System Preferences.
+
+# suggested in Kubernetes Up And Running Book for AWS
+brew tap weaveworks/tap
+brew install weaveworks/tap/eksctl
 
 brew tap homebrew/cask-drivers
 brew cask install sonos
