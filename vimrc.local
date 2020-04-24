@@ -75,6 +75,7 @@ let g:markdown_fenced_languages = ['html', 'vim', 'ruby', 'python', 'bash=sh']
 set exrc
 set secure
 
+" fh (format hash) for Ruby
 " based on http://superuser.com/a/653027
 nnoremap <leader>fh vi{c<CR><CR><Up><C-r>"<Esc>:s/,\s+/&\r/g<CR>:'[,']norm ==<CR>
 
