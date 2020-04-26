@@ -41,7 +41,7 @@ sh mac_app_store
 
 ## Chrome
 
-Chrome Settings -> Turn on Sync -> Settings -> Manage Sync -> only Extensions
+Chrome Settings -> You and Google -> Turn on Sync -> Settings -> Manage Sync -> Settings, Extensions
 
 ## Safari Plugins
 
