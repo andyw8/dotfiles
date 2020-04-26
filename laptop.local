@@ -16,7 +16,6 @@ brew 'minikube' # for kubernetes
 brew 'mysql'
 brew 'neovim'
 brew 'ncdu' # disk usage'
-#brew 'pow' # manual steps
 brew 'rmtrash'
 brew 'ruby-install'
 brew 'shellcheck'
