@@ -39,12 +39,12 @@ brew cask install atom
 brew cask install brave-browser
 brew cask install catch
 brew cask install coconutbattery
-brew cask install colloquy
-brew cask install cyberduck
+brew cask install colloquy # IRC client
+brew cask install cyberduck # FTP client
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
-brew cask install duet
+brew cask install duet # use iPad as external screen
 brew cask install fluid
 brew cask install freedom
 brew cask install github
