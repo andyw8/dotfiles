@@ -72,7 +72,6 @@ brew cask install qlmarkdown # QuickLook for Markdown
 brew cask install quitter
 brew cask install rectangle # need permissions on first launch
 brew cask install rescuetime
-brew cask install rowanj-gitx
 brew cask install selfcontrol
 brew cask install skype
 brew cask install soundflower # may need security allowance
