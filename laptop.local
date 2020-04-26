@@ -83,7 +83,6 @@ brew cask install sublime-text
 brew cask install the-unarchiver
 # brew cask install time-out
 brew cask install transmission
-# brew cask install tvshows # gone
 brew cask install vagrant
 brew cask install vlc
 brew cask install whatsapp
