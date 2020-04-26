@@ -65,7 +65,6 @@ brew cask install obs
 brew cask install omnidisksweeper
 brew cask install omnifocus # add license after installing
 brew cask install onyx
-brew cask install phantomjs
 # brew cask install prey # needs API key
 brew cask install qlmarkdown # QuickLook for Markdown
 brew cask install quitter
