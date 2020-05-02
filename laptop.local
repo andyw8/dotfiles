@@ -19,7 +19,7 @@ brew 'ncdu' # disk usage'
 brew 'rmtrash'
 brew 'ruby-install'
 brew 'shellcheck'
-brew 'sloccount'
+brew 'sloccount' # a suite of programs for counting physical source lines of code (SLOC)
 brew 'sqlite'
 brew 'tig'
 brew 'tldr'
