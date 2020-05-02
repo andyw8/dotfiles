@@ -45,7 +45,6 @@ brew cask install dash
 brew cask install docker
 brew cask install dropbox
 brew cask install duet # use iPad as external screen
-brew cask install fluid
 brew cask install freedom
 brew cask install github
 brew cask install gitter
