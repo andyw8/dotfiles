@@ -90,6 +90,8 @@ brew install weaveworks/tap/eksctl
 brew tap homebrew/cask-drivers
 brew cask install sonos
 
+brew install github/gh/gh
+
 # gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
 # mkdir -p ~/.rbenv/plugins
 # git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
