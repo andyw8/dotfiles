@@ -63,6 +63,7 @@ brew cask install obs
 brew cask install omnidisksweeper
 brew cask install omnifocus # add license after installing
 brew cask install onyx
+brew cask install postman
 # brew cask install prey # needs API key
 brew cask install quitter
 brew cask install rectangle # need permissions on first launch
