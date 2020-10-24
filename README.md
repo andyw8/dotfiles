@@ -38,6 +38,10 @@ sh mac_app_store
 * In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
 * https://help.github.com/articles/setting-your-email-in-git/
 * run `minikube start`
+* Load Chromium settings chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
+* Run iTerm shell integration
+* Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
+* Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
 
 ## Chrome
 
