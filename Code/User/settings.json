@@ -2,5 +2,6 @@
     "editor.wordWrapColumn": 120,
     "files.exclude": {
         "**/node_modules": true
-    }
+    },
+    "editor.accessibilitySupport": "off"
 }
