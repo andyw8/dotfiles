@@ -45,6 +45,12 @@ sh mac_app_store
 
 ## Chrome
 
+## VS Code
+
+To fix key repeat for hjkl:
+
+`defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+
 Chrome Settings -> You and Google -> Turn on Sync -> Settings -> Manage Sync -> Settings, Extensions
 
 ## Safari Plugins
