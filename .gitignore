@@ -1,9 +1,24 @@
 !bin
-vim/bundle/
-bin/erlang-history/
-aliases.financeit
-zshrc.financeit
 *.private
-config/nvim/plugged
-config/hub
 .sass-cache
+Code/**/*.backup
+Code/Backups/
+Code/Cache/
+Code/CachedData/
+Code/CachedExtensions/
+Code/Code Cache/
+Code/Cookies
+Code/Cookies-journal
+Code/Crashpad/settings.dat
+Code/CrashpadMetrics*
+Code/GPUCache/
+Code/Local Storage/
+Code/Session Storage/
+Code/blob_storage/
+Code/logs/
+aliases.financeit
+bin/erlang-history/
+config/hub
+config/nvim/plugged
+vim/bundle/
+zshrc.financeit
