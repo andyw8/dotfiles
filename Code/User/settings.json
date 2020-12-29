@@ -3,5 +3,7 @@
     "files.exclude": {
         "**/node_modules": true
     },
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "editor.scrollBeyondLastLine": false
 }
