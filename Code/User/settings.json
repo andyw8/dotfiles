@@ -19,4 +19,5 @@
     "editor.rulers": [
       120
     ],
+    "gitlens.currentLine.enabled": false,
 }
