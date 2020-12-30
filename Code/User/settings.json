@@ -16,4 +16,7 @@
     "ruby.format": "rubocop", // use rubocop for formatting
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
+    "editor.rulers": [
+      120
+    ],
 }
