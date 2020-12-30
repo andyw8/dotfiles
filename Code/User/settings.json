@@ -21,4 +21,5 @@
     ],
     "gitlens.currentLine.enabled": false,
     "editor.renderIndentGuides": false,
+    "editor.fontSize": 14,
 }
