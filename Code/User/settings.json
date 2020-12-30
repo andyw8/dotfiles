@@ -21,6 +21,7 @@
     ],
     "gitlens.currentLine.enabled": false,
     "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "none",
     "files.insertFinalNewline": true,
     "editor.renderFinalNewline": false,
     "window.zoomLevel": 0,
