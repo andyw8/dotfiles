@@ -20,4 +20,5 @@
       120
     ],
     "gitlens.currentLine.enabled": false,
+    "editor.renderIndentGuides": false,
 }
