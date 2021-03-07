@@ -33,6 +33,10 @@ sh mac_app_store
 # Manual Steps
 
 * Configure Quitter
+
+# Backups Checklist
+
+- Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 * Set up printers
 * Set up Dash
 * In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
