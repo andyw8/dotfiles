@@ -33,10 +33,6 @@ sh mac_app_store
 # Manual Steps
 
 * Configure Quitter
-
-# Backups Checklist
-
-- Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 * Set up printers
 * Set up Dash
 * In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
@@ -46,6 +42,10 @@ sh mac_app_store
 * Run iTerm shell integration
 * Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
 * Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
+
+# Backups Checklist
+
+- Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 
 ## Chrome
 
