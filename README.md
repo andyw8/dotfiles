@@ -46,6 +46,7 @@ sh mac_app_store
 # Backups Checklist
 
 - Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
+- Anything in `~/.zshrc`
 
 ## Chrome
 
