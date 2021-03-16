@@ -42,6 +42,7 @@ sh mac_app_store
 * Run iTerm shell integration
 * Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
 * Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
+* Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
 
 # Backups Checklist
 
