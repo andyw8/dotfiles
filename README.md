@@ -20,6 +20,9 @@ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
 Optional: Run Mac setup script:
+
+Reminder: Writing defaults from Terminal doesn't work on a fresh macOS install. You have to add Terminal to "Full Disk Access" in your privacy & security settings ([source](https://twitter.com/holman/status/1372244951342358528))
+
 ```
 git clone git@github.com:andyw8/dotfiles-mathiasbynens.git
 sh dotfiles-mathiasbynens/.macos
