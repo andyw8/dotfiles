@@ -51,6 +51,8 @@ sh mac_app_store
 
 - Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 - Anything in `~/.zshrc`
+- iTerm config
+- Chrome extensions configs
 
 ## Chrome
 
