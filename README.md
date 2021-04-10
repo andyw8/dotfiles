@@ -53,6 +53,8 @@ sh mac_app_store
 - Anything in `~/.zshrc`
 - iTerm config
 - Chrome extensions and their configs (across all profiles)
+- Neovim config
+- VS Code config
 
 ## Chrome
 
