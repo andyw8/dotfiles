@@ -52,6 +52,7 @@ sh mac_app_store
 - Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 - Anything in `~/.zshrc`
 - iTerm config
+- SSH keys
 - Chrome extensions and their configs (across all profiles)
 - Neovim config
 - VS Code config
