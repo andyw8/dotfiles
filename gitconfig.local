@@ -21,3 +21,7 @@
   unstage = "!git reset"
   uncommit = "!git reset --soft HEAD^"
   sla = "!git log --oneline --graph --all --decorate"
+[push]
+  # Push current branch even if you've never pushed it before
+  # https://thoughtbot.com/blog/push-the-current-git-branch-even-if-youve-never
+  default = current
