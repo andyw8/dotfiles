@@ -56,6 +56,7 @@ sh mac_app_store
 - Chrome extensions and their configs (across all profiles)
 - Neovim config
 - VS Code config
+- Uncommitted/unpushed changes in local dotfiles
 
 ## Chrome
 
