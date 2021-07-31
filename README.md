@@ -57,6 +57,7 @@ sh mac_app_store
 - Neovim config
 - VS Code config
 - Uncommitted/unpushed changes in local dotfiles
+- Anything in `~/.bin`
 
 ## Chrome
 
