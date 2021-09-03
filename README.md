@@ -58,6 +58,7 @@ sh mac_app_store
 - VS Code config
 - Uncommitted/unpushed changes in local dotfiles
 - Anything in `~/.bin`
+- Choosy settings
 
 ## Chrome
 
