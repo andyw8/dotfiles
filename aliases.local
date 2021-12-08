@@ -28,7 +28,7 @@ alias gc='git commit'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gco='git checkout '
-alias m='git checkout master '
+alias m='git checkout master || git checkout main'
 alias gx='gitx'
 alias gl='git log --oneline --graph --all --decorate'
 alias pull="git pull"
@@ -41,13 +41,14 @@ alias grmi='git rebase master --interactive'
 alias gs='git stash --include-untracked'
 alias mup='git checkout master && git pull && git checkout -'
 
-alias wip='g ci -m "wip [skip ci]"'
-alias wipa='g add . -A && g ci -m "wip [skip ci]"'
+alias wip='g ci -m "wip"'
+alias wipa='g add . -A && g ci -m "wip"'
 
 # ruby
 alias be="bundle exec"
 alias bu="bundle update"
 alias latest-ruby="brew update && brew upgrade rbenv ruby-build && gem install bundler && gem install gem-ctags && gem ctags"
+alias r="bin/rails"
 alias rk="rake"
 alias rdbm="rake db:migrate"
 alias rdbr="rake db:rollback"
@@ -91,3 +92,14 @@ alias aoc="cd /Users/awaite/code/andyw8/advent_of_code_2019"
 
 # shopify
 alias d="dev"
+
+alias e="code"
+
+alias ag="ag --hidden --ignore .git" # otherwise it ignores files/dirs beginning with a dot https://github.com/ggreer/the_silver_searcher/issues/24
+
+alias deploy="bin/rake test:all && bin/rake lint && git push"
+alias gam="git commit --amend --no-edit --date=now"
+alias gaam="git add . && amend"
+
+# https://build.betterup.com/one-weird-trick-that-will-speed-up-your-bundle-install/
+alias bip="MAKE=\"make --jobs 8\" bundle install"
