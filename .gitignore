@@ -24,3 +24,7 @@ config/hub
 config/nvim/plugged
 vim/bundle/
 zshrc.financeit
+vscode/extensions/
+Code/User/workspaceStorage/
+Code/User/sync/globalState/
+Code/CachedConfigurations/
