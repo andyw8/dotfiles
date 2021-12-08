@@ -1,0 +1,8 @@
+#!/bin/sh
+
+tl=$(/usr/bin/git rev-parse --show-toplevel)
+if [[ -f "${tl}/.git/refs/heads/main" ]]; then
+  echo "main"
+else
+  echo "master"
+fi
