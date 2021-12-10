@@ -1,104 +1,16 @@
 BREWFILE=$(cat <<'EOF'
-brew 'asciinema'
 brew 'awscli' # manual step for auto-completion hook
-# brew 'chromedriver' # no longer avilable?
-brew 'brave-browser'
-brew 'bat'
-brew 'dark-mode'
-brew 'exercism'
-brew 'gitsh'
-brew 'go'
-brew 'graphviz'
-brew 'hot'
-brew 'htop' # needs sudo?
-brew 'jq'
-brew 'jsonpp'
-brew 'kibana' # elasticsearch dashboard
-brew 'leiningen'
-brew 'mas'
 brew 'minikube' # for kubernetes
-brew 'mysql'
-brew 'neovim'
-brew 'ncdu' # disk usage'
-brew 'logitech-options'
-brew 'rmtrash'
-brew 'ruby-install'
-brew 'shellcheck'
 brew 'sloccount' # a suite of programs for counting physical source lines of code (SLOC)
-brew 'sqlite'
-brew 'tig'
-brew 'tldr'
-brew 'tmate'
-brew 'tree'
-brew 'wget'
-brew 'youtube-dl'
-brew 'z'
-brew 'zplug'
 EOF
 )
 echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
-
-brew cask install alfred
-brew cask install arq
-brew cask install atom
-brew cask install brave-browser
-brew cask install catch
-brew cask install coconutbattery
-brew cask install colloquy # IRC client
-brew cask install cyberduck # FTP client
-brew cask install dash
-brew cask install docker
-brew cask install dropbox
-brew cask install duet # use iPad as external screen
-brew cask install freedom
-brew cask install github
-brew cask install gitter
-# brew cask install google-drive
-# brew cask install google-chrome # problems with 1password
-brew cask install handbrake
-brew cask install iterm2
-brew cask install karabiner-elements
-brew cask install keyboard-cleaner
-brew cask install kindle
-brew cask install kindlegen
-brew cask install meetingbar
-# brew cask install menumeters
-brew cask install mongodb
-brew cask install notion
-brew cask install obs
-brew cask install omnidisksweeper
-brew cask install omnifocus # add license after installing
-brew cask install onyx
-brew cask install postman
-# brew cask install prey # needs API key
-brew cask install quitter
-brew cask install rectangle # need permissions on first launch
-brew cask install rescuetime
-brew cask install selfcontrol
-brew cask install send-to-kindle
-brew cask install skype
-brew cask install soundflower # may need security allowance
-brew cask install sourcetree
-brew cask install spectacle # requires manual configuration
-brew cask install spotify
-brew cask install stretchly
-brew cask install sublime-text
-brew cask install the-unarchiver
-# brew cask install time-out
-brew cask install transmission
-brew cask install vagrant
-brew cask install vlc
-brew cask install whatsapp
-# brew cask install virtualbox # A program tried to load new system extension(s) signed by “Oracle America, Inc.”.  If you want to enable these extensions, open Security & Privacy System Preferences.
 
 # suggested in Kubernetes Up And Running Book for AWS
 brew tap weaveworks/tap
 brew install weaveworks/tap/eksctl
 
 brew tap homebrew/cask-drivers
-brew cask install sonos
-
-brew install github/gh/gh
 
 # gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
 # mkdir -p ~/.rbenv/plugins
