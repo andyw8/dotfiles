@@ -137,7 +137,7 @@ cask "docker"
 # cask "dropbox"
 cask "duet" # use iPad as external screen
 cask "firefox"
-cask "fork"
+# cask "fork" # Git client https://git-fork.com/
 # cask "freedom"
 cask "github"
 cask "gitify"
