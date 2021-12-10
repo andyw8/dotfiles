@@ -2,6 +2,9 @@ BREWFILE=$(cat <<'EOF'
 brew 'asciinema'
 brew 'awscli' # manual step for auto-completion hook
 # brew 'chromedriver' # no longer avilable?
+brew 'brave-browser'
+brew 'bat'
+brew 'dark-mode'
 brew 'exercism'
 brew 'gitsh'
 brew 'go'
