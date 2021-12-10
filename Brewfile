@@ -166,7 +166,7 @@ cask "meetingbar"
 cask "neovim-nightly"
 cask "ngrok"
 cask "notion"
-cask "nvidia-geforce-now"
+# cask "nvidia-geforce-now"
 cask "obs"
 cask "omnidisksweeper"
 # cask "omnifocus" # add license after install
