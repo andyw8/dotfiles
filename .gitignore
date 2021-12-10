@@ -29,3 +29,15 @@ Code/User/workspaceStorage/
 Code/User/sync/globalState/
 Code/CachedConfigurations/
 Code/User/sync/
+Code/storage.json
+Code/rapid_render.json
+Code/code.lock
+Code/databases/
+Code/User/globalStorage/
+Code/Service Worker/
+Code/QuotaManager*
+Code/Preferences
+Code/Network Persistent State
+Code/Crashpad/
+# temporary VS Code files?
+Code/.com.microsoft.VSCode.*
