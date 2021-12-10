@@ -125,6 +125,8 @@ nmap <leader>d :call pry#insert()<cr>
 set textwidth=120
 
 " By default this was detecting brakeman and causing very high CPU usage
+" ['ruby', 'rubocop']
+
 let g:ale_linters = {
 \   'ruby': ['ruby', 'rubocop']
 \}
