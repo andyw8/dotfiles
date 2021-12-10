@@ -6,6 +6,7 @@ brew 'exercism'
 brew 'gitsh'
 brew 'go'
 brew 'graphviz'
+brew 'hot'
 brew 'htop' # needs sudo?
 brew 'jq'
 brew 'jsonpp'
