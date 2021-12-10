@@ -1,29 +1,185 @@
 {
-    "editor.wordWrapColumn": 120,
-    "files.exclude": {
-        "**/node_modules": true
-    },
-    "editor.accessibilitySupport": "off",
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "editor.scrollBeyondLastLine": false,
-    "ruby.useBundler": true, //run non-lint commands with bundle exec
-    "ruby.useLanguageServer": true, // use the internal language server (see below)
-    "ruby.lint": {
-      "rubocop": {
-        "useBundler": true // enable rubocop via bundler
-      }
-    },
-    "ruby.format": "rubocop", // use rubocop for formatting
-    "editor.cursorBlinking": "solid",
-    "editor.minimap.enabled": false,
-    "editor.rulers": [
-      120
-    ],
-    "gitlens.currentLine.enabled": false,
-    "editor.renderIndentGuides": false,
-    "editor.renderLineHighlight": "none",
-    "files.insertFinalNewline": true,
-    "editor.renderFinalNewline": false,
-    "window.zoomLevel": 0,
-    "editor.fontSize": 14,
+  "rubocop-lsp.trace.server": "verbose",
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Shopify.rubocop-lsp"
+  },
+  "editor.wordWrapColumn": 120,
+  "files.exclude": {
+    ".shadowenv.d": true
+    // "**/node_modules": true
+  },
+  "editor.accessibilitySupport": "off",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "editor.scrollBeyondLastLine": false,
+  "ruby.useBundler": true, //run non-lint commands with bundle exec
+  // "ruby.lint": {
+  //   "rubocop": {
+  //     "useBundler": true
+  //   }
+  // },
+  // "ruby.useLanguageServer": true, // use the internal language server (see below)
+  "editor.cursorBlinking": "solid",
+  "editor.rulers": [120],
+  "testExplorer.showOnRun": true,
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.rspecCommand": "bin/rspec",
+  "editor.renderIndentGuides": false,
+  "editor.renderLineHighlight": "none",
+  "files.insertFinalNewline": true,
+  "editor.renderFinalNewline": false,
+  "editor.fontSize": 14,
+  "breadcrumbs.enabled": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "zenMode.restore": true,
+  "zenMode.silentNotifications": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.fullScreen": false,
+  "zenMode.centerLayout": false,
+  "projectManager.git.baseFolders": ["~/src/github.com"],
+  "projectManager.git.maxDepthRecursion": 2,
+  "terminal.external.osxExec": "iTerm.app",
+  "search.exclude": {
+    "log/": true,
+    "tags/": true,
+    "tmp/": true
+  },
+  "workbench.startupEditor": "none",
+  "gitlens.views.branches.branches.layout": "list",
+  "terminal.integrated.scrollback": 10000,
+  "files.associations": {
+    "*.yml.erb": "yaml",
+    "*.yaml.lock": "yaml",
+    "*.ejson": "json"
+  },
+  "task.quickOpen.history": 0,
+  "search.quickOpen.includeHistory": false,
+  "terminal.integrated.fontSize": 14,
+  "editor.renderWhitespace": "all",
+  "markdown.extension.toc.updateOnSave": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "sorbet.enabled": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.enabled": true,
+  "cSpell.enableFiletypes": ["ruby", "erb"],
+  "cSpell.userWords": [
+    "automount",
+    "blockquote",
+    "Bugsnag",
+    "cheatsheet",
+    "Chromedriver",
+    "datetime",
+    "delegators",
+    "downcase",
+    "ejson",
+    "erblint",
+    "exts",
+    "favorited",
+    "figcaption",
+    "graphiql",
+    "Guardfile",
+    "healthcheck",
+    "hexdigest",
+    "instrumenter",
+    "javascripts",
+    "MAILGUN",
+    "minitest",
+    "omniauth",
+    "omniauthable",
+    "overmind",
+    "Pagy",
+    "pghero",
+    "PGHOST",
+    "PGPASS",
+    "PGUSER",
+    "Pockfile",
+    "postgres",
+    "precompiled",
+    "Prepend",
+    "Preprocess",
+    "PREPROCESSORS",
+    "Rakefile",
+    "Redcarpet",
+    "resque",
+    "rexml",
+    "rspec",
+    "rubocop",
+    "runtimes",
+    "serializers",
+    "Shipit",
+    "Sidekiq",
+    "sidenav",
+    "signout",
+    "simplecov",
+    "Solargraph",
+    "Solargraph's",
+    "standardrb",
+    "Struct",
+    "submenu",
+    "subquery",
+    "tailwindcss",
+    "tbody",
+    "thead",
+    "themekit",
+    "titleize",
+    "tldr",
+    "tobi",
+    "turbolinks",
+    "unpermitted",
+    "unprocessable",
+    "unversioned",
+    "webmock",
+    "Zeitwerk"
+  ],
+  // "solargraph.useBundler": true,
+  "solargraph.logLevel": "debug",
+  "solargraph.commandPath": "/Users/andyw8/.gem/ruby/2.7.3/bin/solargraph",
+  "solargraph.transport": "stdio", // https://github.com/castwide/solargraph/issues/219
+  "files.trimFinalNewlines": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "window.openFoldersInNewWindow": "on",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.tabs.enabled": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#af2828",
+    "statusBar.noFolderBackground": "#af2828",
+    "statusBar.foreground": "#ffffff"
+  },
+  "terminal.integrated.defaultLocation": "editor",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
+  "ruby.intellisense": "rubyLocate",
+  "ruby.locate": {
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
+  },
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "emmet.includeLanguages": {
+    "erb": "html",
+    "ruby": "html"
+  }
 }
