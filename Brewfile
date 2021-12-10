@@ -52,7 +52,7 @@ brew "imagemagick@6"
 brew "jq"
 brew "jsonpp"
 brew "kcat" # for Shopify
-brew "kibana" # elasticsearch dashboard
+# brew "kibana" # elasticsearch dashboard # changed to an incompatible license
 brew "leiningen" # for clojure
 brew "libass"
 brew "libgda"
