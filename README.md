@@ -36,6 +36,8 @@ sh mac_app_store
 Optional: Install entries from `Brewfile`
 ```
 brew bundle
+# or if updating a system
+# brew bundle --cleanup 
 ```
 
 # Manual Steps
