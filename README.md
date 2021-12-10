@@ -20,6 +20,9 @@ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
 Optional: Run Mac setup script:
+
+Reminder: Writing defaults from Terminal doesn't work on a fresh macOS install. You have to add Terminal to "Full Disk Access" in your privacy & security settings ([source](https://twitter.com/holman/status/1372244951342358528))
+
 ```
 git clone git@github.com:andyw8/dotfiles-mathiasbynens.git
 sh dotfiles-mathiasbynens/.macos
@@ -42,6 +45,21 @@ sh mac_app_store
 * Run iTerm shell integration
 * Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
 * Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
+* Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
+* Set [always show scroll bars](https://osxdaily.com/2011/08/03/show-scroll-bars-mac-os-x-lion/)
+
+# Backups Checklist
+
+- Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
+- Anything in `~/.zshrc`
+- iTerm config
+- SSH keys
+- Chrome extensions and their configs (across all profiles)
+- Neovim config
+- VS Code config
+- Uncommitted/unpushed changes in local dotfiles
+- Anything in `~/.bin`
+- Choosy settings
 
 ## Chrome
 
@@ -74,3 +92,5 @@ brew cask install tripmode
 brew cask install visual-studio-code
 brew cask install calibre
 brew cask install karabiner-elements
+
+TEST CHANGE

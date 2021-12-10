@@ -61,6 +61,7 @@ brew cask install karabiner-elements
 brew cask install keyboard-cleaner
 brew cask install kindle
 brew cask install kindlegen
+brew cask install meetingbar
 # brew cask install menumeters
 brew cask install mongodb
 brew cask install notion
