@@ -188,6 +188,7 @@ cask "sonos"
 cask "sourcetree"
 cask "spectacle"
 cask "stretchly"
+# cask "stremio"
 cask "the-unarchiver"
 # cask "time-out"
 # cask "transmission" # p2p
