@@ -44,7 +44,7 @@ brew "guile"
 brew "handbrake", link: false
 brew "harfbuzz"
 brew "heroku/brew/heroku"
-brew "hot"
+# brew "hot" # 'formula is unreadable' error
 brew "htop" # may need sudo
 brew "hub"
 brew "hugo"
