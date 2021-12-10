@@ -47,7 +47,8 @@ Plug 'rizzatti/dash.vim'
 " This was causing startup errors, and hasn't been updated for 8 years, find an alternative?
 " Plug 'rorymckinley/vim-rubyhash'
 
-Plug 'SirVer/ultisnips'
+" seems to be causing error
+" Plug 'SirVer/ultisnips'
 Plug 'skwp/greplace.vim' " Global search and replace
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-cucumber'
