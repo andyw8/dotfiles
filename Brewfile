@@ -203,8 +203,8 @@ mas "AdBlock", id: 1402042596
 # mas "Asphalt 9", id: 1491129197
 # mas "City Island 3", id: 1281513602
 mas "Flycut", id: 442160987
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
+# mas "GarageBand", id: 682658836
+# mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Lynda.com", id: 985958984
 mas "Monosnap", id: 540348655
