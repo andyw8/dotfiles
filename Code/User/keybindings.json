@@ -1,27 +1,67 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "cmd+n",
-        "command": "extension.advancedNewFile"
-    },
-    {
-        "key": "alt+cmd+n",
-        "command": "-extension.advancedNewFile"
-    },
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.navigateLeft"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.navigateRight"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "workbench.action.navigateUp"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.navigateDown"
-    }
+  {
+    "key": "cmd+n",
+    "command": "extension.advancedNewFile"
+  },
+  {
+    "key": "alt+cmd+n",
+    "command": "-extension.advancedNewFile"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "cmd+shift+0",
+    "command": "workbench.action.tasks.runTask",
+    "args": "(ruby) run all tests"
+  },
+  {
+    "key": "cmd+shift+8",
+    "command": "workbench.action.tasks.runTask",
+    "args": "(ruby) run current test"
+  },
+  {
+    "key": "alt+cmd+p",
+    "command": "projectManager.listProjectsNewWindow"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "-workbench.actions.view.problems"
+  },
+  {
+    "key": "ctrl+alt+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "-workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    // run all tests in current test file
+    "key": "shift+cmd+r",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "dev test '${file}'\u000D" },
+  },
+  {
+    // Run test at Current line
+    "key": "shift+cmd+i",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "dev test '${file}:${lineNumber}'\u000D" },
+  },
 ]
