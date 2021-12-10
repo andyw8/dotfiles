@@ -8,7 +8,9 @@ setopt histignorespace
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
 # echo "[end zshrc private]"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#  dev, when used in combination with iTerm2 shell integration, tends to cause slowness.
+#  Remove the line mentioning iterm2_shell_integration from your shell init files
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export HOMEBREW_NO_AUTO_UPDATE=1 
 export DOCKER_HIDE_LEGACY_COMMANDS=1
