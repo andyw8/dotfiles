@@ -82,7 +82,7 @@ brew "rcm"
 brew "re2"
 brew "redis", restart_service: true
 brew "ripgrep"
-brew "rmtrash"
+brew "trash" # removed: https://github.com/Homebrew/homebrew-core/pull/65438
 brew "rtmpdump"
 brew "ruby"
 brew "ruby-install"

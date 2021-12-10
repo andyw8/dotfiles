@@ -103,3 +103,5 @@ alias gaam="git add . && amend"
 
 # https://build.betterup.com/one-weird-trick-that-will-speed-up-your-bundle-install/
 alias bip="MAKE=\"make --jobs 8\" bundle install"
+
+alias rmtrash="echo 'use `trash` instead'"
