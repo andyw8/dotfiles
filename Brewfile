@@ -10,7 +10,7 @@ tap "planetscale/tap"
 tap "shopify/shopify"
 tap "stripe/stripe-cli"
 tap "thoughtbot/formulae"
-tap "universal-ctags/universal-ctags"
+# tap "universal-ctags/universal-ctags" # no version for Apple Silicon yet
 tap "weaveworks/tap" # kubernetes
 brew "act"
 # brew "asciinema"
