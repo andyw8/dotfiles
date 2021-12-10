@@ -148,7 +148,6 @@ cask "google-cloud-sdk"
 cask "hot"
 cask "istat-menus"
 cask "iterm2"
-cask "java"
 cask "jdownloader"
 # cask "karabiner-elements" # requires extra permissions
 cask "keyboard-cleaner"
