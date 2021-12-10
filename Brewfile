@@ -10,7 +10,7 @@ tap "planetscale/tap"
 tap "shopify/shopify"
 tap "stripe/stripe-cli"
 tap "thoughtbot/formulae"
-# tap "universal-ctags/universal-ctags" # no version for Apple Silicon yet
+tap "universal-ctags/universal-ctags"
 tap "weaveworks/tap" # kubernetes
 brew "act"
 # brew "asciinema"
@@ -111,7 +111,7 @@ brew "tig"
 brew "tldr"
 brew "tree"
 brew "unbound"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+# brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"] # no version for Apple Silicon yet
 brew "v8@3.15"
 brew "watchman"
 brew "wget"
