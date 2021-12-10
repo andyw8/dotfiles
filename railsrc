@@ -1,1 +1,4 @@
---database=postgresql --skip-test-unit --skip-bundle --skip-turbolinks --skip-test
+--database postgresql
+--skip-builder
+--css bootstrap
+--javascript esbuild
