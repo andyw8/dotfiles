@@ -33,6 +33,11 @@ Optional: Install Mac App Store apps
 sh mac_app_store
 ```
 
+Optional: Install entries from `Brewfile`
+```
+brew bundle
+```
+
 # Manual Steps
 
 * Configure Quitter
