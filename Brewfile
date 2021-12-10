@@ -154,7 +154,7 @@ cask "keycastr"
 # cask "kindle"
 # cask "kindlegen"
 cask "launchcontrol"
-cask "logitech-options"
+cask "logitech-options" # requires sudo
 cask "lunar"
 cask "marked"
 cask "meetingbar"
