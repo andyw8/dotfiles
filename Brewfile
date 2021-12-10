@@ -200,8 +200,8 @@ cask "vlc"
 cask "webpquicklook"
 # cask "whatsapp"
 mas "AdBlock", id: 1402042596
-mas "Asphalt 9", id: 1491129197
-mas "City Island 3", id: 1281513602
+# mas "Asphalt 9", id: 1491129197
+# mas "City Island 3", id: 1281513602
 mas "Flycut", id: 442160987
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
