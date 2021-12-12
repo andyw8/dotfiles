@@ -19,9 +19,12 @@ cd ~/src
 mkdir thoughtbot
 cd thoughtbot
 git clone https://github.com/thoughtbot/dotfiles.git
+mkdir -f ~/src/github.com
 cd ~/src
 mkdir andyw8
 git clone https://github.com/andyw8/dotfiles.git dotfiles-local
+ln -s ~/dotfiles ~/src/github.com/thoughtbot/dotfiles
+ln -s ~/dotfiles-local ~/src/github.com/andyw8/dotfiles
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
