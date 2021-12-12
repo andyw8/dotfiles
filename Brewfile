@@ -192,6 +192,7 @@ cask "the-unarchiver"
 # cask "time-out"
 # cask "transmission" # p2p
 # cask "tunnelbear"
+cask "tuple"
 cask "vagrant"
 # cask "virtualbox" needs security allowance
 cask "visual-studio-code"
