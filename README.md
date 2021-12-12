@@ -45,18 +45,19 @@ brew bundle
 
 # Manual Steps
 
-* Configure Quitter
-* Set up printers
-* Set up Dash
-* In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
-* https://help.github.com/articles/setting-your-email-in-git/
-* run `minikube start`
-* Load Chromium settings chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
-* Run iTerm shell integration
-* Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
-* Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
-* Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
-* Set [always show scroll bars](https://osxdaily.com/2011/08/03/show-scroll-bars-mac-os-x-lion/)
+- Configure Quitter
+- Set up printers
+- Set up Dash
+- In AdBlock for Chrome, disable "Allow some non-intrusive advertising"
+- https://help.github.com/articles/setting-your-email-in-git/
+- run `minikube start`
+- Load Chromium settings chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
+- Run iTerm shell integration
+- Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
+- Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
+- Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
+- Set [always show scroll bars](https://osxdaily.com/2011/08/03/show-scroll-bars-mac-os-x-lion/)
+- Restore Rectangle config (`RectangleConfig.json`)
 
 # Backups Checklist
 
