@@ -12,6 +12,7 @@ brew tap thoughtbot/formulae
 ```
 
 Then run:
+
 ```
 brew install rcm
 git clone https://github.com/thoughtbot/dotfiles.git
@@ -29,15 +30,17 @@ sh dotfiles-mathiasbynens/.macos
 ```
 
 Optional: Install Mac App Store apps
+
 ```
 sh mac_app_store
 ```
 
 Optional: Install entries from `Brewfile`
+
 ```
 brew bundle
 # or if updating a system
-# brew bundle --cleanup 
+# brew bundle --cleanup
 ```
 
 # Manual Steps
@@ -80,17 +83,17 @@ Chrome Settings -> You and Google -> Turn on Sync -> Settings -> Manage Sync -> 
 
 ## Safari Plugins
 
-* [Vimari for Safari](https://github.com/guyht/vimari/releases/latest)
-* [Octotree for Safari](https://github.com/buunguyen/octotree)
-* [Inconsolata font for coding](https://www.google.com/fonts#UsePlace:use/Collection:Inconsolata)
-* Add license for Dash
-* iTerm ­ Install Shell Integration
-* `[sudo] npm -g install instant-markdown-x` for https://github.com/NBUT-Developers/extra-instant-markdown
+- [Vimari for Safari](https://github.com/guyht/vimari/releases/latest)
+- [Octotree for Safari](https://github.com/buunguyen/octotree)
+- [Inconsolata font for coding](https://www.google.com/fonts#UsePlace:use/Collection:Inconsolata)
+- Add license for Dash
+- iTerm ­ Install Shell Integration
+- `[sudo] npm -g install instant-markdown-x` for https://github.com/NBUT-Developers/extra-instant-markdown
 
 ## Licenses
 
-* OmniFocus
-* 1Password
+- OmniFocus
+- 1Password
 
 ## TODO
 
