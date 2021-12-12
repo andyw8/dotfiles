@@ -1,5 +1,3 @@
-[credential]
-  helper = osxkeychain
 [user]
   name = Andy Waite
   email = andyw8@users.noreply.github.com
@@ -26,5 +24,3 @@
   # Push current branch even if you've never pushed it before
   # https://thoughtbot.com/blog/push-the-current-git-branch-even-if-youve-never
   default = current
-[include]
-  path = ~/.gitconfig.shopify
