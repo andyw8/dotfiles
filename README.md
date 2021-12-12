@@ -78,7 +78,11 @@ brew bundle
 - VS Code config
 - Uncommitted/unpushed changes in local dotfiles
 - Anything in `~/.bin`
+- Dot files in `~`
 - Choosy settings
+- Rectangle settings
+- Consider using `brew bundle dump`
+- Consider using Mackup (but can be confusing/opaque)
 
 ## Chrome
 
