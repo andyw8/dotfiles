@@ -15,7 +15,12 @@ Then run:
 
 ```
 brew install rcm
+cd ~/src
+mkdir thoughtbot
+cd thoughtbot
 git clone https://github.com/thoughtbot/dotfiles.git
+cd ~/src
+mkdir andyw8
 git clone https://github.com/andyw8/dotfiles.git dotfiles-local
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
