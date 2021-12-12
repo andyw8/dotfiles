@@ -1,0 +1,8 @@
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - Brewfile
+Style/NumericLiterals:
+  Exclude:
+    - Brewfile
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
