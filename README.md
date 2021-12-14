@@ -85,6 +85,10 @@ brew bundle
 - Rectangle settings
 - Consider using `brew bundle dump`
 - Consider using Mackup (but can be confusing/opaque)
+- Files Documents, Movies, Desktop, Music, Pictures, Downloads
+- Anything in Notes.app if not iCloud synced
+- More any software licenses into 1Password
+- Take a screenshot of Applications list as a reminder
 
 ## Chrome
 
