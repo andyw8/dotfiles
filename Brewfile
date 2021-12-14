@@ -172,7 +172,7 @@ cask "plex"
 cask "postman"
 cask "qlcolorcode"
 cask "qlimagesize"
-cask "qlmarkdown"
+# cask "qlmarkdown" # Security warnings
 cask "qlstephen"
 cask "qlvideo"
 cask "quicklook-csv"
