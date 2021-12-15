@@ -73,7 +73,9 @@ brew bundle
 - Anything in `~/.zshrc`
 - iTerm config
 - SSH keys
-- Chrome extensions and their configs (across all profiles)
+- Chrome extensions and their configs (across all profiles), e.g.
+  - Vimium
+  - Tabwrangler
 - Neovim config
 - VS Code config
 - Uncommitted/unpushed changes in local dotfiles
