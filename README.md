@@ -66,6 +66,8 @@ brew bundle
 - Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
 - Set [always show scroll bars](https://osxdaily.com/2011/08/03/show-scroll-bars-mac-os-x-lion/)
 - Restore Rectangle config (`RectangleConfig.json`)
+- Chrome extensions:
+  - [ClearURLs](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk?hl=en)
 
 # Backups Checklist
 
