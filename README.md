@@ -68,6 +68,7 @@ brew bundle
 - Restore Rectangle config (`RectangleConfig.json`)
 - Chrome extensions:
   - [ClearURLs](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk?hl=en)
+- `softwareupdate --install-rosetta`
 
 # Backups Checklist
 
