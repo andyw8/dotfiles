@@ -91,6 +91,7 @@ brew bundle
 - Anything in Notes.app if not iCloud synced
 - More any software licenses into 1Password
 - Take a screenshot of Applications list as a reminder
+- Take note of what Slacks I'm signed into
 
 ## Chrome
 
