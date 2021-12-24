@@ -69,6 +69,7 @@ brew bundle
 - Chrome extensions:
   - [ClearURLs](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk?hl=en)
 - `softwareupdate --install-rosetta`
+- [Enable TouchID for `sudo`](https://sixcolors.com/post/2020/11/quick-tip-enable-touch-id-for-sudo/)
 
 # Backups Checklist
 
