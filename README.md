@@ -96,6 +96,7 @@ brew bundle
 - Take a screenshot of Applications list as a reminder
 - Take note of what Slacks I'm signed into
 - Anything saved to Keychain
+- Bookmarks in Safari, especially Bookmarklets
 
 ## Chrome
 
