@@ -55,7 +55,10 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-set esckeys "https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+if !has('nvim')
+  set esckeys "https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+endif
+
 hi ColorColumn ctermbg=darkgrey
 
 let g:UltiSnipsExpandTrigger="<tab>"
