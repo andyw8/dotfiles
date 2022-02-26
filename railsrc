@@ -1,4 +1,4 @@
 --database postgresql
---skip-builder
+--skip-jbuilder
 --css bootstrap
 --javascript esbuild
