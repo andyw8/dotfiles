@@ -20,6 +20,7 @@
   uncommit = "!git reset --soft HEAD^"
   sla = "!git log --oneline --graph --all --decorate"
   rh = "!git fetch && git reset --hard @{u}"
+  pr-body = "log --format='#### %B' --reverse HEAD --not origin/HEAD"
 [push]
   # Push current branch even if you've never pushed it before
   # https://thoughtbot.com/blog/push-the-current-git-branch-even-if-youve-never
