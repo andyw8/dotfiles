@@ -30,6 +30,7 @@
   "byesig.fold": false,
   "byesig.showIcon": false,
 
+  "cSpell.dictionaries": ["ruby"],
   "cSpell.enabled": true,
   "cSpell.enableFiletypes": ["ruby", "erb"],
   "cSpell.userWords": [
