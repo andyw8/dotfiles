@@ -48,7 +48,12 @@ Plug 'rizzatti/dash.vim'
 " Plug 'rorymckinley/vim-rubyhash'
 
 " seems to be causing error
-" Plug 'SirVer/ultisnips'
+if has('nvim')
+  Plug 'SirVer/ultisnips'
+  Plug 'SirVer/ultisnips'
+  Plug 'glacambre/firenvim' " for firenvim Chrome extension
+endif
+
 Plug 'skwp/greplace.vim' " Global search and replace
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-cucumber'

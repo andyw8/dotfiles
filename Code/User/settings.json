@@ -1,13 +1,10 @@
 {
+  // test1
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
 
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
@@ -20,60 +17,75 @@
     "editor.defaultFormatter": "Shopify.rubocop-lsp"
   },
 
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "breadcrumbs.enabled": true,
 
-  "byesig.opacity": 0.3,
+  "byesig.opacity": 0.1,
   "byesig.fold": false,
   "byesig.showIcon": false,
 
   "cSpell.dictionaries": ["ruby"],
   "cSpell.enabled": true,
   "cSpell.enableFiletypes": ["ruby", "erb"],
+  "cSpell.spellCheckDelayMs": 500,
   "cSpell.userWords": [
-    "activerecord",
     "adoc",
+    "andyw",
     "asciidoctor",
     "automount",
     "autorun",
     "blockquote",
     "bootsnap",
     "Bugsnag",
+    "byebug",
     "carrierwave",
     "cheatsheet",
     "Chromedriver",
+    "cooridinates",
     "datetime",
     "delegators",
-    "downcase",
+    "downto",
     "ejson",
     "erblint",
     "exts",
     "favorited",
     "figcaption",
+    "gorails",
     "graphiql",
     "Guardfile",
+    "Habanero",
     "healthcheck",
     "hedwig",
     "hexdigest",
     "htmlbeautifier",
     "instrumenter",
     "javascripts",
+    "jewellery",
     "jquery",
+    "Jumpstart",
     "kata",
+    "katas",
     "klass",
     "MAILGUN",
-    "minitest",
     "mrkdwn",
     "nilable",
     "nofollow",
+    "nums",
     "omniauth",
     "omniauthable",
+    "openapi",
+    "organisational",
     "overmind",
     "Pagy",
     "pghero",
+    "PGPASSWORD",
     "Pockfile",
     "postgres",
     "precompiled",
@@ -81,14 +93,15 @@
     "Prepend",
     "prepending",
     "Preprocess",
+    "preprocessors",
     "Rakefile",
     "Redcarpet",
     "resque",
     "rexml",
-    "rspec",
-    "rubocop",
     "runtimes",
     "serializers",
+    "shadowenv",
+    "shadowenvs",
     "Shipit",
     "Sidekiq",
     "sidenav",
@@ -101,6 +114,7 @@
     "stylesheet",
     "submenu",
     "subquery",
+    "sulfuras",
     "tailwindcss",
     "tbody",
     "thead",
@@ -109,39 +123,41 @@
     "titleize",
     "tldr",
     "tobi",
+    "tophat",
+    "Tophatting",
     "turbolinks",
+    "typecheck",
     "Unactioned",
     "unallowed",
     "unpermitted",
     "unprocessable",
     "Untriaged",
     "unversioned",
-    "webmock",
+    "upsert",
     "Zeitwerk"
   ],
   "cSpell.ignoreWords": ["PGHOST", "PGPASS", "PGUSER"],
 
   "diffEditor.ignoreTrimWhitespace": false,
 
-  "editor.accessibilitySupport": "off",
+  "editor.accessibilitySupport": "off", // https://fig.io/docs/support/vscode-integration
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "solid",
   "editor.fontSize": 14,
-  "editor.formatOnSave": true,
+  //"editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
   "editor.renderFinalNewline": false,
   "editor.renderIndentGuides": false,
   "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "trailing",
+  "editor.renderWhitespace": "none",
   "editor.rulers": [120],
   "editor.scrollBeyondLastLine": false, // recommended by vscode-neovim
   "editor.wordWrapColumn": 120,
 
   "emmet.includeLanguages": {
-    "erb": "html",
-    "ruby": "html"
+    "erb": "html"
   },
 
   "explorer.confirmDragAndDrop": false,
@@ -200,10 +216,10 @@
 
   "security.workspace.trust.untrustedFiles": "open",
 
-  // "solargraph.useBundler": true,
-  "solargraph.logLevel": "debug",
-  "solargraph.commandPath": "bin/solargraph",
-  "solargraph.transport": "stdio", // https://github.com/castwide/solargraph/issues/219
+  //"solargraph.logLevel": "debug",
+  //"solargraph.commandPath": "/Users/andyw8/.gem/ruby/3.1.1/bin/solargraph",
+  //"solargraph.transport": "stdio", // https://github.com/castwide/solargraph/issues/219
+  "solargraph.useBundler": false,
 
   "task.quickOpen.history": 0,
 
@@ -216,8 +232,6 @@
   "testExplorer.showOnRun": true,
 
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-
-  "window.zoomLevel": -1,
   "window.openFoldersInNewWindow": "on",
 
   "workbench.colorCustomizations": {
@@ -230,9 +244,15 @@
   },
   "workbench.startupEditor": "none",
 
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
   "zenMode.silentNotifications": false,
-  "zenMode.hideLineNumbers": false,
-  "zenMode.fullScreen": false,
-  "zenMode.centerLayout": false
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  },
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
 }
