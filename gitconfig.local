@@ -25,3 +25,6 @@
   # Push current branch even if you've never pushed it before
   # https://thoughtbot.com/blog/push-the-current-git-branch-even-if-youve-never
   default = current
+[merge]
+  # https://blog.nilbus.com/take-the-pain-out-of-git-conflict-resolution-use-diff3/
+  conflictstyle = diff3
