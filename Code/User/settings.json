@@ -27,7 +27,7 @@
 
   "breadcrumbs.enabled": true,
 
-  "byesig.opacity": 0.1,
+  "byesig.opacity": 0.5,
   "byesig.fold": false,
   "byesig.showIcon": false,
 
