@@ -28,16 +28,46 @@
     "prefix": "cla3",
     "body": "class $1\n\tdef initialize($2, $3, $4)\n    @$2 = $2\n    @$3 = $3\n    @$4 = $4\n  end\n$0\n  private\n\nend"
   },
-  "clak1": {
-    "prefix": "clak1",
+  "clakw1": {
+    "prefix": "clakw1",
     "body": "class $1\n\tdef initialize($2)\n    @$2 = $2\n  end\n$0\n  private\n\n  attr_reader :$2\nend"
   },
-  "clak2": {
-    "prefix": "clak2",
+  "clakw2": {
+    "prefix": "clakw2",
     "body": "class $1\n\tdef initialize($2, $3)\n    @$2 = $2\n    @$3 = $3\n  end\n$0\n  private\n\nend"
   },
-  "clak3": {
-    "prefix": "clak3",
+  "clakw3": {
+    "prefix": "clakw3",
     "body": "class $1\n\tdef initialize($2, $3, $4)\n    @$2 = $2\n    @$3 = $3\n    @$4 = $4\n  end\n$0\n  private\n\nend"
+  },
+  "ActiveSupport Test Case": {
+    "prefix": "test",
+    "description": "Create an ActiveSupport test case",
+    "body": [
+      "test \"${1}\" do",
+      "\t# setup",
+      "",
+      "\t# exercise",
+      "",
+      "\t# verify",
+      "\tassert_${3}",
+      "end"
+    ]
+  },
+  "ActiveSupport Test": {
+    "prefix": "ctest",
+    "description": "Create an ActiveSupport test class",
+    "body": [
+      "class ${1} < ActiveSupport::TestCase",
+      "\ttest \"${2}\" do",
+      "\t\t# setup",
+      "",
+      "\t\t# exercise",
+      "",
+      "\t\t# verify",
+      "\t\tassert_${3}",
+      "\tend",
+      "end"
+    ]
   }
 }
