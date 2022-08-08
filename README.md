@@ -21,8 +21,8 @@ git clone https://github.com/thoughtbot/dotfiles.git
 mkdir -p ~/src/github.com/andyw8
 cd ~/src/github.com/andyw8
 git clone https://github.com/andyw8/dotfiles.git
-ln -s ~/dotfiles ~/src/github.com/thoughtbot/dotfiles
-ln -s ~/dotfiles-local ~/src/github.com/andyw8/dotfiles
+ln -s ~/src/github.com/thoughtbot/dotfiles ~/dotfiles 
+ln -s  ~/src/github.com/andyw8/dotfiles ~/dotfiles-local
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
