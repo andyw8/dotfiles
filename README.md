@@ -53,6 +53,8 @@ brew bundle
 
 # Manual Steps
 
+- Turn on FileVault
+- Install 1Password extensions (e.g. Safari, Chrome)
 - Configure Quitter
 - Set up printers
 - Set up Dash
