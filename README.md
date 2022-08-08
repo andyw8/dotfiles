@@ -15,9 +15,8 @@ Then run:
 
 ```
 brew install rcm
-cd ~/src
-mkdir thoughtbot
-cd thoughtbot
+mkdir -f ~/src/github.com/thoughtbot
+cd ~/src/github.com/thoughtbot
 git clone https://github.com/thoughtbot/dotfiles.git
 mkdir -f ~/src/github.com/andyw8
 cd ~/src/github.com/andyw8
