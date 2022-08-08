@@ -72,6 +72,7 @@ brew bundle
 - `softwareupdate --install-rosetta`
 - [Enable TouchID for `sudo`](https://sixcolors.com/post/2020/11/quick-tip-enable-touch-id-for-sudo/)
 - Run `./my_defaults` (restart Finder afterwards)
+- Exclude `~/src` from Spotlight indexing
 
 # Backups Checklist
 
