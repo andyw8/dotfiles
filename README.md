@@ -44,6 +44,7 @@ sh mac_app_store
 Optional: Install entries from `Brewfile`
 
 ```
+cd ~/dotfiles-local
 brew bundle
 # or if updating a system
 # brew bundle --cleanup
