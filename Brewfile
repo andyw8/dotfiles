@@ -102,7 +102,7 @@ brew "shopify/shopify/themekit"
 brew "shopify/shopify/toxiproxy"
 brew "sloccount"
 brew "snappy" # for Shopify
-# brew "spotify" # 'formula is unreadable'
+brew "spotify"
 brew "sqlite"
 brew "srt"
 brew "starship"
