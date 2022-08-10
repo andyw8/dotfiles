@@ -92,9 +92,6 @@ alias doco="docker-compose"
 alias start-rb="git clone git@github.com:andyw8/start-rb.git && cd start-rb && bundle"
 alias aoc="cd /Users/awaite/code/andyw8/advent_of_code_2019"
 
-# shopify
-alias d="dev"
-
 alias e="code"
 
 alias ag="ag --hidden --ignore .git" # otherwise it ignores files/dirs beginning with a dot https://github.com/ggreer/the_silver_searcher/issues/24
