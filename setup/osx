@@ -823,31 +823,3 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
 # Empty Trash securely by default
 defaults write com.apple.finder EmptyTrashSecurely -bool true
-
-# Additions by andyw8
-# doesn't work?
-defaults write com.apple.Safari ShowStatusBar -boolean true
-
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-
-defaults write com.apple.sound.beep.feedback -int 1
-
-# Always display Volume menubar item
-PLISTBUDDY=/usr/libexec/plistbuddy
-FILE=~/Library/Preferences/com.apple.systemuiserver.plist
-$PLISTBUDDY -c "add :menuExtras:0 string '/System/Library/CoreServices/Menu Extras/Volume.menu'" $FILE
-
-# Make Safari’s search banners default to Contains instead of Starts With
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-# Do not preload Top Hits in the background
-defaults write com.apple.Safari PreloadTopHit -bool false
-
-# Display -> Automatically adjust brightness
-# doesn't work, add to manual list of steps
-# defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
-
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool FALSE
-
-# safari transparency
-# System Preferences > Accesibility > Display > Reduce Transparency.
