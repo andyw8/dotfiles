@@ -7,14 +7,12 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "planetscale/tap"
-tap "shopify/shopify"
 tap "stripe/stripe-cli"
 tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
 tap "weaveworks/tap" # kubernetes
 brew "act"
 # brew "asciinema"
-brew "automake" # for Shopify
 brew "awscli"
 brew "bat" # A cat(1) clone with wings.
 brew "bison"
@@ -53,12 +51,10 @@ brew "hugo"
 brew "imagemagick@6"
 brew "jq"
 brew "jsonpp"
-brew "kcat" # for Shopify
 # brew "kibana" # elasticsearch dashboard # changed to an incompatible license
 brew "leiningen" # for clojure
 brew "libass"
 brew "libgda"
-brew "librdkafka" # for Shopify
 brew "librsvg"
 brew "libssh"
 brew "libxml2"
@@ -101,7 +97,6 @@ brew "shopify/shopify/shopify-imagemagick@6", link: true
 brew "shopify/shopify/themekit"
 brew "shopify/shopify/toxiproxy"
 brew "sloccount"
-brew "snappy" # for Shopify
 brew "spotify"
 brew "sqlite"
 brew "srt"
