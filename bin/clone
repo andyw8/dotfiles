@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+# Based on
 # https://gist.github.com/searls/62d5cb2f736a75c73ae2
 
 # A simple script to keep a tidy ~/code directory organized by owner & then repo
@@ -18,7 +19,7 @@
 IFS='/' read -ra ADDR <<< "$1"
 ORG="${ADDR[0]}"
 REPO="${ADDR[1]-$2}"
-ORG_DIR="$HOME/code/$ORG"
+ORG_DIR="$HOME/src/github.com/$ORG"
 REPO_DIR="$ORG_DIR/$REPO"
 
 # Make sure org directory exists
@@ -28,9 +29,9 @@ mkdir -p "$ORG_DIR"
 if [ -d "$REPO_DIR" ]; then
   echo "It looks like the repo was already cloned."
 else
-  git clone "git@github.com:$ORG/$REPO.git" "$REPO_DIR"
+  git clone "https://github.com/$ORG/$REPO.git" "$REPO_DIR"
 fi
 
-echo "cd $HOME/code/$ORG/$REPO\n" | pbcopy
+echo "cd $HOME/src/github.com/$ORG/$REPO\n" | pbcopy
 echo "Hit Command-V to cd into the repo!"
 
