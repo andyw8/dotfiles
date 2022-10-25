@@ -17,6 +17,7 @@ brew "awscli"
 brew "bat" # A cat(1) clone with wings.
 brew "bison"
 brew "cairo"
+brew "choosy"
 brew "cmake"
 brew "composer"
 brew "dark-mode"
@@ -63,6 +64,7 @@ brew "markdownlint-cli"
 brew "mas"
 brew "memcached"
 brew "mitmproxy"
+brew "mysql"
 # brew "mysql", restart_service: true, link: false
 # brew "mysql-client@5.7", link: true
 brew "ncdu" # disk usage
@@ -72,8 +74,7 @@ brew "overmind"
 brew "pango"
 brew "pkg-config"
 brew "planetscale/tap/pscale"
-brew "postgresql", restart_service: true
-brew "pyenv" # for Shopify
+brew "postgresql@14", restart_service: true
 brew "pygments"
 brew "rcm"
 brew "re2"
@@ -84,18 +85,11 @@ brew "rtmpdump"
 brew "ruby"
 brew "ruby-install"
 brew "selenium-server"
+brew "sequel-ace"
 brew "shadowenv"
 brew "shared-mime-info"
 brew "shellcheck"
-brew "shopify/shopify/ejson"
-brew "shopify/shopify/ejson2env"
-brew "shopify/shopify/libzookeeper"
-brew "shopify/shopify/secret-sender"
-brew "shopify/shopify/shopify-cli", link: false
-brew "shopify/shopify/shopify-graphicsmagick"
-brew "shopify/shopify/shopify-imagemagick@6", link: true
-brew "shopify/shopify/themekit"
-brew "shopify/shopify/toxiproxy"
+brew "slack"
 brew "sloccount"
 brew "spotify"
 brew "sqlite"
@@ -119,37 +113,35 @@ brew "youtube-dl"
 brew "z"
 brew "zlib"
 cask "alfred"
-# cask "arq"
+cask "arq"
 cask "brave-browser"
 # cask "catch" # tv show rss feeds
 cask "ccmenu"
 cask "chromedriver"
-# cask google-chrome # problems with 1password
+cask "google-chrome"
 # cask "coconutbattery"
-# cask "cyberduck" # FTP client
 # cask "dash"
 cask "dbeaver-community"
 cask "discord"
 cask "docker"
-# cask "dropbox"
+cask "dropbox"
 cask "duet" # use iPad as external screen
 cask "firefox"
 # cask "fork" # Git client https://git-fork.com/
-# cask "freedom"
+cask "freedom"
 cask "github"
 cask "gitify"
 cask "google-cloud-sdk"
-# cask "google-drive"
+cask "google-drive"
 # cask "handbrake"
 cask "hot"
 cask "istat-menus"
 cask "iterm2"
-cask "jdownloader"
-# cask "karabiner-elements" # requires extra permissions
+cask "karabiner-elements" # requires extra permissions
 cask "keyboard-cleaner"
 cask "keycastr"
-# cask "kindle"
-# cask "kindlegen"
+cask "kindle"
+cask "kindlegen"
 cask "launchcontrol"
 cask "logitech-options" # requires sudo
 cask "lunar"
@@ -160,10 +152,10 @@ cask "meetingbar"
 # brew cask install menumeters # semi-abandoned?
 cask "ngrok"
 cask "notion"
-# cask "nvidia-geforce-now"
+cask "nvidia-geforce-now"
 cask "obs"
 cask "omnidisksweeper"
-# cask "omnifocus" # add license after install
+cask "omnifocus" # add license after install
 cask "onyx"
 cask "phantomjs"
 cask "plex"
@@ -177,41 +169,28 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "quitter"
 cask "rectangle" # need permissions on first launch
+cask "rubymine"
 cask "rescuetime"
 # cask "selfcontrol"
 cask "send-to-kindle"
 cask "sonos"
-# cask "soundflower" # no M1 yet. and may need security allowance
+# cask "soundflower" # no Apple Silicon yet. and may need security allowance
 cask "sourcetree"
-cask "spectacle"
 cask "stretchly"
-# cask "stremio"
+cask "stremio"
 cask "the-unarchiver"
 # cask "time-out"
-# cask "transmission" # p2p
-# cask "tunnelbear"
+cask "transmission" # p2p
+cask "tunnelbear"
 cask "tuple"
 cask "vagrant"
+cask "vanilla"
 # cask "virtualbox" needs security allowance
 cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
 # cask "whatsapp"
-mas "AdBlock", id: 1402042596
-# mas "Asphalt 9", id: 1491129197
-# mas "City Island 3", id: 1281513602
-mas "Flycut", id: 442160987
-# mas "GarageBand", id: 682658836
-# mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Lynda.com", id: 985958984
-mas "Monosnap", id: 540348655
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Pocket", id: 568494494
-mas "Save to Pocket", id: 1477385213
-mas "Trello", id: 1278508951
-mas "Ulysses", id: 1225570693
-mas "Up Next", id: 1355117041
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
+
+# https://github.com/popcorn-official/popcorn-desktop
+tap "popcorn-official/popcorn-desktop" # , "https://github.com/#{repo}.git"
+cask "popcorn-time"
