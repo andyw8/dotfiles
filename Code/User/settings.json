@@ -31,6 +31,7 @@
 
   "breadcrumbs.enabled": true,
 
+  "byesig.enabled": true,
   "byesig.opacity": 0.5,
   "byesig.fold": false,
   "byesig.showIcon": false,
