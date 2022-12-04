@@ -265,7 +265,7 @@
   "terminal.integrated.defaultLocation": "editor",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 50000,
   "terminal.integrated.tabs.enabled": true,
 
   "testExplorer.showOnRun": true,
