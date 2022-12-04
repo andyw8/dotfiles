@@ -17,3 +17,6 @@ endif
 if filereadable($HOME . "/.vimrc")
   source ~/.vimrc
 endif
+
+# Fix for copy and paste in VS Code https://github.com/neovim/neovim/pull/19290
+set mouse=vi
