@@ -14,7 +14,11 @@
 
   "[ruby]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "Shopify.ruby-lsp"
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnType": true
   },
 
   "[json]": {
