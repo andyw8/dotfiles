@@ -61,15 +61,18 @@ endif
 
 hi ColorColumn ctermbg=darkgrey
 
-let g:UltiSnipsExpandTrigger="<tab>"
+if has('nvim')
+  let g:UltiSnipsExpandTrigger="<tab>"
+  " unsure why needed but get error without it
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+endif
+
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsSnippetsDir="/Users/andy/dotfiles/UltiSnips"
-"
-"
 
 " https://til.hashrocket.com/posts/e8915e62c0-highlight-markdown-fenced-code-syntax-in-vim
 let g:markdown_fenced_languages = ['html', 'vim', 'ruby', 'python', 'bash=sh']
