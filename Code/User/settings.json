@@ -205,7 +205,8 @@
   "files.associations": {
     "*.yml.erb": "yaml",
     "*.yaml.lock": "yaml",
-    "*.ejson": "json"
+    "*.ejson": "json",
+    "*.rb.tt": "erb"
   },
   "files.exclude": {
     ".shadowenv.d": true
