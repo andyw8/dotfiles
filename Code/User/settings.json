@@ -241,17 +241,10 @@
   "rubocop-lsp.trace.server": "verbose",
 
   "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.rspecCommand": "bin/rspec",
-
-  "ruby.intellisense": false, // "ruboLocate" clashes with rubocop-lsp
-  "ruby.codeCompletion": false, // "ruboLocate" clashes with rubocop-lsp
+  "rubyTestExplorer.rspecCommand": "bin/rspec", // "ruboLocate" clashes with rubocop-lsp
   "ruby.locate": {
     "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
     "include": "**/*.rb"
-  },
-  "ruby.useBundler": true, //run non-lint commands with bundle exec
-  "ruby.lint": {
-    "rubocop": false // prevent clash with rubocop-lsp
   },
   // "ruby.useLanguageServer": true, // use the internal language server (see below)
   "sorbet.enabled": true,
@@ -272,8 +265,12 @@
 
   "task.quickOpen.history": 0,
 
-  "terminal.integrated.defaultLocation": "editor",
   "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.tabs.enabled": true,
@@ -281,7 +278,6 @@
   "testExplorer.showOnRun": true,
 
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "window.openFoldersInNewWindow": "on",
 
   "workbench.colorCustomizations": {
     "statusBar.background": "#af2828",
@@ -298,10 +294,4 @@
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
   "zenMode.silentNotifications": false,
-  "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
-  },
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  }
 }
