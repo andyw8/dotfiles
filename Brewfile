@@ -150,7 +150,7 @@ cask "meetingbar"
 # cask "mysqlworkbench"
 # cask "mongodb"
 # brew cask install menumeters # semi-abandoned?
-cask "ngrok"
+cask "ngrok" # beware, different from https://dashboard.ngrok.com/get-started/setup ? e.g. no `ngrok config` https://dashboard.ngrok.com/get-started/setup
 cask "notion"
 cask "nvidia-geforce-now"
 cask "obs"
