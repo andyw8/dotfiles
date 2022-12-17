@@ -109,6 +109,8 @@ brew bundle
 - Take note of what Slacks I'm signed into
 - Anything saved to Keychain
 - Bookmarks in Safari, especially Bookmarklets
+- Automator routines
+- Safari extension settings, especially Markdownload.
 
 ## Chrome
 
