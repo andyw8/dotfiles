@@ -125,7 +125,6 @@ cask "dbeaver-community"
 cask "discord"
 cask "docker"
 cask "dropbox"
-cask "duet" # use iPad as external screen
 cask "firefox"
 # cask "fork" # Git client https://git-fork.com/
 cask "freedom"
