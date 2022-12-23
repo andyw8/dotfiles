@@ -189,6 +189,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
 # cask "whatsapp"
+cask "zoom"
 
 # https://github.com/popcorn-official/popcorn-desktop
 tap "popcorn-official/popcorn-desktop" # , "https://github.com/#{repo}.git"
