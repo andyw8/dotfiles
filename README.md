@@ -82,6 +82,7 @@ brew bundle
 - Configure Safari not to save passwords etc. (since using 1Password)
 - Enable full disk encryption
 - Enable 'Desktop and Documents' in iCloud https://support.apple.com/en-ca/HT206985
+- Log into Raycast via GitHub
 
 # Backups Checklist
 
