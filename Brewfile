@@ -49,7 +49,7 @@ brew "heroku/brew/heroku"
 brew "htop" # may need sudo
 brew "hub"
 brew "hugo"
-brew "imagemagick@6"
+# brew "imagemagick@6" # can usually use libvips instead
 brew "jq"
 brew "jsonpp"
 # brew "kibana" # elasticsearch dashboard # changed to an incompatible license
@@ -58,6 +58,7 @@ brew "libass"
 brew "libgda"
 brew "librsvg"
 brew "libssh"
+brew "libvips"
 brew "libxml2"
 brew "libyaml"
 brew "markdownlint-cli"
