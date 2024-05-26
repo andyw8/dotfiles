@@ -20,8 +20,8 @@ set formatoptions-=or
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" Strip whitespace on saving Ruby or Elixir files
-autocmd FileType ruby,elixir autocmd BufWritePre <buffer> %s/\s\+$//e
+" Strip whitespace on saving Ruby files
+autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " fzf shortcut
 nnoremap <leader>o :Files<CR>
