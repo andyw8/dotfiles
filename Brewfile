@@ -9,7 +9,6 @@ tap "homebrew/services"
 tap "planetscale/tap"
 tap "stripe/stripe-cli"
 tap "thoughtbot/formulae"
-tap "weaveworks/tap" # kubernetes
 brew "act"
 # brew "asciinema"
 brew "awscli"
