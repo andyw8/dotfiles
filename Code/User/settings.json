@@ -7,27 +7,37 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
 
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  //"[javascript]": {
+  //  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  //},
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
   },
-
   "[jsonc]": {
+
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
   "[ruby]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.semanticHighlighting.enabled": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.wordSeparators": "`~@#$%^&*()-=+[{]}\\|;:'\",.<>/" // https://github.com/Shopify/vscode-shopify-ruby/issues/422
   },
-
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
   "[json]": {
     "editor.formatOnSave": true
   },
-
+  //"ruby lsp.trace.server": "messages",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -47,45 +57,68 @@
     "activeresource",
     "adoc",
     "andyw",
+    "arity",
     "asciidoctor",
     "autocorrectable",
+    "autocorrection",
+    "autoload",
     "automount",
     "autorun",
+    "bindir",
     "blockquote",
+    "bodystmt",
     "bootsnap",
+    "braintree",
     "Bugsnag",
     "byebug",
     "Cancancan",
     "carrierwave",
+    "cattr",
     "cheatsheet",
     "Chromedriver",
+    "chruby",
+    "cmds",
     "cooridinates",
+    "Dalli",
     "datetime",
+    "debuggee",
     "delegators",
     "dotenv",
     "downto",
+    "DSLs",
     "Duplicative",
     "EASDK",
     "ejson",
     "erblint",
+    "esbuild",
     "evented",
+    "exitstatus",
     "exts",
     "favorited",
+    "fcall",
     "figcaption",
+    "FIXEDENCODING",
+    "Forwardable",
     "fullpage",
+    "fullpath",
     "getthingsright",
+    "Globbing",
     "gorails",
     "graphiql",
     "Guardfile",
     "Habanero",
+    "Hashie",
     "healthcheck",
     "hedwig",
     "hexdigest",
+    "highlightable",
     "HMAC",
     "htmlbeautifier",
     "httparty",
     "instrumenter",
+    "iseq",
     "isogun",
+    "ivar",
     "javascripts",
     "jbuilder",
     "jewellery",
@@ -97,20 +130,26 @@
     "klass",
     "kwargs",
     "lograge",
+    "Logseq",
     "Mailcatcher",
     "MAILGUN",
+    "metaprogramming",
     "Microservices",
     "monkeypatching",
     "mrkdwn",
+    "mswin",
     "Multitenancy",
     "myshopify",
     "Namespacing",
     "neovim",
     "nilable",
     "nofollow",
+    "nonpositional",
     "nums",
     "omniauth",
     "omniauthable",
+    "omnifocus",
+    "oneshot",
     "openapi",
     "organisational",
     "overmind",
@@ -118,6 +157,7 @@
     "pghero",
     "PGPASSWORD",
     "pgsync",
+    "pinboard",
     "Pockfile",
     "postgres",
     "precompiled",
@@ -126,20 +166,32 @@
     "prepending",
     "Preprocess",
     "preprocessors",
+    "quux",
+    "Ractor",
     "Ragnaros",
     "railsbytes",
+    "Railtie",
     "Railties",
     "Rakefile",
+    "rdbg",
     "readline",
+    "readwise",
     "Redcarpet",
     "referer",
+    "reparsing",
+    "requireds",
     "resque",
     "rexml",
+    "rindex",
+    "roadmap",
+    "Rolified",
     "rollbar",
+    "Rubinius",
     "rubymine",
     "Ruleset",
     "runtimes",
     "samesite",
+    "sclass",
     "scripttags",
     "scrollback",
     "securerandom",
@@ -150,37 +202,54 @@
     "Shipit",
     "Sidekiq",
     "sidenav",
+    "SIGINT",
     "signout",
     "simplecov",
     "Solargraph",
     "Solargraph's",
+    "Spoom",
+    "Stabby",
     "standardrb",
+    "stree",
     "Struct",
     "stylesheet",
     "submenu",
     "subquery",
+    "subsession",
     "sulfuras",
+    "systmpdir",
     "tailwindcss",
     "tbody",
+    "tempdir",
     "testid",
+    "Textmate",
     "thead",
     "themekit",
     "timecop",
     "titleize",
     "tldr",
+    "tmpdir",
     "tobi",
     "tophat",
     "Tophatting",
+    "tstring",
     "turbolinks",
     "typecheck",
+    "TYPECHECKER",
     "Unactioned",
     "unallowed",
+    "unflagged",
     "unpermitted",
     "unprocessable",
+    "unstub",
     "Untriaged",
     "unversioned",
     "upsert",
     "upstreamed",
+    "walkthrough",
+    "walkthroughs",
+    "YARP",
+    "yjit",
     "Zeitwerk"
   ],
   "cSpell.ignoreWords": ["PGHOST", "PGPASS", "PGUSER"],
@@ -195,10 +264,11 @@
   "editor.guides.indentation": false,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
-  "editor.renderFinalNewline": false,
-  "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
-  "editor.rulers": [120],
+  // "editor.renderFinalNewline": "on",
+  // "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
   "editor.scrollBeyondLastLine": false, // recommended by vscode-neovim
   "editor.wordWrapColumn": 120,
 
@@ -213,7 +283,8 @@
     "*.yml.erb": "yaml",
     "*.yaml.lock": "yaml",
     "*.ejson": "json",
-    "*.rb.tt": "erb"
+    "*.rb.tt": "erb",
+    "*.erb": "ruby"
   },
   "files.exclude": {
     ".shadowenv.d": true
@@ -240,13 +311,6 @@
 
   "rubocop-lsp.trace.server": "verbose",
 
-  "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.rspecCommand": "bin/rspec", // "ruboLocate" clashes with rubocop-lsp
-  "ruby.locate": {
-    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
-    "include": "**/*.rb"
-  },
-  // "ruby.useLanguageServer": true, // use the internal language server (see below)
   "sorbet.enabled": true,
 
   "search.exclude": {
@@ -258,20 +322,22 @@
 
   "security.workspace.trust.untrustedFiles": "open",
 
-  //"solargraph.logLevel": "debug",
-  //"solargraph.commandPath": "/Users/andyw8/.gem/ruby/3.1.1/bin/solargraph",
-  //"solargraph.transport": "stdio", // https://github.com/castwide/solargraph/issues/219
-  "solargraph.useBundler": false,
+  // these apply only to rebornix.Ruby
+  "ruby.useLanguageServer":  false,
+  "ruby.locate": {
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
+  },
+  // "ruby.useLanguageServer": true, // use the internal language server (see below)
+
 
   "task.quickOpen.history": 0,
 
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.defaultLocation": "editor",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "terminal.integrated.fontSize": 14,
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.tabs.enabled": true,
 
@@ -287,6 +353,8 @@
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
+  "workbench.experimental.settingsProfiles.enabled": true,
+  "rubyLsp.enableExperimentalFeatures": true,
   "workbench.startupEditor": "none",
 
   "zenMode.centerLayout": false,
@@ -294,4 +362,56 @@
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": true,
   "zenMode.silentNotifications": false,
+  "redhat.telemetry.enabled": false,
+  "gitlens.mode.active": "zen",
+  "editor.formatOnSaveTimeout": 100,
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Dark+]": {
+      "rules": {
+        "type": {
+          "foreground": "#efec08",
+          "fontStyle": "italic"
+        }
+      }
+    }
+  },
+  // "rubyTestExplorer.minitestDirectory": "./test/minitest",
+  "rubyTestExplorer.logpanel": true,
+  // "rubyTestExplorer.rspecCommand": "bin/rspec", // "ruboLocate" clashes with rubocop-lsp,
+  // "devTestRunner.command": "bin/test",
+  // "devTestRunner.rubyTestRunnerPath": "/Users/andyw8/src/github.com/andyw8/ruby-lsp",
+  "workbench.editor.enablePreview": false,
+  "githubPullRequests.pushBranch": "always",
+  "workbench.preferredDarkColorTheme": "Default High Contrast Light",
+  "workbench.colorTheme": "Spinel",
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "completion": true,
+    "codeLens": true,
+    "definition": true
+  },
+  "editor.snippets.codeActions.enabled": true,
+  "rubyLsp.formatter": "auto",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "rubyLsp.rubyVersionManager": "auto",
+  "rdbg.rubyVersionManager": "shadowenv",
+  "editor.stickyScroll.enabled": true,
+  "editor.renderWhitespace": "all",
+  "code-eol.crlfCharacter": "↵",
+  "githubPullRequests.terminalLinksHandler": "github",
+  "rubyLsp.branch": "main",
+  "sorbet.highlightUntyped": true
 }
