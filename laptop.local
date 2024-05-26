@@ -1,14 +1,9 @@
 BREWFILE=$(cat <<'EOF'
 brew 'awscli' # manual step for auto-completion hook
-brew 'minikube' # for kubernetes
 brew 'sloccount' # a suite of programs for counting physical source lines of code (SLOC)
 EOF
 )
 echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
-
-# suggested in Kubernetes Up And Running Book for AWS
-brew tap weaveworks/tap
-brew install weaveworks/tap/eksctl
 
 brew tap homebrew/cask-drivers
 
