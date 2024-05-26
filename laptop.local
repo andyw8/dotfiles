@@ -7,10 +7,5 @@ echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
 
 brew tap homebrew/cask-drivers
 
-# gem install gem-ctags # https://upcase.com/videos/intelligent-navigation-with-ctags
-# mkdir -p ~/.rbenv/plugins
-# git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
-# rbenv ctags
-
 # https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
