@@ -1,11 +1,1 @@
-BREWFILE=$(cat <<'EOF'
-brew 'awscli' # manual step for auto-completion hook
-brew 'sloccount' # a suite of programs for counting physical source lines of code (SLOC)
-EOF
-)
-echo "$BREWFILE" | brew bundle -v --file=/dev/stdin
-
-brew tap homebrew/cask-drivers
-
-# https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
+# https://github.com/thoughtbot/laptop
