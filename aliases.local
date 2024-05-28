@@ -87,4 +87,5 @@ alias hb="ssh deploy@34.130.135.17"
 alias tcr="dev tcr"
 alias d="dev"
 alias blog="cd ~/src/github.com/andyw8/andyw8.github.io"
-alias reopen="code -r $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' | git diff --name-only)"
+# this was causing unwanted output when opening a new terminal
+# alias reopen="code -r $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' | git diff --name-only)"
