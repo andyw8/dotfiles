@@ -172,7 +172,6 @@ cask "rescuetime"
 # cask "selfcontrol"
 cask "send-to-kindle"
 cask "sonos"
-# cask "soundflower" # no Apple Silicon yet. and may need security allowance
 cask "sourcetree"
 cask "stretchly"
 cask "stremio"
