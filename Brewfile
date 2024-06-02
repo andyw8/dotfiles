@@ -74,7 +74,7 @@ brew "overmind"
 brew "pango"
 brew "pkg-config"
 brew "planetscale/tap/pscale"
-brew "postgresql@14", restart_service: true
+brew "postgresql"
 brew "pygments"
 brew "rcm"
 brew "re2"
