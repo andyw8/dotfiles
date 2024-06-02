@@ -167,7 +167,7 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "quitter"
 cask "rectangle" # need permissions on first launch
-cask "rubymine"
+# cask "rubymine"
 cask "rescuetime"
 # cask "selfcontrol"
 cask "send-to-kindle"
