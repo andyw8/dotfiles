@@ -54,6 +54,7 @@ brew "jsonpp"
 brew "leiningen" # for clojure
 brew "libass"
 brew "libgda"
+# brew "libpq" # better to install `postgresql`?
 brew "librsvg"
 brew "libssh"
 brew "libvips"
