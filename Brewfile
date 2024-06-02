@@ -37,7 +37,6 @@ brew "gmp"
 brew "gnupg"
 brew "gnutls"
 brew "go"
-brew "gobject-introspection"
 brew "graphviz"
 brew "guile"
 brew "handbrake", link: false
