@@ -183,7 +183,7 @@ cask "tuple"
 cask "vagrant"
 cask "vanilla"
 # cask "virtualbox" needs security allowance
-cask "visual-studio-code"
+# cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
 # cask "whatsapp"
