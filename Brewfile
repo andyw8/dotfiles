@@ -190,8 +190,4 @@ cask "webpquicklook"
 # cask "whatsapp"
 cask "zoom"
 
-# https://github.com/popcorn-official/popcorn-desktop
-tap "popcorn-official/popcorn-desktop" # , "https://github.com/#{repo}.git"
-cask "popcorn-time"
-
 # brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
