@@ -114,6 +114,8 @@ brew bundle
 - Bookmarks in Safari, especially Bookmarklets
 - Automator routines
 - Safari extension settings, especially Markdownload.
+- Hot Corners
+
 
 ## Chrome
 
