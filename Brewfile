@@ -180,7 +180,7 @@ cask "the-unarchiver"
 cask "transmission" # p2p
 cask "tunnelbear"
 cask "tuple"
-cask "vagrant"
+# cask "vagrant"
 cask "vanilla"
 # cask "virtualbox" needs security allowance
 # cask "visual-studio-code"
