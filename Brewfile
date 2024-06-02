@@ -24,7 +24,7 @@ brew "docutils"
 brew "exercism"
 brew "fd" # A simple, fast and user-friendly alternative to 'find'
 brew "ffmpeg"
-brew "fish"
+# brew "fish"
 brew "foreman"
 brew "fzf"
 brew "fzy"
