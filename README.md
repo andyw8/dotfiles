@@ -84,6 +84,7 @@ brew bundle
 - Enable 'Desktop and Documents' in iCloud https://support.apple.com/en-ca/HT206985
 - Log into Raycast via GitHub
 - Enable iCloud private browsing
+- Enable iCloud sync for StopTheMadness
 
 # Backups Checklist
 
