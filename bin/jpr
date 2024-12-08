@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+FOLDER = "#{ENV['HOME']}/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents"
+
+def process(f)
+  command = "strings '#{f}' | tail -n 1 | sed 's/^[^\{]*//' | jq -r '._root.txscriptv2.tx._data' | base64 --decode"
+  result = `#{command}`
+
+  if result.size < 20 # TODO find a better way to check if the result is valid
+    result = "Failed to extract text from #{f}"
+  end
+
+  system("~/src/github.com/andyw8/dotfiles/bin/omni '#{result}'", exception: true)
+  FileUtils.move("#{f}", "#{f}.processed")
+rescue
+  puts "Command: #{command}"
+  raise
+end
+
+Dir["#{FOLDER}/**/*.{m4a,wav}"].each do |f|
+  process(f)
+end

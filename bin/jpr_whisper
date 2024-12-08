@@ -1,0 +1,35 @@
+# This was an abandoned experiment. I found a better way (see `jpr`).
+
+#!/usr/bin/env ruby
+# WHISPER_CPP_PATH = "/Users/andy/src/github.com/ggerganov/whisper.cpp/main"
+# MODEL_PATH = "/Users/andy/src/github.com/ggerganov/whisper.cpp/models/ggml-small.en.bin"
+#INPUT_PATH = "/Users/andy/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents/2024-12-08/10-35-47.wav"
+
+FOLDER = "#{ENV['HOME']}/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents"
+
+# MUST BE 16khz wav
+
+require "fileutils"
+
+def process(f)
+    # command = "#{WHISPER_CPP_PATH} -m #{MODEL_PATH} -f '#{f}' --no-timestamps --output-txt"
+    command = "strings '#{f}' | tail -n 1 | sed 's/^[^\{]*//' | jq -r '._root.txscriptv2.tx._data' | base64 --decode"
+    puts command
+
+    # content = system(command, exception: true).strip
+    content = `#{command}`.strip
+
+    # TODO how will this handle special characters? prob need to escape
+    # content = File.read("#{f}.txt").strip
+    system("~/src/github.com/andyw8/dotfiles/bin/omni #{content}", exception: true)
+    # File.delete("#{f}.txt")
+    FileUtils.move("#{f}", "#{f}.processed")
+rescue
+  puts "Command: #{command}"
+  raise
+end
+
+Dir["#{FOLDER}/**/*.{m4a,wav}"].each do |f|
+  puts "f: #{f}"
+  process(f)
+end
