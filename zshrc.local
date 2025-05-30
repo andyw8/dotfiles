@@ -16,13 +16,10 @@ setopt histignorespace
 export DOCKER_HIDE_LEGACY_COMMANDS=1
 export PATH="$HOME/.bin:$PATH"
 
-#source /Users/awaite/.asdf/asdf.sh
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# source /Users/awaite/.asdf/asdf.sh
 
 # support dark mode
 alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
