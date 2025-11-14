@@ -24,7 +24,6 @@ brew "docutils" # Python documentation utilities
 brew "exercism" # Code practice and mentorship platform CLI
 brew "fd" # A simple, fast and user-friendly alternative to 'find'
 brew "ffmpeg" # Multimedia framework for audio/video processing
-# brew "fish"
 brew "foreman" # Procfile-based application manager
 brew "fzf" # Command-line fuzzy finder
 brew "fzy" # Fast fuzzy text selector
@@ -44,13 +43,9 @@ brew "harfbuzz" # Text shaping engine
 brew "heroku/brew/heroku" # Heroku command line interface
 # brew "hot" # 'formula is unreadable' error
 brew "htop" # may need sudo
-brew "hub" # GitHub command line wrapper for git
-brew "hugo" # Static site generator
 # brew "imagemagick@6" # can usually use libvips instead
 brew "jq" # Command-line JSON processor
 brew "jsonpp" # JSON pretty printer
-# brew "kibana" # elasticsearch dashboard # changed to an incompatible license
-brew "leiningen" # for clojure
 brew "libass" # Subtitle rendering library
 brew "libgda" # GNOME database access library
 # brew "libpq" # better to install `postgresql`?
@@ -81,15 +76,12 @@ brew "redis", restart_service: true # In-memory data structure store
 brew "ripgrep" # Fast recursive grep alternative
 brew "trash" # removed: https://github.com/Homebrew/homebrew-core/pull/65438
 brew "rtmpdump" # RTMP streaming media toolkit
-brew "ruby" # Ruby programming language
-brew "ruby-install" # Ruby version installer
 brew "selenium-server" # Browser automation server
 brew "sequel-ace" # MySQL/MariaDB database management
 brew "shadowenv" # Directory-based environment variable manager
 brew "shared-mime-info" # MIME type database
 brew "shellcheck" # Shell script static analysis tool
 brew "slack" # Team communication platform
-brew "sloccount" # Source lines of code counter
 brew "spotify" # Music streaming service
 brew "sqlite" # Embedded SQL database engine
 brew "srt" # Secure Reliable Transport library
@@ -101,8 +93,6 @@ brew "thefuck" # Command correction tool
 brew "tig" # Text-mode interface for Git
 brew "tldr" # Simplified man pages
 brew "tree" # Directory structure visualization
-brew "unbound" # Validating DNS resolver
-# brew "v8@3.15"
 brew "watchman" # File watching service
 brew "wget" # Internet file retriever
 brew "yamllint" # YAML linter
@@ -112,8 +102,6 @@ brew "z" # Jump to frequently used directories
 brew "zlib" # Compression library
 cask "alfred" # Application launcher and productivity tool
 cask "arq" # Backup software
-cask "brave-browser" # Privacy-focused web browser
-# cask "catch" # tv show rss feeds
 cask "ccmenu" # Continuous integration monitoring
 cask "chromedriver" # Chrome browser automation driver
 cask "google-chrome" # Web browser
@@ -122,7 +110,6 @@ cask "google-chrome" # Web browser
 cask "dbeaver-community" # Universal database tool
 cask "discord" # Voice and text chat platform
 cask "docker" # Container platform
-cask "dropbox" # Cloud storage and file sync
 cask "firefox" # Web browser
 # cask "fork" # Git client https://git-fork.com/
 cask "freedom" # Website and app blocker
