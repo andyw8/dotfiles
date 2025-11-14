@@ -2,7 +2,8 @@
 
 # detect current folder.
 script_path=$(dirname "$0")
-# join all arguments to a single line
-task="$*"
+# get the first argument as the task.
+task="$1"
+
 # invoke apple script and pass entry to it.
 osascript "$script_path/omni.scpt" "$task"
