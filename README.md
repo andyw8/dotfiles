@@ -2,7 +2,7 @@
 
 Based on [thoughtbot/dotfiles](https://github.com/thoughtbot/dotfiles).
 
-Optional: Run [thoughtbot/laptop](https://github.com/thoughtbot/laptop).
+Optional: Run [andyw8/laptop](https://github.com/andyw8/laptop) (my fork of [thoughtbot/laptop](https://github.com/thoughtbot/laptop)).
 
 If not using thoughtbot/laptop, first configure shell and rcm manually:
 
