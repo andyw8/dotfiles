@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+PROJECT_NAME = ARGV[0]
+raise "No project name provided" unless PROJECT_NAME
+
+`cd $HOME/src/github.com/andyw8`
+REPO = "andyw8/ruby-template"
+
+`cd $HOME/src/github.com/andyw8 && gh repo create #{PROJECT_NAME} --private --template #{REPO} --clone`
+`cd $HOME/src/github.com/andyw8/#{PROJECT_NAME} && bundle && git remote add template https://github.com/#{REPO}.git`
+`echo "cd $HOME/src/github.com/andyw8/#{PROJECT_NAME} && gh repo set-default" | pbcopy`
+
+puts "Hit Command-V to cd into the repo!"
