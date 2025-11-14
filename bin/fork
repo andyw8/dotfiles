@@ -1,0 +1,37 @@
+#!/bin/sh -e
+
+# Based on
+# https://gist.github.com/searls/62d5cb2f736a75c73ae2
+
+# A simple script to keep a tidy ~/code directory organized by owner & then repo
+# When the script is done, just hit command-v to switch into the directory
+# (Github and Mac only. Sorry, openness!)
+#
+# Usage:
+#   clone <org>/<repo>
+# Or:
+#   clone <org> <repo>
+#
+# example: clone testdouble/testdouble.js
+#
+# Once cloned, will copy a "cd" command to quickly change into repo directory
+
+IFS='/' read -ra ADDR <<< "$1"
+ORG="${ADDR[0]}"
+REPO="${ADDR[1]-$2}"
+ORG_DIR="$HOME/src/github.com/$ORG"
+REPO_DIR="$ORG_DIR/$REPO"
+
+# Make sure org directory exists
+mkdir -p "$ORG_DIR"
+
+# Make sure it's not already cloned, then clone
+if [ -d "$REPO_DIR" ]; then
+  echo "It looks like the repo already exists."
+else
+  gh repo fork --clone "$ORG/$REPO" "$REPO_DIR"
+fi
+
+echo "cd $HOME/src/github.com/$ORG/$REPO && gh repo set-default && git push -u\n" | pbcopy
+echo "Hit Command-V to cd into the repo!"
+
