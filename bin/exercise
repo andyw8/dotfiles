@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+# Check if a class name was provided
+if ARGV.length != 1
+  puts "Usage: #{$PROGRAM_NAME} class_path"
+  puts "Example: #{$PROGRAM_NAME} valid_sudoku or #{$PROGRAM_NAME} path/to/valid_sudoku"
+  exit 1
+end
+
+# Get the full path provided
+full_path = ARGV[0]
+
+# Extract the directory and class name
+dir_path = File.dirname(full_path)
+class_name_snake = File.basename(full_path)
+
+# If the path is just a class name (no directory), set dir_path to current directory
+if dir_path == "." && full_path != "."
+  dir_path = ""
+end
+
+# Create the directory if it doesn't exist and it's not empty or current directory
+if !dir_path.empty? && dir_path != "."
+  FileUtils.mkdir_p(dir_path)
+end
+
+# Get the class name and convert to CamelCase for the class definition
+class_name_camel = class_name_snake.gsub(/(^|_)(.)/) { $2.upcase }
+
+# Determine the file paths
+if !dir_path.empty? && dir_path != "."
+  impl_file = "#{dir_path}/#{class_name_snake}.rb"
+  test_file = "#{dir_path}/#{class_name_snake}_test.rb"
+else
+  impl_file = "#{class_name_snake}.rb"
+  test_file = "#{class_name_snake}_test.rb"
+end
+
+# Create implementation file
+File.open(impl_file, 'w') do |file|
+  file.puts <<~RUBY
+    class #{class_name_camel}
+      def initialize
+      end
+
+      def call
+      end
+
+      private
+
+      attr_reader
+    end
+
+    __END__
+  RUBY
+end
+
+puts "Created implementation file: #{impl_file}"
+
+# Determine the require_relative path
+require_path = class_name_snake
+
+# Create test file
+File.open(test_file, 'w') do |file|
+  file.puts <<~RUBY
+    require "test_helper"
+    require_relative "#{require_path}"
+
+    class #{class_name_camel}Test < Minitest::Test
+      def test_#{class_name_snake}
+        #{class_name_snake} = #{class_name_camel}.new
+      end
+    end
+
+    __END__
+  RUBY
+end
+
+puts "Created test file: #{test_file}"
+
+system("zed . #{impl_file} #{test_file}")
