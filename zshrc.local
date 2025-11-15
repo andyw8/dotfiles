@@ -31,3 +31,5 @@ precmd() {
   echo -ne "\033]0;${PWD##*/}\007"
 }
 fi
+
+/opt/homebrew/etc/profile.d/z.sh
