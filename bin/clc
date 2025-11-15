@@ -1,0 +1,16 @@
+#!/bin/zsh
+echo 'done2'
+
+# Get the last executed command from history
+LAST_COMMAND=$(tail -n 2 $HISTFILE | head -n 1 | sed 's/^[^;]*;//')
+echo 'done3'
+
+# Ensure the command is not empty
+if [[ -z "$LAST_COMMAND" ]]; then
+    echo "No command found in history."
+    exit 1
+fi
+
+
+# Commit with the last command as the message
+#git add . && git commit -m "$ $LAST_COMMAND"
