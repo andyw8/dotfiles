@@ -41,3 +41,5 @@ Code/Network Persistent State
 Code/Crashpad/
 # temporary VS Code files?
 Code/.com.microsoft.VSCode.*
+config/zed/.tmp*
+config/zed/.mdb*

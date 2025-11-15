@@ -1,0 +1,36 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    // https://zed.dev/docs/vim
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak", // NOTE: Overrides default `vim::Substitute` binding
+      "shift-s": "vim::PushSneakBackward"
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "bindings": {
+      "cmd-alt-n": "editor::SpawnNearestTask",
+      "ctrl-shift-t": [
+        "task::Spawn",
+        {
+          "task_name": "Toggle Test and Target",
+          "reevaluate_context": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      "m": "vim::Method" // default is "f"
+    }
+  }
+]

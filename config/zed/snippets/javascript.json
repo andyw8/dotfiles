@@ -1,0 +1,17 @@
+{
+  // Each snippet must have a name and body, but the prefix and description are optional.
+  // The prefix is used to trigger the snippet, but when omitted then the name is used.
+  // Use placeholders like $1, $2 or ${1:defaultValue} to define tab stops.
+  // The $0 determines the final cursor position.
+  // Placeholders with the same value are linked.
+  "stimulus controller": {
+    "prefix": "st-co",
+    "body": [
+      "import { Controller } from \"@hotwired/stimulus\"",
+      "export default class extends Controller {",
+      "  $0",
+      "}"
+    ],
+    "description": "stimulus controller"
+  }
+}

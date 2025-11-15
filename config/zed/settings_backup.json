@@ -1,0 +1,259 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "auto_update_extensions": {
+    "ruby": false
+  },
+  "context_servers": {
+    // "tidewave": {
+    //   "command": {
+    //     "path": "mcp-proxy",
+    //     "args": ["http://localhost:3000/tidewave/mcp"],
+    //     "env": null
+    //   },
+    //   "settings": {}
+    // },
+    "try-fast-mcp": {
+      "source": "custom",
+      "command": "mcp-proxy",
+      "args": ["http://localhost:3000/mcp/sse"]
+    }
+    // "ruby-lsp-mcp": {
+    //   "command": {
+    //     "path": "./.ruby-lsp/ruby-mcp-bridge",
+    //     "args": [],
+    //     "env": null
+    //   },
+    //   "settings": {}
+    // }
+    // "mcp-server-github": {
+    //   "settings": {
+    //     "github_personal_access_token": ""
+    //   }
+    // }
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "postgres-context-server": {
+            "tools": {
+              "pg-schema": true
+            }
+          }
+        }
+      },
+      "write": {
+        "name": "Write",
+        "tools": {
+          "open": true,
+          "create_directory": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "tidewave": {
+            "tools": {
+              "execute_sql_query": false,
+              "project_eval": true,
+              "package_search": true,
+              "get_source_location": true,
+              "get_models": true,
+              "get_logs": true
+            }
+          },
+          "mcp-servers-ruby-lsp": {
+            "tools": {
+              "get_methods_details": true,
+              "get_classes_and_modules": true,
+              "get_class_module_details": false
+            }
+          },
+          "mcp-server-github": {
+            "tools": {
+              "get_issue": true,
+              "get_commit": true,
+              "get_file_contents": true,
+              "get_issue_comments": false
+            }
+          }
+        }
+      },
+      "write-(my-fork)": {
+        "name": "write (my fork)",
+        "tools": {
+          "terminal": true,
+          "batch_tool": true,
+          "code_symbols": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": false,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "symbol_info": true,
+          "thinking": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    }
+  },
+  "theme": "Modus Vivendi Tinted",
+  "edit_predictions": {
+    // "mode": "eager",
+    // "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "vim_mode": true,
+  "buffer_font_size": 14,
+  "agent_font_size": 16,
+  "snippet_sort_order": "none",
+  "languages": {
+    "Ruby": {
+      "language_servers": ["ruby-lsp"]
+      //"formatter": "language_server" // unsure if needed
+    },
+    "ERB": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "erb-format",
+          "arguments": [
+            "--print-width",
+            "120",
+            "--stdin-filename",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "ruby-lsp": {
+      "initialization_options": {
+        "capabilities": {
+          "textDocument": {
+            "onTypeFormatting": {
+              "firstTriggerCharacter": "{",
+              "moreTriggerCharacter": ["\n", "|", "d"] // not working, config may be incorrect
+            }
+          }
+        },
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": true,
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": true,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": false, // https://github.com/Shopify/ruby-lsp/issues/2971
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        },
+        "experimentalFeaturesEnabled": true
+      }
+    }
+  },
+  "experimental.theme_overrides": {
+    // empty
+  },
+  "buffer_font_features": {
+    "calt": false // disable ligatures
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 300,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+  "collaboration_panel": {
+    // Whether to show the notification panel button in the status bar.
+    "button": false
+  },
+  "gutter": {
+    // Whether to show line numbers in the gutter.
+    "line_numbers": true,
+    // Whether to show code action buttons in the gutter.
+    "code_actions": true,
+    // Whether to show runnables buttons in the gutter.
+    "runnables": true,
+    // Whether to show breakpoints in the gutter.
+    "breakpoints": true,
+    // Whether to show fold buttons in the gutter.
+    "folds": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  }
+}
