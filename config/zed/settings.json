@@ -13,6 +13,12 @@
   "auto_update_extensions": {
     "ruby": false
   },
+  "auto_install_extensions": {
+    "emmet": true,
+    "html": true,
+    "modus-themes": true,
+    "ruby": true
+  },
   "context_servers": {
     // "tidewave": {
     //   "command": {
