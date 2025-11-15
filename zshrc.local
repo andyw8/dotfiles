@@ -32,4 +32,5 @@ precmd() {
 }
 fi
 
-/opt/homebrew/etc/profile.d/z.sh
+. /opt/homebrew/etc/profile.d/z.sh
+eval "$(mise activate zsh)"
