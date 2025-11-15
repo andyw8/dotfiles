@@ -163,4 +163,5 @@ cask "visual-studio-code"
 cask "vlc" # Media player
 cask "webpquicklook" # QuickLook plugin for WebP images
 cask "whatsapp"
+cask "z'"
 cask "zoom" # Video conferencing
