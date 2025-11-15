@@ -1,0 +1,9 @@
+# https://mise.jdx.dev/lang/ruby.html#default-gems
+bundler
+debug
+herb
+irb
+rails
+rubocop
+ruby-lsp
+standard
