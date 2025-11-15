@@ -42,4 +42,4 @@ Code/Crashpad/
 # temporary VS Code files?
 Code/.com.microsoft.VSCode.*
 config/zed/.tmp*
-config/zed/.mdb*
+config/zed/**/*.mdb
