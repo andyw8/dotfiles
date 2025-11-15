@@ -87,10 +87,13 @@ brew "youtube-dl" # Video download tool
 brew "z" # Jump to frequently used directories
 brew "zlib" # Compression library
 
+cask "1password"
 cask "alfred" # Application launcher and productivity tool
 cask "arq" # Backup software
 cask "ccmenu" # Continuous integration monitoring
+cask "claude-code"
 cask "chromedriver" # Chrome browser automation driver
+cask "flycut"
 cask "google-chrome" # Web browser
 cask "coconutbattery"
 cask "dash"
@@ -123,6 +126,7 @@ cask "ngrok" # beware, different from https://dashboard.ngrok.com/get-started/se
 cask "notion" # Note-taking and collaboration tool
 cask "nvidia-geforce-now" # Cloud gaming service
 cask "obs" # Open Broadcaster Software for streaming
+cask "obsidian" # Markdown note-taking and wiki tool
 cask "omnidisksweeper" # Disk space analyzer
 cask "omnifocus"
 cask "onyx"
