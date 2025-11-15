@@ -1,16 +1,11 @@
 tap "github/gh"
 tap "heroku/brew"
-# tap "homebrew/bundle"
-# tap "homebrew/cask"
-# tap "homebrew/cask-drivers"
-# tap "homebrew/cask-versions"
-# tap "homebrew/core"
-# tap "homebrew/services"
 tap "planetscale/tap"
 tap "stripe/stripe-cli"
 tap "thoughtbot/formulae"
+
 brew "act" # Run GitHub Actions locally
-# brew "asciinema"
+brew "asciinema"
 brew "awscli" # AWS command line interface
 brew "bat" # A cat(1) clone with wings.
 brew "bison" # Parser generator
@@ -40,15 +35,11 @@ brew "graphviz" # Graph visualization software
 brew "guile" # GNU Ubiquitous Intelligent Language for Extensions
 brew "handbrake", link: false # Video transcoder
 brew "harfbuzz" # Text shaping engine
-brew "heroku/brew/heroku" # Heroku command line interface
-# brew "hot" # 'formula is unreadable' error
 brew "htop" # may need sudo
-# brew "imagemagick@6" # can usually use libvips instead
 brew "jq" # Command-line JSON processor
 brew "jsonpp" # JSON pretty printer
 brew "libass" # Subtitle rendering library
 brew "libgda" # GNOME database access library
-# brew "libpq" # better to install `postgresql`?
 brew "librsvg" # SVG rendering library
 brew "libssh" # SSH library
 brew "libvips" # Fast image processing library
@@ -58,9 +49,7 @@ brew "markdownlint-cli" # Markdown linting tool
 brew "mas" # Mac App Store command line interface
 brew "memcached" # In-memory key-value store
 brew "mitmproxy" # Interactive HTTPS proxy for debugging
-# brew "mysql"
-# brew "mysql", restart_service: true, link: false
-# brew "mysql-client@5.7", link: true
+brew "mysql"
 brew "ncdu" # disk usage
 brew "neovim" # Vim-fork focused on extensibility
 brew "node" # JavaScript runtime
@@ -77,12 +66,9 @@ brew "ripgrep" # Fast recursive grep alternative
 brew "trash" # removed: https://github.com/Homebrew/homebrew-core/pull/65438
 brew "rtmpdump" # RTMP streaming media toolkit
 brew "selenium-server" # Browser automation server
-brew "sequel-ace" # MySQL/MariaDB database management
 brew "shadowenv" # Directory-based environment variable manager
 brew "shared-mime-info" # MIME type database
 brew "shellcheck" # Shell script static analysis tool
-brew "slack" # Team communication platform
-brew "spotify" # Music streaming service
 brew "sqlite" # Embedded SQL database engine
 brew "srt" # Secure Reliable Transport library
 brew "starship" # Cross-shell prompt
@@ -100,28 +86,30 @@ brew "yarn" # JavaScript package manager
 brew "youtube-dl" # Video download tool
 brew "z" # Jump to frequently used directories
 brew "zlib" # Compression library
+
 cask "alfred" # Application launcher and productivity tool
 cask "arq" # Backup software
 cask "ccmenu" # Continuous integration monitoring
 cask "chromedriver" # Chrome browser automation driver
 cask "google-chrome" # Web browser
-# cask "coconutbattery"
-# cask "dash"
+cask "coconutbattery"
+cask "dash"
 cask "dbeaver-community" # Universal database tool
 cask "discord" # Voice and text chat platform
 cask "docker" # Container platform
 cask "firefox" # Web browser
-# cask "fork" # Git client https://git-fork.com/
+cask "fork" # Git client https://git-fork.com/
 cask "freedom" # Website and app blocker
+cask "ghostty"
 cask "github" # GitHub Desktop client
 cask "gitify" # GitHub notifications in menu bar
 cask "google-cloud-sdk" # Google Cloud Platform CLI
 cask "google-drive" # Google Drive file sync
-# cask "handbrake"
-cask "hot" # Window manager for macOS
+cask "handbrake"
+cask "hot"
 cask "istat-menus" # System monitoring in menu bar
 cask "iterm2" # Terminal emulator
-cask "karabiner-elements" # requires extra permissions
+cask "karabiner-elements" # NOTE: requires extra permissions
 cask "keyboard-cleaner" # Lock keyboard for cleaning
 cask "keycastr" # Keystroke visualizer
 cask "kindle" # E-book reader
@@ -131,48 +119,44 @@ cask "logitech-options" # requires sudo
 cask "lunar" # External display brightness control
 cask "marked" # Markdown preview tool
 cask "meetingbar" # Menu bar calendar and meeting tool
-# cask "mysqlworkbench"
-# cask "mongodb"
-# brew cask install menumeters # semi-abandoned?
 cask "ngrok" # beware, different from https://dashboard.ngrok.com/get-started/setup ? e.g. no `ngrok config` https://dashboard.ngrok.com/get-started/setup
 cask "notion" # Note-taking and collaboration tool
 cask "nvidia-geforce-now" # Cloud gaming service
 cask "obs" # Open Broadcaster Software for streaming
 cask "omnidisksweeper" # Disk space analyzer
-cask "omnifocus" # add license after install
-# cask "onyx"
+cask "omnifocus"
+cask "onyx"
 cask "phantomjs" # Headless WebKit browser
 cask "plex" # Media server
 cask "postman" # API development and testing tool
 cask "qlcolorcode" # QuickLook plugin for code syntax highlighting
 cask "qlimagesize" # QuickLook plugin for image dimensions
-# cask "qlmarkdown" # Security warnings
+cask "qlmarkdown" # Security warnings
 cask "qlstephen" # QuickLook plugin for plain text files
 cask "qlvideo" # QuickLook plugin for video files
 cask "quicklook-csv" # QuickLook plugin for CSV files
 cask "quicklook-json" # QuickLook plugin for JSON files
 cask "quitter" # Automatically quit or hide apps
 cask "rectangle" # need permissions on first launch
-# cask "rubymine"
+cask "rubymine"
 cask "rescuetime" # Time tracking and productivity tool
-# cask "selfcontrol"
+cask "selfcontrol"
 cask "send-to-kindle" # Send documents to Kindle
+cask "sequel-ace" # MySQL/MariaDB database management
+cask "slack" # Team communication platform
 cask "sonos" # Sonos speaker controller
 cask "sourcetree" # Git GUI client
-# cask "stretchly"
+cask "spotify" # Music streaming service
+cask "stretchly"
 cask "stremio" # Media streaming application
 cask "the-unarchiver" # Archive extraction utility
-# cask "time-out"
+cask "time-out"
 cask "transmission" # p2p
 cask "tunnelbear" # VPN service
 cask "tuple" # Pair programming tool
-# cask "vagrant"
 cask "vanilla" # Menu bar organizer
-# cask "virtualbox" needs security allowance
-# cask "visual-studio-code"
+cask "visual-studio-code"
 cask "vlc" # Media player
 cask "webpquicklook" # QuickLook plugin for WebP images
-# cask "whatsapp"
+cask "whatsapp"
 cask "zoom" # Video conferencing
-
-# brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json quicklook-csv qlimagesize webpquicklook qlvideo
