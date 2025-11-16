@@ -9,7 +9,6 @@ mas install 1084713122 # Markoff
 mas install 540348655 # Monosnap
 mas install 940239558 # Trello
 mas install 623795237 # Ulysses
-mas install 497799835 # Xcode
 
 mas "AdBlock", id: 1402042596
 mas "Lynda.com", id: 985958984
@@ -17,4 +16,3 @@ mas "Monosnap", id: 540348655
 mas "Trello", id: 1278508951
 mas "Ulysses", id: 1225570693
 mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
