@@ -66,8 +66,7 @@ brew bundle
 - run `minikube start`
 - Load Chromium settings chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
 - Run iTerm shell integration
-- Set up iTerm with [SF Mono Font](https://developer.apple.com/fonts/)
-- Load iTerm config
+- Load Ghostty config
 - Set 'Reduce Motion' in Accessibility (prevents full screen slide transition)
 - Enable Screen Sharing in Sharing settings
 - Run `defaults write com.apple.finder FXDefaultSearchScope SCcf` (change the default search location of Finder windows to the current directory)
@@ -90,7 +89,7 @@ brew bundle
 
 - Keyboard text abbreviations (maybe use https://github.com/rodionovd/shortcuts)
 - Anything in `~/.zshrc`
-- iTerm config
+- Ghostty config
 - SSH keys
 - Chrome extensions and their configs (across all profiles), e.g.
   - Vimium
