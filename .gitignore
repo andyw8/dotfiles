@@ -43,3 +43,4 @@ Code/Crashpad/
 Code/.com.microsoft.VSCode.*
 config/zed/.tmp*
 config/zed/**/*.mdb
+mise.local.toml
