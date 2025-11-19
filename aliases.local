@@ -89,3 +89,21 @@ alias d="dev"
 alias blog="cd ~/src/github.com/andyw8/andyw8.github.io"
 # this was causing unwanted output when opening a new terminal
 # alias reopen="code -r $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' | git diff --name-only)"
+
+alias rmtrash="echo 'use `trash` instead'"
+alias hb="ssh deploy@34.130.135.17"
+alias gal='git add -A && git commit -m "$ $(fc -ln 0 | tail -1)"'
+alias gic='git add . && git commit -m "Initial commit"'
+
+alias sync-fork='git fetch upstream && git merge upstream/main && git push'
+alias claude="~/.claude/local/claude --dangerously-skip-permissions"
+alias claude-safe="~/.claude/local/claude"
+alias claude-continue="~/.claude/local/claude --continue"
+alias cc="~/.claude/local/claude --continue"
+
+
+# new private repo
+# alias new-repo="gh repo create $(basename $(pwd)) --source . --private --push"
+new-repo() {
+    gh repo create "$(basename "$(pwd)")" --source . --private --push
+}
