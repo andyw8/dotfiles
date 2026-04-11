@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+gh repo sync "$REPO"
