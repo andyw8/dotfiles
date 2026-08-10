@@ -5,15 +5,21 @@ require "fileutils"
 FOLDER = "#{ENV['HOME']}/Library/Mobile Documents/iCloud~com~openplanetsoftware~just-press-record/Documents"
 
 def process(f)
+  return if f.include?("processed.m4a") || f.include?("failed.m4a")
+
   command = "strings '#{f}' | tail -n 1 | sed 's/^[^\{]*//' | jq -r '._root.txscriptv2.tx._data' | base64 --decode"
   result = `#{command}`
 
-  if result.size < 20 # TODO find a better way to check if the result is valid
-    result = "Failed to extract text from #{f}"
+  state = "processed"
+  if result.size < 5 # TODO find a better way to check if the result is valid
+    relative_path = f.gsub(FOLDER, "")
+    result = "Failed to extract text from #{relative_path}"
+    state = "failed"
   end
+  new_name = f.gsub(".m4a", ".#{state}.m4a")
 
-  system("~/src/github.com/andyw8/dotfiles/bin/omni '#{result}'", exception: true)
-  FileUtils.move("#{f}", "#{f}.processed")
+  system("~/src/github.com/andyw8/dotfiles/bin/omni \"Voice Memo: #{result}\"", exception: true)
+  FileUtils.move(f, new_name)
 rescue
   puts "Command: #{command}"
   raise

@@ -7,6 +7,16 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "prettier": {
     "allowed": false
   },
@@ -29,7 +39,6 @@
     //   "settings": {}
     // },
     "try-fast-mcp": {
-      "source": "custom",
       "command": "mcp-proxy",
       "args": ["http://localhost:3000/mcp/sse"]
     }
@@ -48,8 +57,17 @@
     // }
   },
   "agent": {
+    "dock": "right",
+    "default_model": {
+      "effort": "high",
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini",
+      "enable_thinking": false
+    },
+    "tool_permissions": {
+      "default": "allow"
+    },
     "play_sound_when_agent_done": true,
-    "always_allow_tool_actions": true,
     "default_profile": "write",
     "profiles": {
       "ask": {
@@ -161,14 +179,12 @@
   "edit_predictions": {
     // "mode": "eager",
     // "mode": "subtle",
+    "provider": "zed",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
     },
     "enabled_in_text_threads": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
   },
   "vim_mode": true,
   "buffer_font_size": 14,
@@ -252,6 +268,7 @@
   },
   "collaboration_panel": {
     // Whether to show the notification panel button in the status bar.
+    "dock": "left",
     "button": false
   },
   "gutter": {
