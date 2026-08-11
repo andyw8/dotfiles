@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+exit unless Dir.exist?(".git")
+
+repo_name = File.basename(Dir.pwd)
+system("gh repo create --private #{repo_name}", exception: true)
+system("git push -u origin HEAD", exception: true)
