@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
-exit unless Dir.exist?(".git")
+unless Dir.exist?(".git")
+  puts "No .git directory found"
+  exit
+end
 
 repo_name = File.basename(Dir.pwd)
 system("gh repo create --private #{repo_name}", exception: true)
