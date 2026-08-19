@@ -5,6 +5,7 @@ idiomatic_version_file_enable_tools = ["ruby", "node"]
 compile = false
 
 [tools]
-node = "23"
-python = "3"
-ruby = "3.4"
+hk = "latest"
+node = "latest"
+python = "latest"
+ruby = "latest"
