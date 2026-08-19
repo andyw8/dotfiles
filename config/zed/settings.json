@@ -67,12 +67,13 @@
     "tool_permissions": {
       "default": "allow"
     },
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     "default_profile": "write",
     "profiles": {
       "ask": {
         "name": "Ask",
         "tools": {
+          "search_web": true,
           "contents": true,
           "diagnostics": true,
           "fetch": true,
@@ -81,8 +82,7 @@
           "find_path": true,
           "read_file": true,
           "grep": true,
-          "thinking": true,
-          "web_search": true
+          "thinking": true
         },
         "enable_all_context_servers": false,
         "context_servers": {
@@ -96,6 +96,7 @@
       "write": {
         "name": "Write",
         "tools": {
+          "search_web": true,
           "open": true,
           "create_directory": true,
           "batch_tool": true,
@@ -117,8 +118,7 @@
           "rename": true,
           "symbol_info": true,
           "terminal": true,
-          "thinking": true,
-          "web_search": true
+          "thinking": true
         },
         "enable_all_context_servers": true,
         "context_servers": {
