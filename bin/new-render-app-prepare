@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+print "New repo name: "
+repo_name = STDIN.gets&.chomp
+
+unless repo_name&.match?(/\A[a-zA-Z0-9][a-zA-Z0-9_.-]*\z/)
+  abort "Repo name must contain only letters, numbers, underscores, periods, and hyphens."
+end
+
+root = File.expand_path("~/src/github.com/andyw8")
+repo_path = File.join(root, repo_name)
+
+abort "Directory already exists: #{repo_path}" if Dir.exist?(repo_path)
+
+Dir.chdir(root) do
+  system("git", "clone", "https://github.com/jumpstart-pro/jumpstart-pro-rails", repo_name) ||
+    abort("Command failed: git clone https://github.com/jumpstart-pro/jumpstart-pro-rails #{repo_name}")
+end
+
+clipboard = IO.popen("pbcopy", "w")
+clipboard.write("cd #{repo_path}")
+clipboard.close
+abort "Command failed: pbcopy" unless $?.success?
+
+puts "Cloned #{repo_name}. Paste the clipboard contents, then run:"
+puts "  new-render-app-create"

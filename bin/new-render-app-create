@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+OWNER = "andyw8"
+
+def run(*command)
+  system(*command) || abort("Command failed: #{command.join(" ")}")
+end
+
+repo_name = File.basename(Dir.pwd)
+
+run({"HOMEBREW_NO_UPDATE" => "1"}, "bin/setup", "--skip-server")
+run "git", "add", "."
+run "git", "commit", "-m", "$ bin/setup"
+run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
+run "git", "commit", "-m", "Disable Dependabot"
+run "git", "remote", "rename", "origin", "jumpstart-pro"
+run "gh", "repo", "create", "--private", "--source", "."
+run "git", "push", "-u", "origin", "HEAD"
+run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
+run "puma-dev", "link"
+run "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+run "git", "add", "."
+run "git", "commit", "-m", "Add default Jumpstart config"
