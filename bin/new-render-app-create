@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
+require "psych/pure"
+
 OWNER = "andyw8"
+DATABASE_ENV_KEYS = %w[DATABASE_URL CABLE_DATABASE_URL CACHE_DATABASE_URL QUEUE_DATABASE_URL]
 
 def run(*command)
   system(*command) || abort("Command failed: #{command.join(" ")}")
@@ -19,5 +22,33 @@ run "git", "push", "-u", "origin", "HEAD"
 run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
 run "puma-dev", "link"
 run "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+
+config = Psych::Pure.load(File.read("render.yaml"), comments: true)
+config.delete("databases")
+config["services"].each do |service|
+  env_vars = service["envVars"]
+  if env_vars
+    env_vars.delete_if { |env_var| env_var["key"] == "SOLID_QUEUE_IN_PUMA" }
+
+    env_vars.each do |env_var|
+      from_database = env_var["fromDatabase"]
+      next unless DATABASE_ENV_KEYS.include?(env_var["key"]) &&
+        from_database
+
+      env_var.delete("fromDatabase")
+      env_var["sync"] = false
+    end
+  end
+end
+File.write("render.yaml", Psych::Pure.dump(config))
+run "git", "add", "render.yaml"
+run "git", "commit", "-m", "Configure Render blueprint"
+
 run "git", "add", "."
 run "git", "commit", "-m", "Add default Jumpstart config"
+run "bin/rails", "credentials:edit"
+run "git", "add", "."
+run "git", "commit", "-m", "Commit encrypted credentials"
+run "git", "push"
+puts File.read("config/master.key").chomp
+run "open", "https://dashboard.render.com/select-repo?type=blueprint"
