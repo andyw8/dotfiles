@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  printf '%s\n' 'Usage: new-gem GEM_NAME' >&2
+  exit 1
+fi
+
+gem_name=$1
+github_username=$(gh api user --jq .login)
+
+bundle gem "$gem_name" --linter=rubocop --no-coc --no-changelog
+cd "$gem_name"
+ruby -0pi -e 'sub!(/\AAllCops:\n/, "AllCops:\n  NewCops: enable\n")' .rubocop.yml
+HOMEPAGE="https://github.com/$github_username/$gem_name" ruby -pi -e 'homepage = ENV.fetch("HOMEPAGE").inspect; sub!(/^  spec\.homepage = .*$/, "  spec.homepage = #{homepage}"); sub!(/^  spec.metadata\["source_code_uri"\] = .*$/, "  spec.metadata[\"source_code_uri\"] = #{homepage}")' "$gem_name.gemspec"
+ALLOWED_PUSH_HOST=https://rubygems.org ruby -pi -e 'sub!(/^  spec\.metadata\["allowed_push_host"\] = .*$/, "  spec.metadata[\"allowed_push_host\"] = #{ENV.fetch("ALLOWED_PUSH_HOST").inspect}")' "$gem_name.gemspec"
+ruby -pi -e 'sub!(/^  spec\.required_ruby_version = .*$/, "  spec.required_ruby_version = \">= 4.0.0\"")' "$gem_name.gemspec"
+ruby -0pi -e 'gsub!(/^  # For more information and examples about making a new gem, check out our\n  # guide at: https:\/\/guides\.rubygems\.org\/make-your-own-gem\/\n/, "")' "$gem_name.gemspec"
+ruby -0pi -e 'gsub!(/^  # Uncomment to register a new dependency of your gem\n  # spec.add_dependency .*\n/, "")' "$gem_name.gemspec"
+ruby -0pi -e 'gsub!(/^  # Uncomment the line below to require MFA for gem pushes\.\n  # This helps protect your gem from supply chain attacks by ensuring\n  # no one can publish a new version without multi-factor authentication\.\n  # See: https:\/\/guides\.rubygems\.org\/mfa-requirement-opt-in\/\n  # spec.metadata\["rubygems_mfa_required"\] = "true"\n/, "")' "$gem_name.gemspec"
+ruby -0pi -e 'sub!(/^        ruby:\n          - .*$/, "        ruby:\n          - ruby")' .github/workflows/main.yml
+
+git add .
+if ! git diff --cached --quiet; then
+  git commit -m "Initial commit"
+fi
+
+gh repo create "$gem_name" --private --source=. --remote=origin --push
