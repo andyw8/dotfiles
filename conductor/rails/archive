@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+puts "running conductor-archive"
+workspace_path = ENV.fetch("CONDUCTOR_WORKSPACE_PATH")
+puts "CONDUCTOR_WORKSPACE_PATH: #{workspace_path}"
+
+project = File.basename(File.dirname(workspace_path))
+name = "#{project}-#{File.basename(workspace_path)}"
+symlink = File.expand_path("~/.puma-dev/#{name}")
+
+if File.symlink?(symlink)
+  File.delete(symlink)
+  puts "Removed puma-dev symlink: #{symlink}"
+else
+  puts "No puma-dev symlink found at #{symlink}"
+end
+
+system("bin/rails db:drop", exception: true)

@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+puts "Running conductor-setup"
+
+workspace_path = ENV["CONDUCTOR_WORKSPACE_PATH"]
+abort "CONDUCTOR_WORKSPACE_PATH is not set" if workspace_path.nil? || workspace_path.empty?
+puts "CONDUCTOR_WORKSPACE_PATH: #{workspace_path}"
+
+project = File.basename(File.dirname(workspace_path))
+name = "#{project}-#{File.basename(workspace_path)}"
+
+unless system("puma-dev", "link", "-n", name)
+  warn "puma-dev link failed"
+  exit 1
+end
+puts "puma-dev link succeeded: https://#{name}.test"
+
+system("mise", "exec", "--", "bin/setup", "--skip-server", exception: true)
+
+puts "done!"
