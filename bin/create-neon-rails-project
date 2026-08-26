@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
 require "json"
-require "io/console"
 require "net/http"
 require "open3"
 require "uri"
 
 DATABASES = %w[primary cache queue cable].freeze
+RENDER_API_KEY_ITEM_ID = ENV.fetch("RENDER_API_KEY_ITEM_ID")
 ENVIRONMENT_VARIABLES = {
   "primary" => "DATABASE_URL",
   "cache" => "CACHE_DATABASE_URL",
@@ -17,6 +17,12 @@ ENVIRONMENT_VARIABLES = {
 def run_neon(*arguments)
   stdout, stderr, status = Open3.capture3("neon", *arguments)
   abort stderr unless status.success?
+  stdout
+end
+
+def run_1password(*arguments)
+  stdout, stderr, status = Open3.capture3("op", *arguments)
+  abort "Could not retrieve the Render API key from 1Password: #{stderr}" unless status.success?
   stdout
 end
 
@@ -69,6 +75,7 @@ def render_service_id(api_key, repository)
 end
 
 abort "Error: the Neon CLI is not installed or is not on PATH." unless system("command -v neon > /dev/null 2>&1")
+abort "Error: the 1Password CLI is not installed or is not on PATH." unless system("command -v op > /dev/null 2>&1")
 
 default_project_name = File.basename(Dir.pwd)
 print "Project name [#{default_project_name}]: "
@@ -81,9 +88,11 @@ region = STDIN.gets.to_s.strip
 region = "us-west-2" if region.empty?
 region_id = region.start_with?("aws-") ? region : "aws-#{region}"
 
-print "Render API key: "
-render_api_key = STDIN.noecho(&:gets).to_s.strip
-puts
+render_api_key = run_1password(
+  "item", "get", RENDER_API_KEY_ITEM_ID,
+  "--fields", "label=credential",
+  "--reveal"
+).strip
 abort "Error: Render API key cannot be empty." if render_api_key.empty?
 render_service = render_service_id(render_api_key, git_remote)
 puts "Using Render service #{render_service}."
