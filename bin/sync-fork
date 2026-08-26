@@ -1,4 +1,7 @@
 #!/bin/sh -e
+DEFAULT_BRANCH=$(gh repo view --json defaultBranchRef -q .defaultBranchRef.name)
 
-REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
-gh repo sync "$REPO"
+gh repo sync
+git fetch upstream "$DEFAULT_BRANCH"
+git switch "$DEFAULT_BRANCH"
+git merge --ff-only "upstream/$DEFAULT_BRANCH"
