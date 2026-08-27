@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 
 require "psych/pure"
+require "securerandom"
 
 OWNER = "andyw8"
+ADMIN_EMAIL = "andy@andywaite.com"
 DATABASE_ENV_KEYS = %w[DATABASE_URL CABLE_DATABASE_URL CACHE_DATABASE_URL QUEUE_DATABASE_URL]
 
 def run(*command)
@@ -11,7 +13,32 @@ end
 
 repo_name = File.basename(Dir.pwd)
 
+# ADDED FOR PUMA-DEV BUT SHOULDN'T REALLY BE NEEDED
+# setup_path = "bin/setup"
+# setup = File.read(setup_path)
+# setup_marker = '  system("bundle check") || system!("bundle install")'
+# setup_replacement = <<~RUBY.chomp
+#   #{setup_marker}
+
+#   puts "\\n== Building assets =="
+#   system! "bin/rails tailwindcss:build"
+# RUBY
+# abort "Could not update #{setup_path}" unless setup.sub!(setup_marker, setup_replacement)
+# File.write(setup_path, setup)
+
 run({"HOMEBREW_NO_UPDATE" => "1"}, "bin/setup", "--skip-server")
+password = SecureRandom.base58(24)
+File.write("db/seeds.rb", <<~RUBY, mode: "a")
+
+  user = User.find_or_create_by!(email: #{ADMIN_EMAIL.inspect}) do |user|
+    user.name = "Admin User"
+    user.password = "#{password}"
+    user.password_confirmation = "#{password}"
+    user.terms_of_service = true
+  end
+  Jumpstart.grant_staff!(user)
+RUBY
+puts "Admin password: #{password}"
 run "git", "add", "."
 run "git", "commit", "-m", "$ bin/setup"
 run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
@@ -21,15 +48,18 @@ run "gh", "repo", "create", "--private", "--source", "."
 run "git", "push", "-u", "origin", "HEAD"
 run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
 run "puma-dev", "link"
+File.write(".pumaenv", "CONFIG=config/puma.rb\n")
+run "git", "add", ".pumaenv"
+run "git", "commit", "-m", "Configure puma-dev"
 run "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
 
 config = Psych::Pure.load(File.read("render.yaml"), comments: true)
 config.delete("databases")
 config["services"].each do |service|
+  service["autoDeploy"] = false
   env_vars = service["envVars"]
   if env_vars
-    env_vars.delete_if { |env_var| env_var["key"] == "SOLID_QUEUE_IN_PUMA" }
-
     env_vars.each do |env_var|
       from_database = env_var["fromDatabase"]
       next unless DATABASE_ENV_KEYS.include?(env_var["key"]) &&
@@ -51,4 +81,20 @@ run "git", "add", "."
 run "git", "commit", "-m", "Commit encrypted credentials"
 run "git", "push"
 puts File.read("config/master.key").chomp
+puts "Create the Render service for #{OWNER}/#{repo_name}, then press Enter to continue."
 run "open", "https://dashboard.render.com/select-repo?type=blueprint"
+STDIN.gets
+print "Render service ID: "
+service_id = STDIN.gets&.chomp
+abort "Render service ID is required" if service_id.nil? || service_id.empty?
+
+settings_url = "https://dashboard.render.com/web/#{service_id}/settings"
+run "open", settings_url
+
+print "Paste the Render deploy hook URL: "
+deploy_hook_url = STDIN.gets&.chomp
+abort "Render deploy hook URL is required" if deploy_hook_url.nil? || deploy_hook_url.empty?
+
+run "gh", "secret", "set", "RENDER_DEPLOY_HOOK_URL", "--body", deploy_hook_url
+run File.join(__dir__, "create-neon-rails-project")
+puts "Note: It is normal for the first deploy to fail, becauset it runs before the Neon credentials are added"
