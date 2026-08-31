@@ -4,6 +4,7 @@ require "psych/pure"
 require "json"
 require "net/http"
 require "open3"
+require "render_api"
 require "securerandom"
 require "tempfile"
 require "uri"
@@ -39,29 +40,12 @@ Dir.chdir(repo_path) do
     system(*command) || abort("Command failed: #{command.join(" ")}")
   end
 
-  def render_request(api_key, method, path, body = nil)
-    uri = URI("https://api.render.com/v1#{path}")
-    request = method.new(uri)
-    request["Authorization"] = "Bearer #{api_key}"
-    request["Content-Type"] = "application/json"
-    request.body = JSON.generate(body) if body
-
-    response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-      http.request(request)
-    end
-    abort "Render API request failed (#{response.code}): #{response.body}" unless response.is_a?(Net::HTTPSuccess)
-  end
-
-  def render_service_id(owner, repo_name)
+  def find_render_service(client, owner, repo_name)
     repo_url = "https://github.com/#{owner}/#{repo_name}"
     RENDER_SERVICE_LOOKUP_ATTEMPTS.times do
-      stdout, stderr, status = Open3.capture3("render", "services", "--output", "json")
-      abort "Could not list Render services: #{stderr}" unless status.success?
-
-      service = JSON.parse(stdout).filter_map { |entry| entry["service"] }.find do |candidate|
-        candidate["repo"] == repo_url
-      end
-      return service["id"] if service
+      services = client.services.list
+      service = services.find { |s| s.repo == repo_url }
+      return service.id if service
 
       sleep RENDER_SERVICE_LOOKUP_INTERVAL
     end
@@ -95,7 +79,7 @@ Dir.chdir(repo_path) do
   File.write(".pumaenv", "CONFIG=config/puma.rb\n")
   run "git", "add", ".pumaenv"
   run "git", "commit", "-m", "Configure puma-dev"
-  run "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+  run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
   run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
 
   config = Psych::Pure.load(File.read("render.yaml"), comments: true)
@@ -120,7 +104,7 @@ Dir.chdir(repo_path) do
 
   run "git", "add", "."
   run "git", "commit", "-m", "Add default Jumpstart config"
-  run "bin/rails", "credentials:edit"
+  run "mise", "exec", "--", "bin/rails", "credentials:edit"
   run "git", "add", "."
   run "git", "commit", "-m", "Commit encrypted credentials"
   run "git", "push"
@@ -129,7 +113,18 @@ Dir.chdir(repo_path) do
   puts "Create the Render service for #{OWNER}/#{repo_name}, then press Enter to continue."
   run "open", "https://dashboard.render.com/select-repo?type=blueprint"
   STDIN.gets
-  service_id = render_service_id(OWNER, repo_name)
+
+  render_api_key, stderr, status = Open3.capture3(
+    "op", "item", "get", RENDER_API_KEY_ITEM_ID,
+    "--fields", "label=credential",
+    "--reveal"
+  )
+  abort "Could not retrieve the Render API key from 1Password: #{stderr}" unless status.success?
+  render_api_key = render_api_key.strip
+  abort "Error: Render API key cannot be empty." if render_api_key.empty?
+
+  client = RenderAPI.client(render_api_key)
+  service_id = find_render_service(client, OWNER, repo_name)
   puts "Found Render service #{service_id}."
 
   settings_url = "https://dashboard.render.com/web/#{service_id}/settings"
@@ -141,15 +136,6 @@ Dir.chdir(repo_path) do
 
   run "gh", "secret", "set", "RENDER_DEPLOY_HOOK_URL", "--body", deploy_hook_url
 
-  render_api_key, stderr, status = Open3.capture3(
-    "op", "item", "get", RENDER_API_KEY_ITEM_ID,
-    "--fields", "label=credential",
-    "--reveal"
-  )
-  abort "Could not retrieve the Render API key from 1Password: #{stderr}" unless status.success?
-  render_api_key = render_api_key.strip
-  abort "Error: Render API key cannot be empty." if render_api_key.empty?
-
   environment_variables = Tempfile.create("neon-environment-variables") do |file|
     success = system(File.join(__dir__, "create-neon-rails-project"), out: file.path)
     abort "Could not create the Neon project." unless success
@@ -157,14 +143,13 @@ Dir.chdir(repo_path) do
     file.rewind
     JSON.parse(file.read)
   end
-  environment_variables.each do |variable_name, value|
-    render_request(
-      render_api_key,
-      Net::HTTP::Put,
-      "/services/#{service_id}/env-vars/#{variable_name}",
-      {"value" => value}
-    )
-    puts "Added #{variable_name}."
-  end
-  puts "Note: It is normal for the first deploy to fail, because it runs before the Neon credentials are added"
+  existing_vars = client.services.list_variables(service_id).map { |v| {key: v.key, value: v.value} }
+  new_vars = environment_variables.map { |name, value| {key: name, value: value} }
+  client.services.update_variables(service_id, existing_vars + new_vars)
+  environment_variables.each_key { |name| puts "Added #{name}." }
+
+  puts "Triggering a new deploy..."
+  uri = URI(deploy_hook_url)
+  Net::HTTP.post_form(uri, {})
+  puts "Deploy triggered."
 end
