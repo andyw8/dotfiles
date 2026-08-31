@@ -76,9 +76,9 @@ Dir.chdir(repo_path) do
   run "gh", "repo", "create", "--private", "--source", "."
   run "git", "push", "-u", "origin", "HEAD"
   run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
-  run "puma-dev", "link"
   File.write(".pumaenv", "CONFIG=config/puma.rb\n")
-  run "git", "add", ".pumaenv"
+  run "git", "add", "Add .pumaenv for puma-dev"
+  run "puma-dev", "link"
   run "git", "commit", "-m", "Configure puma-dev"
   run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
   run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
@@ -153,4 +153,8 @@ Dir.chdir(repo_path) do
   Net::HTTP.post_form(uri, {})
   puts "Deploy triggered."
   puts "Admin password: #{password}"
+
+  puts "App running: http://#{repo_name}.test"
+
+
 end
