@@ -54,10 +54,8 @@ Dir.chdir(repo_path) do
   end
 
   run "mise", "install"
-  run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
   password = SecureRandom.alphanumeric(24)
   File.write("db/seeds.rb", <<~RUBY, mode: "a")
-
     user = User.find_or_create_by!(email: #{ADMIN_EMAIL.inspect}) do |user|
       user.name = "Admin User"
       user.password = "#{password}"
@@ -66,7 +64,10 @@ Dir.chdir(repo_path) do
     end
     Jumpstart.grant_staff!(user)
   RUBY
-  puts "Admin password: #{password}"
+  run "git", "add", "db.seeds.rb"
+  run "git", "commit", "-m", "Add admin user to seeds"
+
+  run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
   run "git", "add", "."
   run "git", "commit", "-m", "$ bin/setup"
   run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
@@ -108,10 +109,8 @@ Dir.chdir(repo_path) do
   run "git", "add", "."
   run "git", "commit", "-m", "Commit encrypted credentials"
   run "git", "push"
-  puts "When creating the Render blueprint, paste the following value into the RAILS_MASTER_KEY environment variable:"
-  puts File.read("config/master.key").chomp
   puts "Create the Render service for #{OWNER}/#{repo_name}, then press Enter to continue."
-  run "open", "https://dashboard.render.com/select-repo?type=blueprint"
+  puts "https://dashboard.render.com/select-repo?type=blueprint"
   STDIN.gets
 
   render_api_key, stderr, status = Open3.capture3(
@@ -145,11 +144,13 @@ Dir.chdir(repo_path) do
   end
   existing_vars = client.services.list_variables(service_id).map { |v| {key: v.key, value: v.value} }
   new_vars = environment_variables.map { |name, value| {key: name, value: value} }
+  new_vars << {key: "RAILS_MASTER_KEY", value: File.read("config/master.key").chomp}
   client.services.update_variables(service_id, existing_vars + new_vars)
   environment_variables.each_key { |name| puts "Added #{name}." }
 
-  puts "Triggering a new deploy..."
+  puts "Triggering a new deploy using deploy hook..."
   uri = URI(deploy_hook_url)
   Net::HTTP.post_form(uri, {})
   puts "Deploy triggered."
+  puts "Admin password: #{password}"
 end
