@@ -82,6 +82,7 @@ Dir.chdir(repo_path) do
   run "git", "commit", "-m", "Configure puma-dev"
   run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
   run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
+  run "yaml-smith", "set", "render.yaml", "services.0.name", "rails-#{repo_name}"
 
   config = Psych::Pure.load(File.read("render.yaml"), comments: true)
   config.delete("databases")
