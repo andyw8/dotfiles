@@ -1,14 +1,51 @@
 #!/usr/bin/env ruby
 
 require "psych/pure"
+require "json"
+require "net/http"
+require "open3"
 require "securerandom"
+require "tempfile"
+require "uri"
 
 OWNER = "andyw8"
 ADMIN_EMAIL = "andy@andywaite.com"
 DATABASE_ENV_KEYS = %w[DATABASE_URL CABLE_DATABASE_URL CACHE_DATABASE_URL QUEUE_DATABASE_URL]
+RENDER_API_KEY_ITEM_ID = "hc5lt5um2amsweqlczvgej4b6e"
+RENDER_SERVICE_LOOKUP_ATTEMPTS = 10
+RENDER_SERVICE_LOOKUP_INTERVAL = 2
 
 def run(*command)
   system(*command) || abort("Command failed: #{command.join(" ")}")
+end
+
+def render_request(api_key, method, path, body = nil)
+  uri = URI("https://api.render.com/v1#{path}")
+  request = method.new(uri)
+  request["Authorization"] = "Bearer #{api_key}"
+  request["Content-Type"] = "application/json"
+  request.body = JSON.generate(body) if body
+
+  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+    http.request(request)
+  end
+  abort "Render API request failed (#{response.code}): #{response.body}" unless response.is_a?(Net::HTTPSuccess)
+end
+
+def render_service_id(repo_url)
+  RENDER_SERVICE_LOOKUP_ATTEMPTS.times do
+    stdout, stderr, status = Open3.capture3("render", "services", "--output", "json")
+    abort "Could not list Render services: #{stderr}" unless status.success?
+
+    service = JSON.parse(stdout).filter_map { |entry| entry["service"] }.find do |candidate|
+      candidate["repo"] == repo_url
+    end
+    return service["id"] if service
+
+    sleep RENDER_SERVICE_LOOKUP_INTERVAL
+  end
+
+  abort "Could not find the Render service for #{repo_url}"
 end
 
 repo_name = File.basename(Dir.pwd)
@@ -27,7 +64,7 @@ repo_name = File.basename(Dir.pwd)
 # File.write(setup_path, setup)
 
 run({"HOMEBREW_NO_UPDATE" => "1"}, "bin/setup", "--skip-server")
-password = SecureRandom.base58(24)
+password = SecureRandom.alphanumeric(24)
 File.write("db/seeds.rb", <<~RUBY, mode: "a")
 
   user = User.find_or_create_by!(email: #{ADMIN_EMAIL.inspect}) do |user|
@@ -80,13 +117,14 @@ run "bin/rails", "credentials:edit"
 run "git", "add", "."
 run "git", "commit", "-m", "Commit encrypted credentials"
 run "git", "push"
+puts "When creating the Render blueprint, paste the following value into the RAILS_MASTER_KEY environment variable:"
 puts File.read("config/master.key").chomp
 puts "Create the Render service for #{OWNER}/#{repo_name}, then press Enter to continue."
 run "open", "https://dashboard.render.com/select-repo?type=blueprint"
 STDIN.gets
-print "Render service ID: "
-service_id = STDIN.gets&.chomp
-abort "Render service ID is required" if service_id.nil? || service_id.empty?
+repo_url = "https://github.com/#{OWNER}/#{repo_name}"
+service_id = render_service_id(repo_url)
+puts "Found Render service #{service_id}."
 
 settings_url = "https://dashboard.render.com/web/#{service_id}/settings"
 run "open", settings_url
@@ -96,5 +134,30 @@ deploy_hook_url = STDIN.gets&.chomp
 abort "Render deploy hook URL is required" if deploy_hook_url.nil? || deploy_hook_url.empty?
 
 run "gh", "secret", "set", "RENDER_DEPLOY_HOOK_URL", "--body", deploy_hook_url
-run File.join(__dir__, "create-neon-rails-project")
+
+render_api_key, stderr, status = Open3.capture3(
+  "op", "item", "get", RENDER_API_KEY_ITEM_ID,
+  "--fields", "label=credential",
+  "--reveal"
+)
+abort "Could not retrieve the Render API key from 1Password: #{stderr}" unless status.success?
+render_api_key = render_api_key.strip
+abort "Error: Render API key cannot be empty." if render_api_key.empty?
+
+environment_variables = Tempfile.create("neon-environment-variables") do |file|
+  success = system(File.join(__dir__, "create-neon-rails-project"), out: file.path)
+  abort "Could not create the Neon project." unless success
+
+  file.rewind
+  JSON.parse(file.read)
+end
+environment_variables.each do |variable_name, value|
+  render_request(
+    render_api_key,
+    Net::HTTP::Put,
+    "/services/#{service_id}/env-vars/#{variable_name}",
+    {"value" => value}
+  )
+  puts "Added #{variable_name}."
+end
 puts "Note: It is normal for the first deploy to fail, becauset it runs before the Neon credentials are added"
