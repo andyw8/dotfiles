@@ -10,9 +10,12 @@ end
 
 unless File.exist?(".pumaenv")
   puts "Warning: No .pumaenv file found in #{Dir.pwd}. The assets pipeline may not work correctly."
-  print "Continue anyway? [Y/n] "
+  print "Create .pumaenv? [Y/n] "
   answer = $stdin.gets&.chomp
-  exit if answer && !answer.empty? && answer !~ /\Ay/i
+  if answer.nil? || answer.empty? || answer =~ /\Ay/i
+    File.write(".pumaenv", "CONFIG=config/puma.rb\n")
+    puts "Created .pumaenv."
+  end
 end
 
 system("open", "https://#{name}.test", exception: true)
