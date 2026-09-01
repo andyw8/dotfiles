@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+if File.exist?(".worktreeinclude")
+  warn ".worktreeinclude already exists"
+  exit 1
+end
+
+files = [".env", ".pgsync.yml", "config/master.key"].filter { |f| File.exist?(f) }
+
+SKIP = [
+  ".DS_Store",
+  "**/.DS_Store",
+  ".ruby-lsp/**",
+  "log/**",
+  "node_modules/**",
+  "app/assets/builds/**",
+  "public/assets/**",
+  "tmp/**",
+]
+
+ignored = `git ls-files --others --ignored --exclude-standard`.split(/\n/)
+
+ignored.reject { |file| SKIP.any? { |glob| File.fnmatch?(glob, file) } }.each do |file|
+  print "Add #{file} to .worktreeinclude? [y/N] "
+  files << file if STDIN.gets&.strip&.downcase == "y"
+end
+
+File.write(".worktreeinclude", files.join("\n") << "\n")
+
+print "Commit .worktreeinclude? [Y/n] "
+exit if STDIN.gets&.strip&.downcase == "n"
+
+system("git add .worktreeinclude")
+system("git commit", "-m", "Add .worktreeinclude")
