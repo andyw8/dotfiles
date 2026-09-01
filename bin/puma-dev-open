@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+name = File.basename(Dir.pwd)
+path = "#{ENV.fetch("HOME")}/.puma-dev/#{name}"
+
+unless File.exist?(path)
+  puts "No puma-dev entry found for #{name}"
+  exit 1
+end
+
+system("open", "http://#{name}.test", exception: true)
