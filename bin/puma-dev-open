@@ -8,4 +8,11 @@ unless File.exist?(path)
   exit 1
 end
 
+unless File.exist?(".pumaenv")
+  puts "Warning: No .pumaenv file found in #{Dir.pwd}. The assets pipeline may not work correctly."
+  print "Continue anyway? [Y/n] "
+  answer = $stdin.gets&.chomp
+  exit if answer && !answer.empty? && answer !~ /\Ay/i
+end
+
 system("open", "https://#{name}.test", exception: true)
