@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+path = "config/database.yml"
+suffix = <<~'SUFFIX'.strip
+  <%= "_#{ENV['CONDUCTOR_WORKSPACE_NAME'].parameterize}" if ENV['CONDUCTOR_WORKSPACE_NAME'] %>
+SUFFIX
+
+abort "File not found: #{path}" unless File.exist?(path)
+
+lines = File.readlines(path)
+
+current_env = nil
+
+modified = lines.map do |line|
+  if line =~ /\A([a-zA-Z_]\w*):\s*\z/
+    current_env = Regexp.last_match(1)
+  end
+
+  if %w[development test].include?(current_env) && line.match?(/^\s+database:\s/)
+    "#{line.rstrip}#{suffix}\n"
+  else
+    line
+  end
+end
+
+File.write(path, modified.join)
+puts "Updated #{path}"
