@@ -8,4 +8,4 @@ unless File.exist?(path)
   exit 1
 end
 
-system("open", "http://#{name}.test", exception: true)
+system("open", "https://#{name}.test", exception: true)
