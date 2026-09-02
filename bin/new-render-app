@@ -70,6 +70,9 @@ Dir.chdir(repo_path) do
   run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
   run "git", "add", "."
   run "git", "commit", "-m", "$ bin/setup"
+  run "sed", "-i", "", "s/^#  config.action_cable.disable_request_forgery_protection = true/  config.action_cable.disable_request_forgery_protection = true/", "config/development.rb"
+  run "git", "add", "."
+  run "git", "commit", "-m", "Disable actioncable request forgery protection in development (for puma-dev)"
   print "Disable Dependabot? [Y/n] "
   answer = STDIN.gets&.chomp
   if answer&.match?(/\A[nN]\z/)
@@ -85,6 +88,11 @@ Dir.chdir(repo_path) do
   run "git", "commit", "-m", "Add .pumaenv for puma-dev"
   run "puma-dev", "link"
   run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+  run "git", "add", "."
+  run "git", "commit", "-m", "Save Jumpstart config"
+  run "mise", "exec", "--", "bin/rails", "db:migrate"
+  run "git", "add", "."
+  run "git", "commit", "-m", "$ bin/rails db:migrate"
   run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
   run "yaml-smith", "set", "render.yaml", "services.0.name", "rails-#{repo_name}"
 
