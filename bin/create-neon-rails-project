@@ -1,10 +1,7 @@
 #!/usr/bin/env ruby
 
 require "json"
-require "io/console"
-require "net/http"
 require "open3"
-require "uri"
 
 DATABASES = %w[primary cache queue cable].freeze
 ENVIRONMENT_VARIABLES = {
@@ -20,75 +17,19 @@ def run_neon(*arguments)
   stdout
 end
 
-def render_request(api_key, method, path, body = nil)
-  uri = URI("https://api.render.com/v1#{path}")
-  request = method.new(uri)
-  request["Authorization"] = "Bearer #{api_key}"
-  request["Content-Type"] = "application/json"
-  request.body = JSON.generate(body) if body
-
-  response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-    http.request(request)
-  end
-  abort "Render API request failed (#{response.code}): #{response.body}" unless response.is_a?(Net::HTTPSuccess)
-
-  JSON.parse(response.body)
-end
-
-def git_remote
-  stdout, stderr, status = Open3.capture3("git", "config", "--get", "remote.origin.url")
-  abort "Could not determine the current Git repository remote: #{stderr}" unless status.success?
-
-  stdout.strip
-end
-
-def canonical_repository(repository)
-  repository.delete_suffix(".git").delete_suffix("/")
-end
-
-def render_service_id(api_key, repository)
-  repository = canonical_repository(repository)
-  cursor = nil
-
-  loop do
-    path = "/services?limit=100"
-    path += "&cursor=#{URI.encode_www_form_component(cursor)}" if cursor
-    services = render_request(api_key, Net::HTTP::Get, path)
-    service = services.find do |entry|
-      service_repository = entry.dig("service", "repo")
-      service_repository && canonical_repository(service_repository) == repository
-    end
-    return service.dig("service", "id") if service
-
-    break if services.empty? || services.last["cursor"].nil?
-
-    cursor = services.last.fetch("cursor")
-  end
-
-  abort "Could not find a Render service for repository #{repository.inspect}."
-end
-
 abort "Error: the Neon CLI is not installed or is not on PATH." unless system("command -v neon > /dev/null 2>&1")
 
 default_project_name = File.basename(Dir.pwd)
-print "Project name [#{default_project_name}]: "
+$stderr.print "Project name [#{default_project_name}]: "
 project_name = STDIN.gets.to_s.strip
 project_name = default_project_name if project_name.empty?
 abort "Error: project name cannot be empty." if project_name.empty?
 
-print "Region [us-west-2]: "
+$stderr.print "Region [us-west-2]: "
 region = STDIN.gets.to_s.strip
 region = "us-west-2" if region.empty?
 region_id = region.start_with?("aws-") ? region : "aws-#{region}"
 
-print "Render API key: "
-render_api_key = STDIN.noecho(&:gets).to_s.strip
-puts
-abort "Error: Render API key cannot be empty." if render_api_key.empty?
-render_service = render_service_id(render_api_key, git_remote)
-puts "Using Render service #{render_service}."
-
-puts "Creating Neon project #{project_name.inspect} in #{region_id.inspect}..."
 project_json = run_neon(
   "projects", "create",
   "--output", "json",
@@ -102,13 +43,10 @@ project_id = project.dig("project", "id") || project["project_id"] || project["i
 abort "Could not find the project ID in Neon CLI output." unless project_id
 
 DATABASES.drop(1).each do |database_name|
-  puts "Creating database #{database_name.inspect}..."
+  $stderr.puts "Creating database #{database_name.inspect}..."
   run_neon("databases", "create", "--project-id", project_id, "--name", database_name)
 end
 
-puts "Created project #{project_name.inspect} (#{project_id}) with databases: primary, cache, queue, cable."
-puts
-puts "Database connection strings:"
 connection_strings = {}
 DATABASES.each do |database_name|
   connection_string = run_neon(
@@ -117,18 +55,8 @@ DATABASES.each do |database_name|
     "--database-name", database_name
   )
   connection_strings[database_name] = connection_string.strip
-  puts "#{database_name}: #{connection_strings[database_name]}"
 end
 
-puts
-puts "Adding environment variables to Render service #{render_service}..."
-DATABASES.each do |database_name|
-  variable_name = ENVIRONMENT_VARIABLES.fetch(database_name)
-  render_request(
-    render_api_key,
-    Net::HTTP::Put,
-    "/services/#{render_service}/env-vars/#{variable_name}",
-    {"value" => connection_strings.fetch(database_name)}
-  )
-  puts "Added #{variable_name}."
-end
+puts JSON.generate(
+  ENVIRONMENT_VARIABLES.to_h { |database_name, variable_name| [variable_name, connection_strings.fetch(database_name)] }
+)

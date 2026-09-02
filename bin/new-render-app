@@ -64,7 +64,7 @@ Dir.chdir(repo_path) do
     end
     Jumpstart.grant_staff!(user)
   RUBY
-  run "git", "add", "db.seeds.rb"
+  run "git", "add", "db/seeds.rb"
   run "git", "commit", "-m", "Add admin user to seeds"
 
   run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
@@ -77,7 +77,8 @@ Dir.chdir(repo_path) do
   run "git", "push", "-u", "origin", "HEAD"
   run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
   File.write(".pumaenv", "CONFIG=config/puma.rb\n")
-  run "git", "add", "Add .pumaenv for puma-dev"
+  run "git", "add", ".pumaenv"
+  run "git", "commit", "-m", "Add .pumaenv for puma-dev"
   run "puma-dev", "link"
   run "git", "commit", "-m", "Configure puma-dev"
   run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
