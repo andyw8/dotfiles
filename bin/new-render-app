@@ -70,8 +70,14 @@ Dir.chdir(repo_path) do
   run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
   run "git", "add", "."
   run "git", "commit", "-m", "$ bin/setup"
-  run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
-  run "git", "commit", "-m", "Disable Dependabot"
+  print "Disable Dependabot? [Y/n] "
+  answer = STDIN.gets&.chomp
+  if answer&.match?(/\A[nN]\z/)
+    puts "Skipping Dependabot."
+  else
+    run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
+    run "git", "commit", "-m", "Disable Dependabot"
+  end
   run "git", "remote", "rename", "origin", "jumpstart-pro"
   run "gh", "repo", "create", "--private", "--source", "."
   run "git", "push", "-u", "origin", "HEAD"
