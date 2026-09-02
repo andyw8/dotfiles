@@ -84,7 +84,6 @@ Dir.chdir(repo_path) do
   run "git", "add", ".pumaenv"
   run "git", "commit", "-m", "Add .pumaenv for puma-dev"
   run "puma-dev", "link"
-  run "git", "commit", "-m", "Configure puma-dev"
   run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
   run "yaml-smith", "delete", "render.yaml", "SOLID_QUEUE_IN_PUMA"
   run "yaml-smith", "set", "render.yaml", "services.0.name", "rails-#{repo_name}"
@@ -161,6 +160,7 @@ Dir.chdir(repo_path) do
   puts "Admin password: #{password}"
 
   puts "App running: http://#{repo_name}.test"
+  puts "Note: First page load may fail due to assets still compiling, wait a few seconds and try again"
 
 
 end
