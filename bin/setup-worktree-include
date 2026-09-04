@@ -10,6 +10,7 @@ files = [".env", ".pgsync.yml", "config/master.key"].filter { |f| File.exist?(f)
 SKIP = [
   ".DS_Store",
   "**/.DS_Store",
+  ".context/**",
   ".ruby-lsp/**",
   "log/**",
   "node_modules/**",
