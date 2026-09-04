@@ -7,6 +7,11 @@ end
 
 files = [".env", ".pgsync.yml", "config/master.key"].filter { |f| File.exist?(f) }
 
+if files.empty?
+  warn "No files to add to .worktreeinclude"
+  exit 1
+end
+
 SKIP = [
   ".DS_Store",
   "**/.DS_Store",
