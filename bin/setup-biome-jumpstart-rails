@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+def run(*command)
+  system(*command) || abort("Command failed: #{command.join(" ")}")
+end
+
+def git_commit(message)
+  return if `git status --porcelain`.strip.empty?
+
+  run "git", "add", "."
+  run "git", "commit", "-m", message
+end
+
+def update_biome_jsonc
+  path = "biome.jsonc"
+  config = JSON.parse(File.read(path))
+  yield config
+  File.write(path, "#{JSON.pretty_generate(config, indent: "\t")}\n")
+end
+
+def edit_file(path, old, new)
+  content = File.read(path)
+  abort "Could not find expected fragment in #{path}:\n#{old}" unless content.include?(old)
+  File.write(path, content.sub(old, new))
+end
+
+Dir.chdir(ARGV[0]) if ARGV[0]
+
+abort "Not a git repository" unless system("git", "rev-parse", "--is-inside-work-tree", out: File::NULL, err: File::NULL)
+abort "biome.jsonc already exists; expected a fresh clone" if File.exist?("biome.jsonc")
+
+run "npm", "install", "--save-dev", "--save-exact", "@biomejs/biome"
+git_commit "$ npm install --save-dev --save-exact @biomejs/biome"
+
+run "npx", "biome", "init", "--jsonc"
+git_commit "$ npx biome init --jsonc"
+
+update_biome_jsonc { |config| config["files"]["includes"] = ["**", "!vendor", "!app/assets/tailwind"] }
+git_commit "Add vendor and app/assets/tailwind to biome ignore list"
+
+run "npx", "@biomejs/biome", "lint", "--write", "--unsafe"
+git_commit "$ npx @biomejs/biome lint --write --unsafe"
+
+update_biome_jsonc { |config| config["linter"]["rules"]["a11y"] = {"noSvgWithoutTitle" => "off"} }
+git_commit "Disable noSvgWithoutTitle rule in Biome config"
+
+update_biome_jsonc { |config| config["linter"]["rules"]["suspicious"] = {"useIterableCallbackReturn" => "off"} }
+git_commit "Disable useIterableCallbackReturn rule in Biome config"
+
+update_biome_jsonc { |config| config["linter"]["rules"]["suspicious"]["useGetterReturn"] = "off" }
+git_commit "Disable useGetterReturn rule in Biome config"
+
+run "npx", "@biomejs/biome", "format", "--write", "."
+git_commit "Apply Biome formatting"
+
+run "npx", "@biomejs/biome", "check", "--write", "."
+git_commit "Organize imports with Biome"
+
+edit_file(
+  ".github/workflows/ci.yml",
+  "      - name: Lint ERB for consistent style\n        run: bundle exec erb_lint --lint-all",
+  "      - name: Lint ERB for consistent style\n        run: bundle exec erb_lint --lint-all\n\n      - name: Set up Biome\n        uses: biomejs/setup-biome@v2\n\n      - name: Run Biome\n        run: biome ci"
+)
+git_commit "Add Biome CI job to GitHub Actions"
+
+puts "Biome setup complete."
