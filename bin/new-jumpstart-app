@@ -21,8 +21,8 @@ repo_path = File.join(root, repo_name)
 abort "Directory already exists: #{repo_path}" if Dir.exist?(repo_path)
 
 Dir.chdir(root) do
-  system("git", "clone", "https://github.com/jumpstart-pro/jumpstart-pro-rails", repo_name) ||
-    abort("Command failed: git clone https://github.com/jumpstart-pro/jumpstart-pro-rails #{repo_name}")
+  system("git", "clone", "/Users/andy/src/github.com/jumpstart-pro/jumpstart-pro-rails", repo_name) ||
+    abort("Command failed: git clone /Users/andy/src/github.com/jumpstart-pro/jumpstart-pro-rails #{repo_name}")
 end
 
 Dir.chdir(repo_path) do
@@ -45,7 +45,7 @@ Dir.chdir(repo_path) do
   run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
   run "git", "add", "."
   run "git", "commit", "-m", "$ bin/setup"
-  run "sed", "-i", "", "s/^#  config.action_cable.disable_request_forgery_protection = true/  config.action_cable.disable_request_forgery_protection = true/", "config/development.rb"
+  run "sed", "-i", "", "s/^#  config.action_cable.disable_request_forgery_protection = true/  config.action_cable.disable_request_forgery_protection = true/", "config/environments/development.rb"
   run "git", "add", "."
   run "git", "commit", "-m", "Disable actioncable request forgery protection in development (for puma-dev)"
   print "Disable Dependabot? [Y/n] "
