@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+
+require "securerandom"
+
+OWNER = "andyw8"
+ADMIN_EMAIL = "andy@andywaite.com"
+
+def run(*command)
+  system(*command) || abort("Command failed: #{command.join(" ")}")
+end
+
+repo_name = ARGV[0] || STDIN.gets&.chomp
+
+unless repo_name&.match?(/\A[a-zA-Z0-9][a-zA-Z0-9_.-]*\z/)
+  abort "Repo name must contain only letters, numbers, underscores, periods, and hyphens."
+end
+
+root = File.expand_path("~/src/github.com/andyw8")
+repo_path = File.join(root, repo_name)
+
+abort "Directory already exists: #{repo_path}" if Dir.exist?(repo_path)
+
+Dir.chdir(root) do
+  system("git", "clone", "https://github.com/jumpstart-pro/jumpstart-pro-rails", repo_name) ||
+    abort("Command failed: git clone https://github.com/jumpstart-pro/jumpstart-pro-rails #{repo_name}")
+end
+
+Dir.chdir(repo_path) do
+  puts "Cloned #{repo_name}."
+
+  run "mise", "install"
+  password = SecureRandom.alphanumeric(24)
+  File.write("db/seeds.rb", <<~RUBY, mode: "a")
+    user = User.find_or_create_by!(email: #{ADMIN_EMAIL.inspect}) do |user|
+      user.name = "Admin User"
+      user.password = "#{password}"
+      user.password_confirmation = "#{password}"
+      user.terms_of_service = true
+    end
+    Jumpstart.grant_staff!(user)
+  RUBY
+  run "git", "add", "db/seeds.rb"
+  run "git", "commit", "-m", "Add admin user to seeds"
+
+  run({"HOMEBREW_NO_UPDATE" => "1"}, "mise", "exec", "--", "bin/setup", "--skip-server")
+  run "git", "add", "."
+  run "git", "commit", "-m", "$ bin/setup"
+  run "sed", "-i", "", "s/^#  config.action_cable.disable_request_forgery_protection = true/  config.action_cable.disable_request_forgery_protection = true/", "config/development.rb"
+  run "git", "add", "."
+  run "git", "commit", "-m", "Disable actioncable request forgery protection in development (for puma-dev)"
+  print "Disable Dependabot? [Y/n] "
+  answer = STDIN.gets&.chomp
+  if answer&.match?(/\A[nN]\z/)
+    run "git", "mv", ".github/dependabot.yml", ".github/dependabot.yml.disabled"
+    run "git", "commit", "-m", "Disable Dependabot"
+  end
+  run "git", "remote", "rename", "origin", "jumpstart-pro"
+  run "gh", "repo", "create", "--private", "--source", "."
+  run "git", "push", "-u", "origin", "HEAD"
+  run "gh", "repo", "set-default", "#{OWNER}/#{repo_name}"
+  File.write(".pumaenv", "CONFIG=config/puma.rb\n")
+  run "git", "add", ".pumaenv"
+  run "git", "commit", "-m", "Add .pumaenv for puma-dev"
+  run "puma-dev", "link"
+  run "mise", "exec", "--", "bin/rails", "runner", "Jumpstart::Configuration.new.save"
+  run "git", "add", "."
+  run "git", "commit", "-m", "Save Jumpstart config"
+  run "mise", "exec", "--", "bin/rails", "db:migrate"
+  run "git", "add", "."
+  run "git", "commit", "-m", "$ bin/rails db:migrate"
+end
+
+puts "\nAdmin password: #{password}"
