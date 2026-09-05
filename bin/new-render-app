@@ -36,23 +36,6 @@ end
 Dir.chdir(repo_path) do
   puts "Cloned #{repo_name}."
 
-  def run(*command)
-    system(*command) || abort("Command failed: #{command.join(" ")}")
-  end
-
-  def find_render_service(client, owner, repo_name)
-    repo_url = "https://github.com/#{owner}/#{repo_name}"
-    RENDER_SERVICE_LOOKUP_ATTEMPTS.times do
-      services = client.services.list
-      service = services.find { |s| s.repo == repo_url }
-      return service.id if service
-
-      sleep RENDER_SERVICE_LOOKUP_INTERVAL
-    end
-
-    abort "Could not find the Render service for #{repo_url}"
-  end
-
   run "mise", "install"
   password = SecureRandom.alphanumeric(24)
   File.write("db/seeds.rb", <<~RUBY, mode: "a")
@@ -171,4 +154,21 @@ Dir.chdir(repo_path) do
   puts "Note: First page load may fail due to assets still compiling, wait a few seconds and try again"
 
 
+end
+
+def run(*command)
+  system(*command) || abort("Command failed: #{command.join(" ")}")
+end
+
+def find_render_service(client, owner, repo_name)
+  repo_url = "https://github.com/#{owner}/#{repo_name}"
+  RENDER_SERVICE_LOOKUP_ATTEMPTS.times do
+    services = client.services.list
+    service = services.find { |s| s.repo == repo_url }
+    return service.id if service
+
+    sleep RENDER_SERVICE_LOOKUP_INTERVAL
+  end
+
+  abort "Could not find the Render service for #{repo_url}"
 end
